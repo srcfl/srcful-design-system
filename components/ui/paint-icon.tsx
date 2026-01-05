@@ -69,6 +69,7 @@ const PaintIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`cursor-pointer ${className}`}
+        style={{ overflow: "visible" }}
         onHoverStart={start}
         onHoverEnd={stop}
       >

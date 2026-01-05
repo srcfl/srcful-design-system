@@ -71,6 +71,7 @@ const BookIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
           strokeWidth={strokeWidth}
           strokeMiterlimit="10"
           strokeLinecap="square"
+          style={{ overflow: "visible" }}
         >
           <motion.path className="book-spine" d="M24 40.5V41L24 10V10.5" />
 
