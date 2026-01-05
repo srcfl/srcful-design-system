@@ -67,7 +67,7 @@ export function AIChat({
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = Math.min(textareaRef.current.scrollHeight, 200) + "px";
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
     }
   }, [query]);
 
@@ -260,7 +260,7 @@ export function AIChat({
 
       {/* Input Area */}
       <div className="border-t border-sourceful-gray-200 dark:border-[#252525] p-4">
-        <div className="flex items-end gap-2">
+        <div className="flex items-start gap-2">
           <div className="flex-1 relative">
             <textarea
               ref={textareaRef}
@@ -271,7 +271,7 @@ export function AIChat({
               disabled={isLoading}
               rows={1}
               className={cn(
-                "w-full resize-none rounded-xl px-4 py-3 pr-12",
+                "w-full resize-none rounded-xl px-4 py-3 scrollbar-none",
                 "bg-sourceful-gray-50 dark:bg-[#1a1a1a]",
                 "border border-sourceful-gray-200 dark:border-[#252525]",
                 "text-sm text-sourceful-gray-900 dark:text-white",
@@ -286,7 +286,7 @@ export function AIChat({
             onClick={isLoading ? undefined : handleSend}
             disabled={!query.trim() && !isLoading}
             className={cn(
-              "h-11 w-11 rounded-xl flex items-center justify-center transition-colors flex-shrink-0",
+              "h-[46px] w-[46px] rounded-xl flex items-center justify-center transition-colors flex-shrink-0",
               isLoading
                 ? "bg-red-500 hover:bg-red-600 text-white"
                 : query.trim()
