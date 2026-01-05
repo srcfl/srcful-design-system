@@ -666,35 +666,6 @@
     ) border-box;
 }
 
-/* Semi-transparent background variant for hero badge */
-.border-travel-animation.bg-background\/80 {
-  background:
-    linear-gradient(hsl(var(--background) / 0.8), hsl(var(--background) / 0.8)) padding-box,
-    conic-gradient(
-      from var(--angle, 0deg),
-      rgba(34, 197, 94, 0.15) 0deg,
-      rgba(34, 197, 94, 0.15) 350deg,
-      #22c55e 353deg,
-      #16a34a 356deg,
-      #22c55e 359deg,
-      rgba(34, 197, 94, 0.15) 360deg
-    ) border-box;
-}
-
-.dark .border-travel-animation.bg-background\/80 {
-  background:
-    linear-gradient(hsl(var(--background) / 0.8), hsl(var(--background) / 0.8)) padding-box,
-    conic-gradient(
-      from var(--angle, 0deg),
-      rgba(34, 197, 94, 0.1) 0deg,
-      rgba(34, 197, 94, 0.1) 350deg,
-      #22c55e 353deg,
-      #16a34a 356deg,
-      #22c55e 359deg,
-      rgba(34, 197, 94, 0.1) 360deg
-    ) border-box;
-}
-
 /* React Flow dark mode styles */
 .dark .react-flow__controls {
   background: #141414;

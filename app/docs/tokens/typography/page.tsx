@@ -1,6 +1,6 @@
 const fontFamilies = [
   {
-    name: "Sans (Inter)",
+    name: "Sans (Satoshi)",
     class: "font-sans",
     usage: "UI text, headings, body copy",
     sample: "The quick brown fox jumps over the lazy dog",

@@ -38,21 +38,17 @@ export default function DocsPage() {
 
       <div className="space-y-4">
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
-          For AI Assistants
+          Claude Code Integration
         </h2>
         <p className="leading-7">
-          This design system is built with AI-assisted development in mind. Each component
-          includes structured metadata that AI tools can parse:
+          This design system is optimized for AI-assisted development. Add our{" "}
+          <code className="bg-muted px-1.5 py-0.5 rounded text-sm">CLAUDE.md</code> template to your
+          project and Claude Code will automatically use the design system.
         </p>
-        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>JSON schemas defining props and variants</li>
-          <li>TypeScript types for autocomplete</li>
-          <li>Usage examples in code blocks</li>
-          <li>Accessibility guidelines</li>
-        </ul>
         <p className="leading-7">
-          Point your Claude Code <code className="bg-muted px-1 py-0.5 rounded text-sm">CLAUDE.md</code> to
-          this documentation for AI-assisted development with Sourceful components.
+          <a href="/docs/claude-code" className="text-primary hover:underline">
+            View the Claude Code setup guide →
+          </a>
         </p>
       </div>
 
@@ -73,19 +69,37 @@ import "@sourceful-energy/ui/styles.css"`}</code>
 
       <div className="space-y-4">
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
-          Patterns
+          Patterns & Examples
         </h2>
         <p className="leading-7">
-          Learn how to combine components effectively with these patterns:
+          Learn how to combine components effectively:
         </p>
-        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>
-            <a href="/docs/patterns/forms" className="text-primary hover:underline">
-              Form Patterns
-            </a>{" "}
-            - Best practices for building forms
-          </li>
-        </ul>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <a href="/docs/patterns/forms" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">Form Patterns</h3>
+            <p className="text-sm text-muted-foreground">Validation, layout, and best practices for forms</p>
+          </a>
+          <a href="/components/energy-flow" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">Energy Flow</h3>
+            <p className="text-sm text-muted-foreground">Visualize real-time energy distribution</p>
+          </a>
+          <a href="/components/sites-map" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">Sites Map</h3>
+            <p className="text-sm text-muted-foreground">Interactive maps for site locations</p>
+          </a>
+          <a href="/components/ai-chat" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">AI Chat</h3>
+            <p className="text-sm text-muted-foreground">Conversational AI interface component</p>
+          </a>
+          <a href="/components/charts" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">Charts</h3>
+            <p className="text-sm text-muted-foreground">Area, bar, line, pie, and more</p>
+          </a>
+          <a href="/" className="block rounded-lg border p-4 hover:bg-muted transition-colors">
+            <h3 className="font-medium mb-1">Dashboard Examples</h3>
+            <p className="text-sm text-muted-foreground">Full dashboard layouts on the home page</p>
+          </a>
+        </div>
       </div>
 
       <div className="space-y-4">
