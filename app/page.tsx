@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import StackIcon from "@/components/ui/stack-icon";
 import PaintIcon from "@/components/ui/paint-icon";
 import BookIcon from "@/components/ui/book-icon";
+import type { AnimatedIconHandle } from "@/components/ui/types";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
@@ -15,6 +17,10 @@ import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
 
 export default function Home() {
+  const stackIconRef = useRef<AnimatedIconHandle>(null);
+  const paintIconRef = useRef<AnimatedIconHandle>(null);
+  const bookIconRef = useRef<AnimatedIconHandle>(null);
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
@@ -114,9 +120,14 @@ export default function Home() {
         <section className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="border-t py-16">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/components" className="group block">
-              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <StackIcon size={40} className="text-primary mb-4" />
+            <Link 
+              href="/components" 
+              className="group block"
+              onMouseEnter={() => stackIconRef.current?.startAnimation()}
+              onMouseLeave={() => stackIconRef.current?.stopAnimation()}
+            >
+              <div className="rounded-lg border bg-card p-6 overflow-visible transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <StackIcon ref={stackIconRef} size={40} className="text-primary mb-4 pointer-events-none" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">50+ Components</h3>
                 <p className="text-sm text-muted-foreground">
                   Production-ready React components built with Radix UI and Tailwind CSS.
@@ -124,9 +135,14 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-            <Link href="/docs/tokens/colors" className="group block">
-              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <PaintIcon size={40} className="text-primary mb-4" />
+            <Link 
+              href="/docs/tokens/colors" 
+              className="group block"
+              onMouseEnter={() => paintIconRef.current?.startAnimation()}
+              onMouseLeave={() => paintIconRef.current?.stopAnimation()}
+            >
+              <div className="rounded-lg border bg-card p-6 overflow-visible transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <PaintIcon ref={paintIconRef} size={40} className="text-primary mb-4 pointer-events-none" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Design Tokens</h3>
                 <p className="text-sm text-muted-foreground">
                   Consistent colors, typography, spacing, and shadows.
@@ -134,9 +150,14 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-            <Link href="/brand" className="group block">
-              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <BookIcon size={40} className="text-primary mb-4" />
+            <Link 
+              href="/brand" 
+              className="group block"
+              onMouseEnter={() => bookIconRef.current?.startAnimation()}
+              onMouseLeave={() => bookIconRef.current?.stopAnimation()}
+            >
+              <div className="rounded-lg border bg-card p-6 overflow-visible transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <BookIcon ref={bookIconRef} size={40} className="text-primary mb-4 pointer-events-none" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Brand Guidelines</h3>
                 <p className="text-sm text-muted-foreground">
                   Voice, tone, and visual identity guidelines for consistent
