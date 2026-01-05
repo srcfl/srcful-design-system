@@ -103,32 +103,36 @@ export function DocsSidebar({ type }: DocsSidebarProps) {
 
   return (
     <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
-      <div className="h-full py-6 pr-6 lg:py-8 overflow-y-auto">
-        <div className="w-full">
-          {nav.map((section) => (
-            <div key={section.title} className="pb-4">
-              <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
-                {section.title}
-              </h4>
-              <div className="grid grid-flow-row auto-rows-max text-sm">
-                {section.items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "group flex w-full items-center rounded-md border border-transparent px-2 py-1 transition-colors hover:bg-muted hover:text-foreground",
-                      pathname === item.href
-                        ? "font-medium text-foreground bg-muted"
-                        : "text-muted-foreground"
-                    )}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+      <div className="relative h-full">
+        <div className="h-full py-6 pr-6 lg:py-8 overflow-y-auto scrollbar-none">
+          <div className="w-full pb-12">
+            {nav.map((section) => (
+              <div key={section.title} className="pb-4">
+                <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+                  {section.title}
+                </h4>
+                <div className="grid grid-flow-row auto-rows-max text-sm">
+                  {section.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "group flex w-full items-center rounded-md border border-transparent px-2 py-1 transition-colors hover:bg-muted hover:text-foreground",
+                        pathname === item.href
+                          ? "font-medium text-foreground bg-muted"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+        {/* Bottom fade gradient */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-6 h-16 bg-gradient-to-t from-background to-transparent" />
       </div>
     </aside>
   );
