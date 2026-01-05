@@ -12,17 +12,10 @@ export const componentsList = [
   // Data Display
   { name: "Badge", href: "/components/badge", category: "Data Display" },
   { name: "Card", href: "/components/card", category: "Data Display" },
+  { name: "Chart", href: "/components/charts", category: "Data Display" },
   { name: "Table", href: "/components/table", category: "Data Display" },
   { name: "Skeleton", href: "/components/skeleton", category: "Data Display" },
   { name: "Separator", href: "/components/separator", category: "Data Display" },
-  // Charts
-  { name: "Area Chart", href: "/components/charts/area", category: "Charts" },
-  { name: "Bar Chart", href: "/components/charts/bar", category: "Charts" },
-  { name: "Line Chart", href: "/components/charts/line", category: "Charts" },
-  { name: "Pie Chart", href: "/components/charts/pie", category: "Charts" },
-  { name: "Radar Chart", href: "/components/charts/radar", category: "Charts" },
-  { name: "Radial Chart", href: "/components/charts/radial", category: "Charts" },
-  { name: "Chart Tooltip", href: "/components/charts/tooltip", category: "Charts" },
   // Feedback
   { name: "Alert", href: "/components/alert", category: "Feedback" },
   { name: "Dialog", href: "/components/dialog", category: "Feedback" },

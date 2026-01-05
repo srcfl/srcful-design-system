@@ -14,6 +14,7 @@ const componentDescriptions: Record<string, string> = {
   Slider: "An input where the user selects a value from within a given range.",
   Badge: "Displays a badge or a component that looks like a badge.",
   Card: "Displays a card with header, content, and footer.",
+  Chart: "Beautiful charts built with Recharts. Area, bar, line, pie, radar, and radial.",
   Table: "A responsive table component.",
   Skeleton: "Used to show a placeholder while content is loading.",
   Separator: "Visually separates content.",
