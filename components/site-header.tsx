@@ -6,16 +6,31 @@ import { Button } from "@/components/ui/button";
 import { Github, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Logo } from "@/components/logo";
+import { SearchCommand, SearchTrigger } from "@/components/search-command";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Keyboard shortcut for search (⌘K or Ctrl+K)
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearchOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   const toggleTheme = () => {
@@ -29,50 +44,58 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto flex h-14 items-center px-4 md:px-8">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo variant="full" size="sm" />
-          </Link>
-        </div>
-        <nav className="flex flex-1 items-center space-x-6 text-sm font-medium">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "transition-colors hover:text-foreground/80",
-                pathname?.startsWith(item.href)
-                  ? "text-foreground"
-                  : "text-foreground/60"
-              )}
-            >
-              {item.label}
+    <>
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="max-w-7xl mx-auto flex h-14 items-center gap-4 px-4 md:px-8">
+          <div className="flex shrink-0">
+            <Link href="/" className="flex items-center space-x-2">
+              <Logo variant="full" size="sm" />
             </Link>
-          ))}
-        </nav>
-        <div className="flex items-center space-x-2">
-          {mounted && (
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "light" ? (
-                <Moon className="h-4 w-4" />
-              ) : (
-                <Sun className="h-4 w-4" />
-              )}
+          </div>
+
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "transition-colors hover:text-foreground/80",
+                  pathname?.startsWith(item.href)
+                    ? "text-foreground"
+                    : "text-foreground/60"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex flex-1 items-center justify-end gap-2">
+            <SearchTrigger onClick={() => setSearchOpen(true)} />
+
+            {mounted && (
+              <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                {theme === "light" ? (
+                  <Moon className="h-4 w-4" />
+                ) : (
+                  <Sun className="h-4 w-4" />
+                )}
+              </Button>
+            )}
+            <Button variant="ghost" size="icon" asChild>
+              <a
+                href="https://github.com/srcfl/srcful-design-system"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4" />
+              </a>
             </Button>
-          )}
-          <Button variant="ghost" size="icon" asChild>
-            <a
-              href="https://github.com/srcfl/srcful-design-system"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="h-4 w-4" />
-            </a>
-          </Button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
+    </>
   );
 }
