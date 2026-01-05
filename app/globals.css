@@ -732,5 +732,5 @@
 
 /* Gradient fade for hero */
 .hero-gradient {
-  background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%);
+  background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 70%, hsl(var(--background)) 100%);
 }

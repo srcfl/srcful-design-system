@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Book, Palette, Component, Map, BarChart3, Table2, Activity } from "lucide-react";
+import { ArrowRight, Book, Palette, Component, Map, BarChart3, Table2, Activity, Cpu } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
 import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
+import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
 
 export default function Home() {
   return (
@@ -76,23 +77,32 @@ export default function Home() {
                   <span className="hidden sm:inline">Energy Monitor</span>
                   <span className="sm:hidden">Monitor</span>
                 </TabsTrigger>
+                <TabsTrigger value="ems" className="gap-2">
+                  <Cpu className="h-4 w-4" />
+                  <span className="hidden sm:inline">Energy Management</span>
+                  <span className="sm:hidden">EMS</span>
+                </TabsTrigger>
               </TabsList>
             </div>
 
-            <TabsContent value="sites" className="mt-0">
+            <TabsContent value="sites" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
               <SitesOverviewExample />
             </TabsContent>
 
-            <TabsContent value="analytics" className="mt-0">
+            <TabsContent value="analytics" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
               <AnalyticsDashboardExample />
             </TabsContent>
 
-            <TabsContent value="fleet" className="mt-0">
+            <TabsContent value="fleet" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
               <FleetDashboardExample />
             </TabsContent>
 
-            <TabsContent value="monitor" className="mt-0">
+            <TabsContent value="monitor" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
               <EnergyMonitorExample />
+            </TabsContent>
+
+            <TabsContent value="ems" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+              <EMSDashboardExample />
             </TabsContent>
           </Tabs>
         </section>

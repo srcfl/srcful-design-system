@@ -41,6 +41,9 @@ export const componentsList = [
   { name: "Sites Map", href: "/components/sites-map", category: "Sourceful" },
   { name: "Energy Flow", href: "/components/energy-flow", category: "Sourceful" },
   { name: "AI Chat", href: "/components/ai-chat", category: "Sourceful" },
+  { name: "EMS Schedule", href: "/components/ems-schedule", category: "Sourceful" },
+  { name: "Electricity Price", href: "/components/electricity-price", category: "Sourceful" },
+  { name: "Weather Card", href: "/components/weather-card", category: "Sourceful" },
 ];
 
 export function getComponentNav(currentHref: string) {

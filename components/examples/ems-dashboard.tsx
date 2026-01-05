@@ -1,0 +1,244 @@
+"use client";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { EMSSchedule, generateDemoSchedule } from "@/components/ui/ems-schedule";
+import { ElectricityPrice, generateDemoPriceData } from "@/components/ui/electricity-price";
+import { WeatherCard, generateDemoForecast } from "@/components/ui/weather-card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
+import { Area, AreaChart, XAxis, YAxis, CartesianGrid } from "recharts";
+import { Battery, Zap, TrendingUp, Clock, Settings, Play, Pause, RefreshCw } from "lucide-react";
+
+const energyForecastData = [
+  { hour: "00", solar: 0, consumption: 1.2, battery: 8 },
+  { hour: "03", solar: 0, consumption: 0.8, battery: 6 },
+  { hour: "06", solar: 0.5, consumption: 1.5, battery: 4 },
+  { hour: "09", solar: 3.2, consumption: 2.1, battery: 5 },
+  { hour: "12", solar: 5.8, consumption: 2.8, battery: 8 },
+  { hour: "15", solar: 4.2, consumption: 3.2, battery: 9 },
+  { hour: "18", solar: 1.5, consumption: 4.5, battery: 7 },
+  { hour: "21", solar: 0, consumption: 3.2, battery: 5 },
+];
+
+const chartConfig = {
+  solar: { label: "Solar", color: "hsl(var(--primary))" },
+  consumption: { label: "Consumption", color: "hsl(var(--muted-foreground))" },
+  battery: { label: "Battery", color: "#facc15" },
+} satisfies ChartConfig;
+
+interface StatCardProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  subtext?: string;
+  trend?: "up" | "down";
+}
+
+function StatCard({ icon, label, value, subtext, trend }: StatCardProps) {
+  return (
+    <Card>
+      <CardContent className="p-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+            {icon}
+          </div>
+          <div className="flex-1">
+            <p className="text-sm text-muted-foreground">{label}</p>
+            <div className="flex items-center gap-2">
+              <p className="text-xl font-bold">{value}</p>
+              {trend && (
+                <TrendingUp
+                  className={`h-4 w-4 ${
+                    trend === "up" ? "text-green-500" : "text-red-500 rotate-180"
+                  }`}
+                />
+              )}
+            </div>
+            {subtext && <p className="text-xs text-muted-foreground">{subtext}</p>}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function EMSDashboardExample() {
+  const scheduleSlots = generateDemoSchedule();
+  const priceData = generateDemoPriceData();
+  const forecast = generateDemoForecast();
+
+  return (
+    <div className="space-y-4">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-semibold">Energy Management System</h2>
+          <p className="text-sm text-muted-foreground">Stockholm HQ - Optimizing for cost savings</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge variant="success" className="gap-1">
+            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+            Running
+          </Badge>
+          <Button variant="outline" size="sm">
+            <Settings className="h-4 w-4 mr-2" />
+            Configure
+          </Button>
+        </div>
+      </div>
+
+      {/* Stats Row */}
+      <div className="grid gap-4 md:grid-cols-4">
+        <StatCard
+          icon={<Zap className="h-5 w-5 text-primary" />}
+          label="Today's Savings"
+          value="€12.40"
+          subtext="vs grid-only"
+          trend="up"
+        />
+        <StatCard
+          icon={<Battery className="h-5 w-5 text-yellow-500" />}
+          label="Battery SoC"
+          value="78%"
+          subtext="7.8 kWh stored"
+        />
+        <StatCard
+          icon={<TrendingUp className="h-5 w-5 text-green-500" />}
+          label="Self-Sufficiency"
+          value="84%"
+          subtext="Last 24 hours"
+          trend="up"
+        />
+        <StatCard
+          icon={<Clock className="h-5 w-5 text-muted-foreground" />}
+          label="Next Action"
+          value="14:00"
+          subtext="Start charging"
+        />
+      </div>
+
+      {/* Main Grid */}
+      <div className="grid gap-4 lg:grid-cols-3">
+        {/* Left Column - Schedule & Forecast */}
+        <div className="lg:col-span-2 space-y-4">
+          {/* Schedule */}
+          <EMSSchedule
+            slots={scheduleSlots}
+            currentHour={new Date().getHours()}
+            title="Today's Schedule"
+          />
+
+          {/* Energy Forecast */}
+          <Card>
+            <CardHeader className="pb-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-base">Energy Forecast</CardTitle>
+                  <CardDescription>Predicted solar, consumption & battery</CardDescription>
+                </div>
+                <Button variant="ghost" size="sm">
+                  <RefreshCw className="h-4 w-4" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={chartConfig} className="h-[200px] w-full">
+                <AreaChart data={energyForecastData}>
+                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                  <XAxis dataKey="hour" tick={{ fontSize: 11 }} />
+                  <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}kW`} />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Area
+                    type="monotone"
+                    dataKey="solar"
+                    stackId="1"
+                    stroke="var(--color-solar)"
+                    fill="var(--color-solar)"
+                    fillOpacity={0.6}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="consumption"
+                    stackId="2"
+                    stroke="var(--color-consumption)"
+                    fill="var(--color-consumption)"
+                    fillOpacity={0.3}
+                  />
+                </AreaChart>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+
+          {/* Quick Actions */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" size="sm">
+                  <Play className="h-4 w-4 mr-2" />
+                  Force Charge
+                </Button>
+                <Button variant="outline" size="sm">
+                  <Pause className="h-4 w-4 mr-2" />
+                  Pause Export
+                </Button>
+                <Button variant="outline" size="sm">
+                  <Battery className="h-4 w-4 mr-2" />
+                  Discharge Now
+                </Button>
+                <Button variant="outline" size="sm">
+                  <RefreshCw className="h-4 w-4 mr-2" />
+                  Re-optimize
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Column - Price & Weather */}
+        <div className="space-y-4">
+          <ElectricityPrice
+            currentPrice={2.59}
+            region="SE3"
+            priceLevel="high"
+            trend="stable"
+            priceData={priceData}
+            lowPrice={0.96}
+            avgPrice={1.61}
+            highPrice={2.88}
+            cheapestTime="01:45"
+            cheapestPrice={0.96}
+            tips={[
+              "Run dishwasher after midnight",
+              "Pre-heat home before 17:00",
+              "Charge EV during off-peak hours",
+              "Export excess solar at peak prices",
+              "Use battery during evening peak",
+              "Delay washing machine to 02:00",
+            ]}
+          />
+
+          <WeatherCard
+            temperature={-3}
+            condition="overcast"
+            tempLow={-7}
+            tempHigh={-1}
+            windSpeed={17}
+            rainChance={60}
+            uvIndex={0.5}
+            sunrise="08:41"
+            sunset="15:04"
+            solarForecast={0}
+            solarPeak="18:00"
+            solarPeakPower={0}
+            cloudCover={100}
+            hourlyForecast={forecast}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
