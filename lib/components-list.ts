@@ -12,6 +12,7 @@ export const componentsList = [
   // Data Display
   { name: "Badge", href: "/components/badge", category: "Data Display" },
   { name: "Card", href: "/components/card", category: "Data Display" },
+  { name: "Chart", href: "/components/chart", category: "Data Display" },
   { name: "Table", href: "/components/table", category: "Data Display" },
   { name: "Skeleton", href: "/components/skeleton", category: "Data Display" },
   { name: "Separator", href: "/components/separator", category: "Data Display" },
