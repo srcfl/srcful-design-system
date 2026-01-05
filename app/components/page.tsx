@@ -166,8 +166,8 @@ export default function ComponentsPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {components.map((component) => (
-          <Link key={component.name} href={component.href}>
-            <Card className="h-full hover:border-primary transition-colors">
+          <Link key={component.name} href={component.href} className="group block">
+            <Card className="h-full transition-all duration-200 group-hover:border-primary group-hover:shadow-md group-hover:shadow-primary/10">
               <CardHeader>
                 <div className="text-xs text-muted-foreground mb-1">
                   {component.category}
