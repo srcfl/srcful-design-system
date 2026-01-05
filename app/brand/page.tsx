@@ -641,6 +641,223 @@ export default function BrandPage() {
             </div>
           </section>
 
+          {/* Spacing */}
+          <section className="space-y-6">
+            <div>
+              <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+                Spacing
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                Consistent spacing creates visual rhythm and hierarchy. Based on a 4px base unit.
+              </p>
+            </div>
+
+            {/* Spacing Scale */}
+            <div className="space-y-3">
+              {[
+                { name: "space-1", value: "4px", rem: "0.25rem", tailwind: "1" },
+                { name: "space-2", value: "8px", rem: "0.5rem", tailwind: "2" },
+                { name: "space-3", value: "12px", rem: "0.75rem", tailwind: "3" },
+                { name: "space-4", value: "16px", rem: "1rem", tailwind: "4" },
+                { name: "space-5", value: "20px", rem: "1.25rem", tailwind: "5" },
+                { name: "space-6", value: "24px", rem: "1.5rem", tailwind: "6" },
+                { name: "space-8", value: "32px", rem: "2rem", tailwind: "8" },
+                { name: "space-10", value: "40px", rem: "2.5rem", tailwind: "10" },
+                { name: "space-12", value: "48px", rem: "3rem", tailwind: "12" },
+                { name: "space-16", value: "64px", rem: "4rem", tailwind: "16" },
+                { name: "space-20", value: "80px", rem: "5rem", tailwind: "20" },
+                { name: "space-24", value: "96px", rem: "6rem", tailwind: "24" },
+              ].map((space) => (
+                <div key={space.name} className="flex items-center gap-4">
+                  <div className="w-24 flex-shrink-0">
+                    <span className="text-sm font-medium">{space.name}</span>
+                  </div>
+                  <div className="w-20 flex-shrink-0 text-sm text-muted-foreground font-mono">
+                    {space.value}
+                  </div>
+                  <div
+                    className="h-4 bg-primary rounded"
+                    style={{ width: space.value }}
+                  />
+                  <span className="text-xs text-muted-foreground font-mono ml-auto">
+                    p-{space.tailwind}, m-{space.tailwind}, gap-{space.tailwind}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Usage Examples */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Common Usage</h3>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-lg border p-4 space-y-2">
+                  <p className="text-label-lg text-muted-foreground">Component padding</p>
+                  <code className="text-sm font-mono bg-muted px-2 py-1 rounded">p-4 (16px), p-6 (24px)</code>
+                </div>
+                <div className="rounded-lg border p-4 space-y-2">
+                  <p className="text-label-lg text-muted-foreground">Section spacing</p>
+                  <code className="text-sm font-mono bg-muted px-2 py-1 rounded">py-12 (48px), py-16 (64px)</code>
+                </div>
+                <div className="rounded-lg border p-4 space-y-2">
+                  <p className="text-label-lg text-muted-foreground">Grid gaps</p>
+                  <code className="text-sm font-mono bg-muted px-2 py-1 rounded">gap-4 (16px), gap-6 (24px)</code>
+                </div>
+                <div className="rounded-lg border p-4 space-y-2">
+                  <p className="text-label-lg text-muted-foreground">Stack spacing</p>
+                  <code className="text-sm font-mono bg-muted px-2 py-1 rounded">space-y-2 (8px), space-y-4 (16px)</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Border Radius */}
+          <section className="space-y-6">
+            <div>
+              <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+                Border Radius
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                Rounded corners soften the interface and create a friendly, modern feel.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+              {[
+                { name: "sm", value: "4px", class: "rounded-sm" },
+                { name: "md", value: "8px", class: "rounded-md" },
+                { name: "lg", value: "12px", class: "rounded-lg" },
+                { name: "xl", value: "16px", class: "rounded-xl" },
+                { name: "2xl", value: "24px", class: "rounded-2xl" },
+                { name: "full", value: "9999px", class: "rounded-full" },
+              ].map((radius) => (
+                <div key={radius.name} className="space-y-2 text-center">
+                  <div
+                    className={`h-16 w-full bg-primary ${radius.class}`}
+                  />
+                  <p className="text-sm font-medium">{radius.name}</p>
+                  <p className="text-xs text-muted-foreground font-mono">{radius.value}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Shadows */}
+          <section className="space-y-6">
+            <div>
+              <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+                Shadows
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                Elevation creates depth and visual hierarchy through subtle shadows.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+              {[
+                { name: "sm", class: "shadow-sm" },
+                { name: "md", class: "shadow-md" },
+                { name: "lg", class: "shadow-lg" },
+                { name: "xl", class: "shadow-xl" },
+                { name: "2xl", class: "shadow-2xl" },
+              ].map((shadow) => (
+                <div key={shadow.name} className="space-y-2 text-center">
+                  <div
+                    className={`h-20 w-full bg-card rounded-lg ${shadow.class}`}
+                  />
+                  <p className="text-sm font-medium">shadow-{shadow.name}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Icons */}
+          <section className="space-y-6">
+            <div>
+              <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+                Icons
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                We use <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lucide Icons</a> — a beautiful, consistent icon set with 1000+ icons.
+              </p>
+            </div>
+
+            {/* Icon Sizes */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Sizes</h3>
+              <div className="flex items-end gap-8">
+                {[
+                  { size: 12, class: "h-3 w-3", label: "12px" },
+                  { size: 16, class: "h-4 w-4", label: "16px" },
+                  { size: 20, class: "h-5 w-5", label: "20px" },
+                  { size: 24, class: "h-6 w-6", label: "24px" },
+                  { size: 32, class: "h-8 w-8", label: "32px" },
+                  { size: 48, class: "h-12 w-12", label: "48px" },
+                ].map((item) => (
+                  <div key={item.size} className="flex flex-col items-center gap-2">
+                    <svg className={`${item.class}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span className="text-xs text-muted-foreground font-mono">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Common Icons */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Common Icons</h3>
+              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4">
+                {[
+                  { name: "Zap", path: "M13 10V3L4 14h7v7l9-11h-7z" },
+                  { name: "Sun", path: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" },
+                  { name: "Moon", path: "M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" },
+                  { name: "Battery", path: "M17 6h-2V4H9v2H7a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2z" },
+                  { name: "Wifi", path: "M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" },
+                  { name: "Settings", path: "M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" },
+                  { name: "User", path: "M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" },
+                  { name: "Home", path: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" },
+                  { name: "Check", path: "M20 6L9 17l-5-5" },
+                  { name: "X", path: "M18 6L6 18M6 6l12 12" },
+                  { name: "Plus", path: "M12 5v14M5 12h14" },
+                  { name: "Minus", path: "M5 12h14" },
+                  { name: "ChevronRight", path: "M9 18l6-6-6-6" },
+                  { name: "ChevronDown", path: "M6 9l6 6 6-6" },
+                  { name: "ArrowRight", path: "M5 12h14M12 5l7 7-7 7" },
+                  { name: "Search", path: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+                ].map((icon) => (
+                  <div key={icon.name} className="flex flex-col items-center gap-2 p-3 rounded-lg border hover:bg-muted/50 transition-colors">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d={icon.path} />
+                    </svg>
+                    <span className="text-xs text-muted-foreground">{icon.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Usage */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Usage</h3>
+              <div className="rounded-lg border bg-sourceful-gray-950 p-4 overflow-x-auto">
+                <pre className="text-sm text-sourceful-green-400 font-mono">
+{`import { Zap, Sun, Moon, Battery } from "lucide-react"
+
+// Default size (24px)
+<Zap />
+
+// Custom sizes
+<Zap className="h-4 w-4" />  // 16px
+<Zap className="h-5 w-5" />  // 20px
+<Zap className="h-6 w-6" />  // 24px
+
+// With color
+<Zap className="h-5 w-5 text-primary" />
+<Battery className="h-5 w-5 text-muted-foreground" />`}
+                </pre>
+              </div>
+            </div>
+          </section>
+
           {/* Voice & Tone */}
           <section className="space-y-4">
             <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">

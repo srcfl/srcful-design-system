@@ -70,6 +70,23 @@ import "@srcful/ui/styles.css"`}</code>
           </pre>
         </div>
       </div>
+
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Patterns
+        </h2>
+        <p className="leading-7">
+          Learn how to combine components effectively with these patterns:
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+          <li>
+            <a href="/docs/patterns/forms" className="text-primary hover:underline">
+              Form Patterns
+            </a>{" "}
+            - Best practices for building forms
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
