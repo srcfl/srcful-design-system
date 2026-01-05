@@ -425,35 +425,218 @@ export default function BrandPage() {
           </section>
 
           {/* Typography */}
-          <section className="space-y-4">
-            <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
-              Typography
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-medium mb-2">Satoshi (Sans-serif)</h3>
-                <p className="text-muted-foreground mb-4">
-                  Satoshi is our primary typeface. A modern geometric sans-serif with a clean, technical feel.
-                  Used for all UI text, headings, and body copy.
-                </p>
-                <div className="space-y-3 rounded-lg border p-6">
-                  <p className="text-4xl font-bold">The quick brown fox</p>
-                  <p className="text-2xl font-semibold">The quick brown fox jumps</p>
-                  <p className="text-xl font-medium">The quick brown fox jumps over</p>
-                  <p className="text-lg">The quick brown fox jumps over the lazy dog</p>
-                  <p className="text-base text-muted-foreground">The quick brown fox jumps over the lazy dog</p>
-                  <p className="text-sm text-muted-foreground">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p>
+          <section className="space-y-6">
+            <div>
+              <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+                Typography
+              </h2>
+              <p className="text-muted-foreground mt-2">
+                Satoshi is our primary typeface — a modern geometric sans-serif with a clean, technical feel.
+              </p>
+            </div>
+
+            {/* Type Scale */}
+            <div className="space-y-1">
+              {/* Display */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Display</span>
+                  <p className="text-caption">60px / 700 / -0.02em</p>
+                </div>
+                <p className="text-display">Powering energy</p>
+              </div>
+
+              {/* H1 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H1</span>
+                  <p className="text-caption">40px / 700 / -0.02em</p>
+                </div>
+                <p className="text-h1">Page heading one</p>
+              </div>
+
+              {/* H2 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H2</span>
+                  <p className="text-caption">32px / 600 / -0.01em</p>
+                </div>
+                <p className="text-h2">Section heading two</p>
+              </div>
+
+              {/* H3 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H3</span>
+                  <p className="text-caption">24px / 600 / -0.01em</p>
+                </div>
+                <p className="text-h3">Subsection heading three</p>
+              </div>
+
+              {/* H4 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H4</span>
+                  <p className="text-caption">20px / 600</p>
+                </div>
+                <p className="text-h4">Component heading four</p>
+              </div>
+
+              {/* H5 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H5</span>
+                  <p className="text-caption">18px / 500</p>
+                </div>
+                <p className="text-h5">Small heading five</p>
+              </div>
+
+              {/* H6 */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">H6</span>
+                  <p className="text-caption">16px / 500</p>
+                </div>
+                <p className="text-h6">Tiny heading six</p>
+              </div>
+
+              {/* Body Large */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Body Large</span>
+                  <p className="text-caption">18px / 400</p>
+                </div>
+                <p className="text-body-lg">Lead paragraph text for introductions and emphasis.</p>
+              </div>
+
+              {/* Body */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Body</span>
+                  <p className="text-caption">16px / 400</p>
+                </div>
+                <p className="text-body">Default body text for paragraphs and general content.</p>
+              </div>
+
+              {/* Body Small */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Body Small</span>
+                  <p className="text-caption">14px / 400</p>
+                </div>
+                <p className="text-body-sm">Secondary text, descriptions, and supporting content.</p>
+              </div>
+
+              {/* Label Large */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Label Large</span>
+                  <p className="text-caption">14px / 500 / 0.01em</p>
+                </div>
+                <p className="text-label-lg">Form labels and navigation items</p>
+              </div>
+
+              {/* Label */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Label</span>
+                  <p className="text-caption">12px / 500 / 0.01em</p>
+                </div>
+                <p className="text-label">Small labels and badges</p>
+              </div>
+
+              {/* Caption */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Caption</span>
+                  <p className="text-caption">12px / 400</p>
+                </div>
+                <p className="text-caption">Helper text, timestamps, and metadata</p>
+              </div>
+
+              {/* Overline */}
+              <div className="flex items-baseline gap-4 py-4 border-b">
+                <div className="w-32 flex-shrink-0">
+                  <span className="text-label-lg text-muted-foreground">Overline</span>
+                  <p className="text-caption">12px / 600 / 0.1em</p>
+                </div>
+                <p className="text-overline">Category or section label</p>
+              </div>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Links</h3>
+              <div className="rounded-lg border p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">Default</span>
+                  <a href="#" className="text-primary underline-offset-4 hover:underline">Link to resource</a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">Muted</span>
+                  <a href="#" className="text-muted-foreground underline-offset-4 hover:underline hover:text-foreground">Secondary link</a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">External</span>
+                  <a href="#" className="text-primary underline-offset-4 hover:underline inline-flex items-center gap-1">
+                    External link
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
-              <div>
-                <h3 className="text-lg font-medium mb-2">JetBrains Mono (Monospace)</h3>
-                <p className="text-muted-foreground mb-4">
-                  Used for code, technical values, and data displays.
-                </p>
-                <div className="rounded-lg border p-6 space-y-2">
-                  <p className="font-mono text-lg">const energy = await grid.optimize();</p>
-                  <p className="font-mono text-base text-muted-foreground">192.168.1.1 • 2.4 kWh • 98.5%</p>
+            </div>
+
+            {/* Monospace */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">Monospace (JetBrains Mono)</h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                Used for code, technical values, and data displays.
+              </p>
+              <div className="rounded-lg border p-6 space-y-4">
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">Code Block</span>
+                  <code className="font-mono text-sm bg-muted px-2 py-1 rounded">const energy = await grid.optimize()</code>
                 </div>
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">Values</span>
+                  <span className="font-mono text-sm">192.168.1.1 • 2.4 kWh • 99.9%</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="w-32 text-label-lg text-muted-foreground">Inline</span>
+                  <p className="text-sm">Press <code className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">Ctrl + C</code> to copy</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Usage Classes */}
+            <div>
+              <h3 className="text-lg font-medium mb-3">CSS Classes</h3>
+              <div className="rounded-lg border bg-sourceful-gray-950 p-4 overflow-x-auto">
+                <pre className="text-sm text-sourceful-green-400 font-mono">
+{`/* Headings */
+.text-display  /* 60px, bold, tight tracking */
+.text-h1       /* 40px, bold */
+.text-h2       /* 32px, semibold */
+.text-h3       /* 24px, semibold */
+.text-h4       /* 20px, semibold */
+.text-h5       /* 18px, medium */
+.text-h6       /* 16px, medium */
+
+/* Body */
+.text-body-lg  /* 18px, regular */
+.text-body     /* 16px, regular */
+.text-body-sm  /* 14px, regular */
+
+/* UI Text */
+.text-label-lg /* 14px, medium, tracking */
+.text-label    /* 12px, medium, tracking */
+.text-caption  /* 12px, muted color */
+.text-overline /* 12px, uppercase, wide tracking */
+.text-lead     /* 18px, muted color */
+.text-code     /* mono font, background */`}
+                </pre>
               </div>
             </div>
           </section>
