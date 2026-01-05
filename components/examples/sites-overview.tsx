@@ -62,19 +62,19 @@ export function SitesOverviewExample() {
   const onlineSites = demoSites.filter(s => s.status === "live").length;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4 h-[700px]">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4 min-h-[500px] lg:h-[700px]">
       {/* Map */}
-      <div className="relative rounded-lg overflow-hidden border bg-card">
+      <div className="relative rounded-lg overflow-hidden border bg-card min-h-[300px] lg:min-h-0">
         {mapboxToken ? (
           <SitesMap
             sites={demoSites}
             mapboxToken={mapboxToken}
             onSiteSelect={setSelectedSiteId}
             hoveredSiteId={hoveredSiteId}
-            className="h-full"
+            className="h-full min-h-[300px]"
           />
         ) : (
-          <div className="h-full flex items-center justify-center bg-muted/50">
+          <div className="h-full min-h-[300px] flex items-center justify-center bg-muted/50">
             <div className="text-center p-8">
               <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">Map requires Mapbox token</p>

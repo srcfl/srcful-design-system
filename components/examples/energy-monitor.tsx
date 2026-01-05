@@ -86,7 +86,7 @@ export function EnergyMonitorExample() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4 overflow-hidden">
       {/* Main Content */}
       <div className="space-y-4">
         {/* Quick Stats */}

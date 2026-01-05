@@ -94,7 +94,7 @@ export function WeatherCard({
   const WeatherIcon = weatherIcons[condition];
 
   return (
-    <Card className={cn("", className)}>
+    <Card className={cn("overflow-hidden", className)}>
       <CardHeader className="pb-2">
         <CardTitle className="text-base font-medium">Weather</CardTitle>
       </CardHeader>

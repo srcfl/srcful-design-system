@@ -259,19 +259,18 @@ export function AIChat({
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-sourceful-gray-200 dark:border-[#252525] p-4">
+      <div className="border-t border-sourceful-gray-200 dark:border-[#252525] p-3 sm:p-4">
         <div className="flex items-start gap-2">
-          <div className="flex-1 relative">
-            <textarea
-              ref={textareaRef}
+          <div className="flex-1 min-w-0">
+            <input
+              type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder={placeholder}
               disabled={isLoading}
-              rows={1}
               className={cn(
-                "w-full resize-none rounded-xl px-4 py-3 scrollbar-none",
+                "w-full rounded-xl px-3 sm:px-4 h-[46px]",
                 "bg-sourceful-gray-50 dark:bg-[#1a1a1a]",
                 "border border-sourceful-gray-200 dark:border-[#252525]",
                 "text-sm text-sourceful-gray-900 dark:text-white",
@@ -302,7 +301,7 @@ export function AIChat({
           </button>
         </div>
 
-        <p className="text-xs text-sourceful-gray-400 mt-2 text-center">
+        <p className="text-xs text-sourceful-gray-400 mt-2 text-center hidden sm:block">
           Press Enter to send, Shift+Enter for new line
         </p>
       </div>

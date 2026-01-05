@@ -65,7 +65,7 @@ export function EMSSchedule({
   }, [slots]);
 
   return (
-    <Card className={cn("", className)}>
+    <Card className={cn("overflow-hidden", className)}>
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-base font-medium">
           <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -74,13 +74,13 @@ export function EMSSchedule({
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Timeline */}
-        <div className="space-y-2">
+        <div className="space-y-2 min-w-0">
           <div className="flex gap-0.5">
             {schedule.map((slot, i) => (
               <div
                 key={i}
                 className={cn(
-                  "h-6 flex-1 first:rounded-l last:rounded-r transition-all",
+                  "h-6 flex-1 min-w-0 first:rounded-l last:rounded-r transition-all",
                   modeConfig[slot.mode].bgColor,
                   currentHour === slot.hour &&
                     "ring-2 ring-primary ring-offset-1 ring-offset-background rounded"
@@ -93,20 +93,20 @@ export function EMSSchedule({
           {/* Time labels */}
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>00:00</span>
-            <span>06:00</span>
+            <span className="hidden sm:inline">06:00</span>
             <span>12:00</span>
-            <span>18:00</span>
+            <span className="hidden sm:inline">18:00</span>
             <span>24:00</span>
           </div>
         </div>
 
         {/* Legend */}
         {showLegend && (
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <div className="flex flex-wrap gap-x-3 gap-y-2 text-xs">
             {Object.entries(modeConfig).map(([key, config]) => (
               <div key={key} className="flex items-center gap-1.5">
-                <div className={cn("h-3 w-3 rounded", config.bgColor)} />
-                <span className="text-xs text-muted-foreground">{config.label}</span>
+                <div className={cn("h-2.5 w-2.5 rounded flex-shrink-0", config.bgColor)} />
+                <span className="text-muted-foreground whitespace-nowrap">{config.label}</span>
               </div>
             ))}
           </div>

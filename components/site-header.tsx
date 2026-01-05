@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState, useCallback } from "react";
 import { Logo } from "@/components/logo";
 import { SearchCommand, SearchTrigger } from "@/components/search-command";
+import { MobileNav } from "@/components/mobile-nav";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -47,6 +48,8 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-7xl mx-auto flex h-14 items-center gap-4 px-4 md:px-8">
+          <MobileNav />
+
           <div className="flex shrink-0">
             <Link href="/" className="flex items-center space-x-2">
               <Logo variant="full" size="sm" />

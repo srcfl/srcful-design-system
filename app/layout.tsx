@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { LenisProvider } from "@/components/lenis-provider";
 
 const satoshi = localFont({
   src: [
@@ -51,7 +52,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
           <Toaster />
         </ThemeProvider>
       </body>

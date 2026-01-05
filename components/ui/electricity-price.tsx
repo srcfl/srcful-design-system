@@ -63,7 +63,7 @@ export function ElectricityPrice({
   };
 
   return (
-    <Card className={cn("", className)}>
+    <Card className={cn("overflow-hidden", className)}>
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-base font-medium">

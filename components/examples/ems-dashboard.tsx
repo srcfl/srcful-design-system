@@ -71,9 +71,9 @@ export function EMSDashboardExample() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-xl font-semibold">Energy Management System</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Energy Management System</h2>
           <p className="text-sm text-muted-foreground">Stockholm HQ - Optimizing for cost savings</p>
         </div>
         <div className="flex items-center gap-2">
@@ -82,14 +82,14 @@ export function EMSDashboardExample() {
             Running
           </Badge>
           <Button variant="outline" size="sm">
-            <Settings className="h-4 w-4 mr-2" />
-            Configure
+            <Settings className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Configure</span>
           </Button>
         </div>
       </div>
 
       {/* Stats Row */}
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <StatCard
           icon={<Zap className="h-5 w-5 text-primary" />}
           label="Today's Savings"
@@ -119,9 +119,9 @@ export function EMSDashboardExample() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3 overflow-hidden">
         {/* Left Column - Schedule & Forecast */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4 min-w-0">
           {/* Schedule */}
           <EMSSchedule
             slots={scheduleSlots}
@@ -130,7 +130,7 @@ export function EMSDashboardExample() {
           />
 
           {/* Energy Forecast */}
-          <Card>
+          <Card className="overflow-hidden">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <div>
@@ -142,8 +142,8 @@ export function EMSDashboardExample() {
                 </Button>
               </div>
             </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig} className="h-[200px] w-full">
+            <CardContent className="overflow-x-auto">
+              <ChartContainer config={chartConfig} className="h-[200px] w-full min-w-[300px]">
                 <AreaChart data={energyForecastData}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                   <XAxis dataKey="hour" tick={{ fontSize: 11 }} />
@@ -171,27 +171,27 @@ export function EMSDashboardExample() {
           </Card>
 
           {/* Quick Actions */}
-          <Card>
+          <Card className="overflow-hidden">
             <CardHeader className="pb-2">
               <CardTitle className="text-base">Quick Actions</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-wrap gap-2">
-                <Button variant="outline" size="sm">
-                  <Play className="h-4 w-4 mr-2" />
-                  Force Charge
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Play className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Force Charge</span>
                 </Button>
-                <Button variant="outline" size="sm">
-                  <Pause className="h-4 w-4 mr-2" />
-                  Pause Export
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Pause className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Pause Export</span>
                 </Button>
-                <Button variant="outline" size="sm">
-                  <Battery className="h-4 w-4 mr-2" />
-                  Discharge Now
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Battery className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Discharge</span>
                 </Button>
-                <Button variant="outline" size="sm">
-                  <RefreshCw className="h-4 w-4 mr-2" />
-                  Re-optimize
+                <Button variant="outline" size="sm" className="justify-start">
+                  <RefreshCw className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Re-optimize</span>
                 </Button>
               </div>
             </CardContent>
@@ -199,7 +199,7 @@ export function EMSDashboardExample() {
         </div>
 
         {/* Right Column - Price & Weather */}
-        <div className="space-y-4">
+        <div className="space-y-4 min-w-0">
           <ElectricityPrice
             currentPrice={2.59}
             region="SE3"

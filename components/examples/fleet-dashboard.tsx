@@ -88,7 +88,7 @@ export function FleetDashboardExample() {
   return (
     <div className="space-y-4">
       {/* Summary Cards */}
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <Card>
           <CardContent className="p-4">
             <div className="text-2xl font-bold">{stats.total}</div>
@@ -116,19 +116,19 @@ export function FleetDashboardExample() {
       </div>
 
       {/* Table Card */}
-      <Card>
+      <Card className="overflow-hidden">
         <CardHeader>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <CardTitle>Device Fleet</CardTitle>
               <CardDescription>Manage and monitor all connected devices</CardDescription>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="relative">
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="relative flex-1 min-w-[150px] sm:flex-none">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search devices..."
-                  className="pl-8 w-[200px]"
+                  placeholder="Search..."
+                  className="pl-8 w-full sm:w-[200px]"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -139,15 +139,15 @@ export function FleetDashboardExample() {
               <Button variant="outline" size="icon">
                 <Download className="h-4 w-4" />
               </Button>
-              <Button>
-                <Plus className="h-4 w-4 mr-2" />
-                Add Device
+              <Button size="sm" className="sm:size-default">
+                <Plus className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Add Device</span>
               </Button>
             </div>
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="rounded-md border">
+        <CardContent className="p-0 sm:p-6 sm:pt-0">
+          <div className="rounded-md border overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>

@@ -68,7 +68,7 @@ export function AnalyticsDashboardExample() {
   return (
     <div className="space-y-4">
       {/* KPI Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
         <StatCard
           title="Total Production"
           value="186.4 kWh"
@@ -106,13 +106,13 @@ export function AnalyticsDashboardExample() {
       {/* Charts Row */}
       <div className="grid gap-4 lg:grid-cols-2">
         {/* Daily Production Chart */}
-        <Card>
+        <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle>Today&apos;s Energy Flow</CardTitle>
             <CardDescription>Solar production vs consumption over 24 hours</CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[250px] w-full">
+          <CardContent className="overflow-x-auto">
+            <ChartContainer config={chartConfig} className="h-[250px] w-full min-w-[300px]">
               <AreaChart data={productionData}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                 <XAxis dataKey="time" className="text-xs" />
@@ -140,13 +140,13 @@ export function AnalyticsDashboardExample() {
         </Card>
 
         {/* Weekly Summary */}
-        <Card>
+        <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle>Weekly Summary</CardTitle>
             <CardDescription>Production and export by day</CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[250px] w-full">
+          <CardContent className="overflow-x-auto">
+            <ChartContainer config={chartConfig} className="h-[250px] w-full min-w-[300px]">
               <BarChart data={weeklyData}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                 <XAxis dataKey="day" className="text-xs" />
@@ -163,13 +163,13 @@ export function AnalyticsDashboardExample() {
       {/* Bottom Row */}
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Savings Trend */}
-        <Card className="lg:col-span-2">
+        <Card className="lg:col-span-2 overflow-hidden">
           <CardHeader>
             <CardTitle>Savings Trend</CardTitle>
             <CardDescription>Daily savings from solar production (€)</CardDescription>
           </CardHeader>
-          <CardContent>
-            <ChartContainer config={chartConfig} className="h-[200px] w-full">
+          <CardContent className="overflow-x-auto">
+            <ChartContainer config={chartConfig} className="h-[200px] w-full min-w-[300px]">
               <LineChart data={weeklyData}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                 <XAxis dataKey="day" className="text-xs" />
