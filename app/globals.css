@@ -686,3 +686,18 @@
 .dark .react-flow__controls-button:hover svg {
   fill: #ffffff;
 }
+
+/* Dotted background pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+/* Gradient fade for hero */
+.hero-gradient {
+  background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%);
+}

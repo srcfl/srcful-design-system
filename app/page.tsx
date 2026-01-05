@@ -17,35 +17,42 @@ export default function Home() {
 
       {/* Hero */}
       <main className="flex-1">
-        <section className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-8 pt-24 md:pt-32 text-center px-4 md:px-8">
-          <div className="inline-flex items-center rounded-full border px-3 py-1 text-sm">
-            <span className="mr-2">🌱</span>
-            <span>Powering the distributed energy revolution</span>
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            Sourceful{" "}
-            <span className="text-primary">Design System</span>
-          </h1>
-          <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
-            Components, tokens, and guidelines for building consistent, accessible
-            interfaces across Sourceful Energy products.
-          </p>
-          <div className="flex gap-4">
-            <Button asChild>
-              <Link href="/docs">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/components">
-                Browse Components
-              </Link>
-            </Button>
+        <section className="relative overflow-hidden">
+          {/* Dotted background */}
+          <div className="absolute inset-0 bg-dot-pattern" />
+          <div className="absolute inset-x-0 bottom-0 h-32 hero-gradient" />
+
+          {/* Content */}
+          <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-24 pt-24 md:pt-32 md:pb-32 text-center px-4 md:px-8">
+            <div className="inline-flex items-center rounded-full border bg-background/80 backdrop-blur-sm px-3 py-1 text-sm">
+              <span className="mr-2">🌱</span>
+              <span>Powering the distributed energy revolution</span>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Sourceful{" "}
+              <span className="text-primary">Design System</span>
+            </h1>
+            <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
+              Components, tokens, and guidelines for building consistent, accessible
+              interfaces across Sourceful Energy products.
+            </p>
+            <div className="flex gap-4 pt-4">
+              <Button asChild size="lg">
+                <Link href="/docs">
+                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/components">
+                  Browse Components
+                </Link>
+              </Button>
+            </div>
           </div>
         </section>
 
         {/* Dashboard Examples */}
-        <section className="max-w-7xl mx-auto py-8 px-4 md:px-8">
+        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
           <Tabs defaultValue="sites" className="w-full">
             <div className="flex items-center justify-center mb-6">
               <TabsList className="h-10">
