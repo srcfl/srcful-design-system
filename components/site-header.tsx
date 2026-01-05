@@ -5,27 +5,21 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Github, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/logo";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   const navItems = [
@@ -36,11 +30,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="max-w-5xl mx-auto flex h-14 items-center px-4 md:px-8">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <div className="h-6 w-6 rounded-full bg-sourceful-green-500" />
-            <span className="font-bold">Sourceful</span>
+            <Logo variant="full" size="sm" />
           </Link>
         </div>
         <nav className="flex flex-1 items-center space-x-6 text-sm font-medium">

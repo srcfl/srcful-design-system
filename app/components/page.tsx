@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const components = [
+  // Forms
   {
     name: "Button",
     description: "Displays a button or a component that looks like a button.",
@@ -15,11 +16,48 @@ const components = [
     category: "Forms",
   },
   {
+    name: "Textarea",
+    description: "Displays a multi-line text input field.",
+    href: "/components/textarea",
+    category: "Forms",
+  },
+  {
     name: "Label",
     description: "Renders an accessible label associated with controls.",
     href: "/components/label",
     category: "Forms",
   },
+  {
+    name: "Select",
+    description: "Displays a list of options for the user to pick from.",
+    href: "/components/select",
+    category: "Forms",
+  },
+  {
+    name: "Checkbox",
+    description: "A control that allows the user to toggle between checked and not checked.",
+    href: "/components/checkbox",
+    category: "Forms",
+  },
+  {
+    name: "Radio Group",
+    description: "A set of checkable buttons where only one can be checked at a time.",
+    href: "/components/radio-group",
+    category: "Forms",
+  },
+  {
+    name: "Switch",
+    description: "A control that allows the user to toggle between on and off.",
+    href: "/components/switch",
+    category: "Forms",
+  },
+  {
+    name: "Slider",
+    description: "An input where the user selects a value from within a given range.",
+    href: "/components/slider",
+    category: "Forms",
+  },
+  // Data Display
   {
     name: "Badge",
     description: "Displays a badge or a component that looks like a badge.",
@@ -39,9 +77,34 @@ const components = [
     category: "Data Display",
   },
   {
+    name: "Skeleton",
+    description: "Used to show a placeholder while content is loading.",
+    href: "/components/skeleton",
+    category: "Data Display",
+  },
+  {
+    name: "Separator",
+    description: "Visually separates content.",
+    href: "/components/separator",
+    category: "Data Display",
+  },
+  // Feedback
+  {
+    name: "Alert",
+    description: "Displays a callout for user attention.",
+    href: "/components/alert",
+    category: "Feedback",
+  },
+  {
     name: "Dialog",
     description: "A modal dialog that interrupts the user.",
     href: "/components/dialog",
+    category: "Feedback",
+  },
+  {
+    name: "Toast",
+    description: "A succinct message that is displayed temporarily.",
+    href: "/components/toast",
     category: "Feedback",
   },
   {
@@ -50,6 +113,13 @@ const components = [
     href: "/components/tooltip",
     category: "Feedback",
   },
+  {
+    name: "Progress",
+    description: "Displays an indicator showing the completion progress of a task.",
+    href: "/components/progress",
+    category: "Feedback",
+  },
+  // Navigation & Layout
   {
     name: "Dropdown Menu",
     description: "Displays a menu to the user.",
@@ -60,6 +130,24 @@ const components = [
     name: "Tabs",
     description: "A set of layered sections of content.",
     href: "/components/tabs",
+    category: "Navigation",
+  },
+  {
+    name: "Accordion",
+    description: "A vertically stacked set of interactive headings.",
+    href: "/components/accordion",
+    category: "Navigation",
+  },
+  {
+    name: "Sheet",
+    description: "A panel that slides out from the side of the screen.",
+    href: "/components/sheet",
+    category: "Navigation",
+  },
+  {
+    name: "Scroll Area",
+    description: "Augments native scroll functionality for custom styling.",
+    href: "/components/scroll-area",
     category: "Navigation",
   },
 ];
@@ -79,7 +167,7 @@ export default function ComponentsPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {components.map((component) => (
           <Link key={component.name} href={component.href}>
-            <Card className="h-full hover:border-sourceful-green-500 transition-colors">
+            <Card className="h-full hover:border-primary transition-colors">
               <CardHeader>
                 <div className="text-xs text-muted-foreground mb-1">
                   {component.category}

@@ -9,11 +9,11 @@ export default function ComponentsLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <div className="container flex-1">
-        <div className="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
+      <div className="max-w-5xl mx-auto flex-1 px-4 md:px-8 w-full">
+        <div className="flex-1 md:grid md:grid-cols-[200px_1fr] md:gap-8 lg:gap-12">
           <DocsSidebar type="components" />
-          <main className="relative py-6 lg:gap-10 lg:py-8">
-            <div className="mx-auto w-full min-w-0">{children}</div>
+          <main className="relative py-6 lg:py-8">
+            <div className="w-full min-w-0">{children}</div>
           </main>
         </div>
       </div>

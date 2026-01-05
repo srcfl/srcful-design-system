@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    {
+      path: "../public/fonts/Satoshi-Variable.woff2",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-VariableItalic.woff2",
+      style: "italic",
+    },
+  ],
   variable: "--font-sans",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -28,11 +41,19 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.variable,
+          satoshi.variable,
           jetbrainsMono.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

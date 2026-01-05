@@ -15,6 +15,15 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
+        // Sourceful custom variants
+        energy:
+          "border-transparent bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500",
+        success:
+          "border-transparent bg-sourceful-green-500 text-white shadow hover:bg-sourceful-green-600",
+        warning:
+          "border-transparent bg-orange-500 text-white shadow hover:bg-orange-600",
+        info:
+          "border-transparent bg-blue-500 text-white shadow hover:bg-blue-600",
       },
     },
     defaultVariants: {

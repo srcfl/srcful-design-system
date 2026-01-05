@@ -8,56 +8,140 @@
 
 :root {
   /* ----------------------------------------
-     Brand Colors - Green (Primary)
+     Brand Colors - Neon Green (Primary)
+     The signature Sourceful green
      ---------------------------------------- */
-  --sourceful-green-50: #f0fdf4;
-  --sourceful-green-100: #dcfce7;
-  --sourceful-green-200: #bbf7d0;
-  --sourceful-green-300: #86efac;
-  --sourceful-green-400: #4ade80;
-  --sourceful-green-500: #22c55e; /* Primary brand green */
-  --sourceful-green-600: #16a34a;
-  --sourceful-green-700: #15803d;
-  --sourceful-green-800: #166534;
-  --sourceful-green-900: #14532d;
-  --sourceful-green-950: #052e16;
+  --sourceful-green: #00FF84;
+  --sourceful-green-50: #ecfff5;
+  --sourceful-green-100: #d1ffea;
+  --sourceful-green-200: #a6ffd6;
+  --sourceful-green-300: #6affbd;
+  --sourceful-green-400: #2bff9e;
+  --sourceful-green-500: #00FF84; /* Primary brand green */
+  --sourceful-green-600: #00cc6a;
+  --sourceful-green-700: #009950;
+  --sourceful-green-800: #007a40;
+  --sourceful-green-900: #006636;
+  --sourceful-green-950: #00331b;
 
   /* ----------------------------------------
-     Brand Colors - Yellow (Accent)
+     Brand Colors - Yellow (Energy/Accent)
      ---------------------------------------- */
-  --sourceful-yellow-50: #fefce8;
-  --sourceful-yellow-100: #fef9c3;
-  --sourceful-yellow-200: #fef08a;
-  --sourceful-yellow-300: #fde047;
-  --sourceful-yellow-400: #facc15; /* Primary accent yellow */
-  --sourceful-yellow-500: #eab308;
-  --sourceful-yellow-600: #ca8a04;
-  --sourceful-yellow-700: #a16207;
-  --sourceful-yellow-800: #854d0e;
-  --sourceful-yellow-900: #713f12;
+  --sourceful-yellow: #FFD500;
+  --sourceful-yellow-50: #fffce8;
+  --sourceful-yellow-100: #fff8c2;
+  --sourceful-yellow-200: #fff089;
+  --sourceful-yellow-300: #ffe545;
+  --sourceful-yellow-400: #FFD500; /* Primary energy yellow */
+  --sourceful-yellow-500: #e6c000;
+  --sourceful-yellow-600: #cc9f00;
+  --sourceful-yellow-700: #a37700;
+  --sourceful-yellow-800: #865c00;
+  --sourceful-yellow-900: #704b00;
 
   /* ----------------------------------------
-     Neutral Colors - Gray Scale
+     Brand Colors - Orange (Warning)
      ---------------------------------------- */
-  --sourceful-gray-50: #f9fafb;
-  --sourceful-gray-100: #f3f4f6;
-  --sourceful-gray-200: #e5e7eb;
-  --sourceful-gray-300: #d1d5db;
-  --sourceful-gray-400: #9ca3af;
-  --sourceful-gray-500: #6b7280;
-  --sourceful-gray-600: #4b5563;
-  --sourceful-gray-700: #374151;
-  --sourceful-gray-800: #1f2937;
-  --sourceful-gray-900: #111827;
-  --sourceful-gray-950: #030712;
+  --sourceful-orange: #FF6B00;
+  --sourceful-orange-50: #fff5eb;
+  --sourceful-orange-100: #ffe6cc;
+  --sourceful-orange-200: #ffc999;
+  --sourceful-orange-300: #ffa866;
+  --sourceful-orange-400: #ff8533;
+  --sourceful-orange-500: #FF6B00; /* Primary orange */
+  --sourceful-orange-600: #cc5600;
+  --sourceful-orange-700: #994000;
+  --sourceful-orange-800: #662b00;
+  --sourceful-orange-900: #4d2000;
 
   /* ----------------------------------------
-     Semantic Colors
+     Brand Colors - Red (Error/Destructive)
      ---------------------------------------- */
-  --sourceful-success: var(--sourceful-green-500);
-  --sourceful-warning: var(--sourceful-yellow-400);
-  --sourceful-error: #ef4444;
-  --sourceful-info: #3b82f6;
+  --sourceful-red: #FF0D0D;
+  --sourceful-red-50: #fff0f0;
+  --sourceful-red-100: #ffd9d9;
+  --sourceful-red-200: #ffb3b3;
+  --sourceful-red-300: #ff8080;
+  --sourceful-red-400: #ff4d4d;
+  --sourceful-red-500: #FF0D0D; /* Primary red */
+  --sourceful-red-600: #cc0a0a;
+  --sourceful-red-700: #990808;
+  --sourceful-red-800: #660505;
+  --sourceful-red-900: #4d0404;
+
+  /* ----------------------------------------
+     Brand Colors - Teal (Energetic Teal)
+     Adjusted for light/dark mode
+     ---------------------------------------- */
+  --sourceful-teal: #0D7377;
+  --sourceful-teal-50: #ecfeff;
+  --sourceful-teal-100: #cffafe;
+  --sourceful-teal-200: #a5f3fc;
+  --sourceful-teal-300: #67e8f9;
+  --sourceful-teal-400: #22d3ee;
+  --sourceful-teal-500: #14b8a6;
+  --sourceful-teal-600: #0D7377; /* Primary energetic teal */
+  --sourceful-teal-700: #0a5c5f;
+  --sourceful-teal-800: #084547;
+  --sourceful-teal-900: #052e2f;
+  --sourceful-teal-950: #021717;
+
+  /* ----------------------------------------
+     Brand Colors - Navy (Deep Blue)
+     ---------------------------------------- */
+  --sourceful-navy: #1E3A5F;
+  --sourceful-navy-50: #f0f5fa;
+  --sourceful-navy-100: #d9e4f0;
+  --sourceful-navy-200: #b3c9e0;
+  --sourceful-navy-300: #8daed1;
+  --sourceful-navy-400: #5c8bc2;
+  --sourceful-navy-500: #3a6ca3;
+  --sourceful-navy-600: #1E3A5F; /* Primary navy */
+  --sourceful-navy-700: #182e4c;
+  --sourceful-navy-800: #122339;
+  --sourceful-navy-900: #0c1726;
+
+  /* ----------------------------------------
+     Brand Colors - Blue (Info)
+     ---------------------------------------- */
+  --sourceful-blue: #2196F3;
+  --sourceful-blue-50: #e8f4fd;
+  --sourceful-blue-100: #c5e3fa;
+  --sourceful-blue-200: #90c9f6;
+  --sourceful-blue-300: #5bb0f1;
+  --sourceful-blue-400: #2196F3; /* Primary blue */
+  --sourceful-blue-500: #1976d2;
+  --sourceful-blue-600: #1565c0;
+  --sourceful-blue-700: #0d47a1;
+  --sourceful-blue-800: #0a3880;
+  --sourceful-blue-900: #072960;
+
+  /* ----------------------------------------
+     Neutral Colors - Gray Scale (from Figma)
+     ---------------------------------------- */
+  --sourceful-black: #000000;
+  --sourceful-gray-950: #0a0a0a;
+  --sourceful-gray-900: #171717;
+  --sourceful-gray-800: #262626;
+  --sourceful-gray-700: #3d3d3d;
+  --sourceful-gray-600: #525252;
+  --sourceful-gray-500: #737373;
+  --sourceful-gray-400: #a3a3a3;
+  --sourceful-gray-300: #d4d4d4;
+  --sourceful-gray-200: #e5e5e5;
+  --sourceful-gray-100: #f1f1f1;
+  --sourceful-gray-50: #fafafa;
+  --sourceful-white: #ffffff;
+
+  /* ----------------------------------------
+     Semantic Colors (Light Mode)
+     ---------------------------------------- */
+  --sourceful-success: var(--sourceful-green-600);
+  --sourceful-warning: var(--sourceful-orange-500);
+  --sourceful-error: var(--sourceful-red-500);
+  --sourceful-info: var(--sourceful-blue-400);
+  --sourceful-energy: var(--sourceful-yellow-400);
+  --sourceful-teal-semantic: var(--sourceful-teal-700); /* Darker for light mode */
 
   /* ----------------------------------------
      Spacing Scale
@@ -98,7 +182,7 @@
   /* ----------------------------------------
      Typography
      ---------------------------------------- */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
   /* ----------------------------------------
@@ -117,58 +201,216 @@
      ShadCN Semantic Tokens (Light Mode)
      ---------------------------------------- */
   --background: 0 0% 100%;
-  --foreground: 224 71% 4%;
+  --foreground: 0 0% 9%; /* Gray 900 */
   --card: 0 0% 100%;
-  --card-foreground: 224 71% 4%;
+  --card-foreground: 0 0% 9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 224 71% 4%;
-  --primary: 142 71% 45%; /* Sourceful Green 500 */
+  --popover-foreground: 0 0% 9%;
+  --primary: 142 76% 36%; /* Green #16a34a for light mode */
   --primary-foreground: 0 0% 100%;
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 220 9% 46%;
-  --muted: 220 14% 96%;
-  --muted-foreground: 220 9% 46%;
-  --accent: 48 96% 53%; /* Sourceful Yellow 400 */
-  --accent-foreground: 224 71% 4%;
-  --destructive: 0 84% 60%;
+  --secondary: 0 0% 95%; /* Gray 100 */
+  --secondary-foreground: 0 0% 32%; /* Gray 600 */
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 45%; /* Gray 500 */
+  --accent: 50 100% 50%; /* Yellow #FFD500 */
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 97% 53%; /* Red #FF0D0D */
   --destructive-foreground: 0 0% 100%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 142 71% 45%;
+  --border: 0 0% 90%; /* Gray 200 */
+  --input: 0 0% 90%;
+  --ring: 142 76% 36%; /* Green #16a34a */
   --radius: 0.5rem;
+
+  /* Semantic color tokens for light mode */
+  --success: 142 76% 36%; /* #16a34a for light bg */
+  --warning: 25 100% 50%; /* Orange */
+  --info: 207 90% 54%; /* Blue */
+  --energy: 50 100% 50%; /* Yellow */
+  --teal: 181 80% 26%; /* Darker teal for light bg */
 }
 
 .dark {
   /* ----------------------------------------
      ShadCN Semantic Tokens (Dark Mode)
      ---------------------------------------- */
-  --background: 0 0% 4%;
+  --background: 0 0% 4%; /* Gray 950 */
   --foreground: 0 0% 100%;
-  --card: 0 0% 8%;
+  --card: 0 0% 9%; /* Gray 900 */
   --card-foreground: 0 0% 100%;
-  --popover: 0 0% 8%;
+  --popover: 0 0% 9%;
   --popover-foreground: 0 0% 100%;
-  --primary: 142 71% 45%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 15%;
+  --primary: 151 100% 50%; /* Neon Green #00FF84 */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 15%; /* Gray 800 */
   --secondary-foreground: 0 0% 83%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 64%;
-  --accent: 48 96% 53%;
-  --accent-foreground: 0 0% 4%;
-  --destructive: 0 84% 60%;
+  --accent: 50 100% 50%; /* Yellow #FFD500 */
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 97% 53%; /* Red #FF0D0D */
   --destructive-foreground: 0 0% 100%;
   --border: 0 0% 15%;
   --input: 0 0% 15%;
-  --ring: 142 71% 45%;
+  --ring: 151 100% 50%; /* Neon Green */
+
+  /* Semantic color tokens for dark mode */
+  --success: 151 100% 50%; /* Bright neon green for dark bg */
+  --warning: 25 100% 50%; /* Orange */
+  --info: 207 90% 54%; /* Blue */
+  --energy: 50 100% 50%; /* Yellow */
+  --teal: 181 80% 40%; /* Brighter teal for dark bg */
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
+  /* Smooth theme transitions */
+  html {
+    transition-property: background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+
+@layer utilities {
+  /* Fade animations */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-fade-out {
+    animation: fadeOut 0.2s ease-in;
+  }
+
+  /* Scale animations */
+  .animate-scale-in {
+    animation: scaleIn 0.15s ease-out;
+  }
+
+  /* Slide animations */
+  .animate-slide-in-from-top {
+    animation: slideInFromTop 0.2s ease-out;
+  }
+
+  .animate-slide-in-from-bottom {
+    animation: slideInFromBottom 0.2s ease-out;
+  }
+
+  .animate-slide-in-from-left {
+    animation: slideInFromLeft 0.2s ease-out;
+  }
+
+  .animate-slide-in-from-right {
+    animation: slideInFromRight 0.2s ease-out;
+  }
+
+  /* Pulse animation for energy indicators */
+  .animate-energy-pulse {
+    animation: energyPulse 2s ease-in-out infinite;
+  }
+
+  /* Shimmer effect for loading states */
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted-foreground) / 0.1) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 8px hsl(var(--accent) / 0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }

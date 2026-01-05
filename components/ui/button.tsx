@@ -19,6 +19,13 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Sourceful custom variants
+        energy:
+          "bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500 active:scale-[0.98]",
+        success:
+          "bg-sourceful-green-500 text-white shadow hover:bg-sourceful-green-600 active:scale-[0.98]",
+        warning:
+          "bg-orange-500 text-white shadow hover:bg-orange-600 active:scale-[0.98]",
       },
       size: {
         default: "h-9 px-4 py-2",
