@@ -661,3 +661,28 @@
       rgba(34, 197, 94, 0.1) 360deg
     ) border-box;
 }
+
+/* React Flow dark mode styles */
+.dark .react-flow__controls {
+  background: #141414;
+  border: 1px solid #262626;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .react-flow__controls-button {
+  background: #141414;
+  border-bottom: 1px solid #262626;
+  fill: #a3a3a3;
+}
+
+.dark .react-flow__controls-button:hover {
+  background: #262626;
+}
+
+.dark .react-flow__controls-button svg {
+  fill: #a3a3a3;
+}
+
+.dark .react-flow__controls-button:hover svg {
+  fill: #ffffff;
+}

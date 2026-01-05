@@ -47,7 +47,7 @@ export default function Home() {
         {/* Dashboard Examples */}
         <section className="max-w-7xl mx-auto py-8 px-4 md:px-8">
           <Tabs defaultValue="sites" className="w-full">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-center mb-6">
               <TabsList className="h-10">
                 <TabsTrigger value="sites" className="gap-2">
                   <Map className="h-4 w-4" />

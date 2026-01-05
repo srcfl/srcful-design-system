@@ -63,6 +63,8 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
 
   const isOnline = data.status === "online";
 
+  const borderColor = isDarkMode ? "#262626" : "white";
+
   const getHandles = () => {
     switch (data.type) {
       case "solar":
@@ -75,7 +77,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
               background: "#22c55e",
               width: "12px",
               height: "12px",
-              border: "2px solid white",
+              border: `2px solid ${borderColor}`,
             }}
           />
         );
@@ -90,7 +92,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: "#facc15",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
               }}
             />
             <Handle
@@ -101,7 +103,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: "#facc15",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
               }}
             />
           </>
@@ -117,7 +119,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: isDarkMode ? "#404040" : "#3b82f6",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
               }}
             />
             <Handle
@@ -128,7 +130,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: isDarkMode ? "#404040" : "#3b82f6",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
               }}
             />
           </>
@@ -145,7 +147,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: "#22c55e",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
                 top: "30%",
               }}
             />
@@ -157,7 +159,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: "#facc15",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
                 top: "50%",
               }}
             />
@@ -169,7 +171,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
                 background: isDarkMode ? "#404040" : "#3b82f6",
                 width: "12px",
                 height: "12px",
-                border: "2px solid white",
+                border: `2px solid ${borderColor}`,
                 top: "70%",
               }}
             />
@@ -271,8 +273,8 @@ export function EnergyFlow({
         type: "battery",
         power: batteryPower,
         status: "online",
-        icon: <Battery className="h-3 w-3 text-sourceful-yellow-600" />,
-        bgColor: "bg-sourceful-yellow-100 dark:bg-sourceful-yellow-950",
+        icon: <Battery className="h-3 w-3 text-sourceful-yellow-600 dark:text-yellow-400" />,
+        bgColor: "bg-sourceful-yellow-100 dark:bg-yellow-500/20",
         batterySoC,
       },
     },
@@ -298,8 +300,8 @@ export function EnergyFlow({
         type: "home",
         power: homeConsumption,
         status: "online",
-        icon: <Home className="h-3 w-3 text-sourceful-gray-700 dark:text-sourceful-gray-400" />,
-        bgColor: "bg-sourceful-gray-100 dark:bg-sourceful-gray-900",
+        icon: <Home className="h-3 w-3 text-sourceful-gray-700 dark:text-sourceful-gray-300" />,
+        bgColor: "bg-sourceful-gray-100 dark:bg-sourceful-gray-800",
       },
     },
     {
@@ -315,7 +317,7 @@ export function EnergyFlow({
         bgColor: "bg-purple-100 dark:bg-purple-950",
       },
     },
-  ], [solarPower, batteryPower, gridImport, gridExport, homeConsumption, evCharging, batterySoC]);
+  ], [solarPower, batteryPower, gridImport, gridExport, homeConsumption, evCharging, batterySoC, isDarkMode]);
 
   const initialEdges: Edge[] = useMemo(() => {
     const edges: Edge[] = [];
@@ -329,6 +331,8 @@ export function EnergyFlow({
       const toBattery = batteryPower > 0 ? Math.min(remainingAfterEV, batteryPower) : 0;
       const toGrid = Math.max(0, remainingAfterEV - toBattery);
 
+      const labelBg = isDarkMode ? "#141414" : "#ffffff";
+
       if (toHome > 0) {
         edges.push({
           id: "solar-home",
@@ -341,6 +345,7 @@ export function EnergyFlow({
           style: { stroke: "#22c55e", strokeWidth: Math.max(2, Math.min(8, toHome / 500)) },
           label: formatPower(toHome),
           labelStyle: { fill: "#22c55e", fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: "#22c55e" },
         });
       }
@@ -356,6 +361,7 @@ export function EnergyFlow({
           style: { stroke: "#22c55e", strokeWidth: Math.max(2, Math.min(8, toBattery / 500)) },
           label: formatPower(toBattery),
           labelStyle: { fill: "#22c55e", fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: "#22c55e" },
         });
       }
@@ -371,6 +377,7 @@ export function EnergyFlow({
           style: { stroke: "#22c55e", strokeWidth: Math.max(2, Math.min(8, toEV / 500)) },
           label: formatPower(toEV),
           labelStyle: { fill: "#22c55e", fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: "#22c55e" },
         });
       }
@@ -386,6 +393,7 @@ export function EnergyFlow({
           style: { stroke: "#22c55e", strokeWidth: Math.max(2, Math.min(8, toGrid / 500)) },
           label: formatPower(toGrid),
           labelStyle: { fill: "#22c55e", fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: "#22c55e" },
         });
       }
@@ -395,6 +403,7 @@ export function EnergyFlow({
     if (batteryPower < 0) {
       const discharge = Math.abs(batteryPower);
       const toHome = Math.min(discharge, homeConsumption);
+      const labelBg = isDarkMode ? "#141414" : "#ffffff";
 
       if (toHome > 0) {
         edges.push({
@@ -408,6 +417,7 @@ export function EnergyFlow({
           style: { stroke: "#facc15", strokeWidth: Math.max(2, Math.min(8, toHome / 500)) },
           label: formatPower(toHome),
           labelStyle: { fill: "#facc15", fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: "#facc15" },
         });
       }
@@ -417,6 +427,7 @@ export function EnergyFlow({
     if (gridImport > 0) {
       const toHome = Math.min(gridImport, homeConsumption);
       const gridColor = isDarkMode ? "#404040" : "#3b82f6";
+      const labelBg = isDarkMode ? "#141414" : "#ffffff";
 
       if (toHome > 0) {
         edges.push({
@@ -430,6 +441,7 @@ export function EnergyFlow({
           style: { stroke: gridColor, strokeWidth: Math.max(2, Math.min(8, toHome / 500)) },
           label: formatPower(toHome),
           labelStyle: { fill: gridColor, fontWeight: 600 },
+          labelBgStyle: { fill: labelBg },
           markerEnd: { type: MarkerType.ArrowClosed, color: gridColor },
         });
       }
@@ -440,6 +452,15 @@ export function EnergyFlow({
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  // Update nodes and edges when dark mode or data changes
+  useEffect(() => {
+    setNodes(initialNodes);
+  }, [initialNodes, setNodes]);
+
+  useEffect(() => {
+    setEdges(initialEdges);
+  }, [initialEdges, setEdges]);
 
   return (
     <div className={cn("w-full h-[500px] rounded-lg border border-sourceful-gray-200 dark:border-[#1a1a1a]", className)}>
