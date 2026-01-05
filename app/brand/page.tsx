@@ -141,7 +141,7 @@ export default function BrandPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main className="flex-1 max-w-6xl mx-auto py-8 px-4 md:px-8 w-full">
+      <main className="flex-1 max-w-7xl mx-auto py-8 px-4 md:px-8 w-full">
         <div className="space-y-12">
           {/* Header */}
           <div>

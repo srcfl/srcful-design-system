@@ -10,7 +10,7 @@ export default function Home() {
 
       {/* Hero */}
       <main className="flex-1">
-        <section className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-6 pb-8 pt-24 md:pt-32 text-center px-4 md:px-8">
+        <section className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-8 pt-24 md:pt-32 text-center px-4 md:px-8">
           <div className="inline-flex items-center rounded-full border px-3 py-1 text-sm">
             <span className="mr-2">🌱</span>
             <span>Powering the distributed energy revolution</span>
@@ -38,7 +38,7 @@ export default function Home() {
         </section>
 
         {/* Features */}
-        <section className="max-w-6xl mx-auto py-16 px-4 md:px-8">
+        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/components" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
@@ -74,7 +74,7 @@ export default function Home() {
         </section>
 
         {/* Quick Start */}
-        <section className="max-w-6xl mx-auto py-16 border-t px-4 md:px-8">
+        <section className="max-w-7xl mx-auto py-16 border-t px-4 md:px-8">
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
           <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
             <pre>
@@ -90,7 +90,7 @@ import "@sourceful-energy/ui/styles.css"`}</code>
 
       {/* Footer */}
       <footer className="border-t py-6">
-        <div className="max-w-6xl mx-auto flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-8">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Sourceful Energy. Open source under MIT license.
           </p>
