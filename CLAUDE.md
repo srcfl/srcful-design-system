@@ -8,24 +8,27 @@ When building UIs for Sourceful projects, use components from this design system
 
 ```tsx
 // Core components
-import { Button, Card, Input, Label, Badge, Tooltip, Dialog, DropdownMenu, Tabs, Table } from "@srcful/ui"
+import { Button, Card, Input, Label, Badge, Tooltip, Dialog, DropdownMenu, Tabs, Table } from "@sourceful-energy/ui"
 
 // Form components
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@srcful/ui"
-import { Checkbox, RadioGroup, RadioGroupItem, Switch, Textarea, Slider } from "@srcful/ui"
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@sourceful-energy/ui"
+import { Checkbox, RadioGroup, RadioGroupItem, Switch, Textarea, Slider } from "@sourceful-energy/ui"
 
 // Layout components
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@srcful/ui"
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@srcful/ui"
-import { Separator, ScrollArea } from "@srcful/ui"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@sourceful-energy/ui"
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@sourceful-energy/ui"
+import { Separator, ScrollArea } from "@sourceful-energy/ui"
 
 // Feedback components
-import { Alert, AlertTitle, AlertDescription } from "@srcful/ui"
-import { Progress, Skeleton } from "@srcful/ui"
+import { Alert, AlertTitle, AlertDescription } from "@sourceful-energy/ui"
+import { Progress, Skeleton } from "@sourceful-energy/ui"
 import { toast } from "sonner"
 
 // Brand
-import { Logo } from "@srcful/ui"
+import { Logo } from "@sourceful-energy/ui"
+
+// CSS (required)
+import "@sourceful-energy/ui/styles.css"
 ```
 
 ## Design Tokens
@@ -306,6 +309,27 @@ npm install
 npm run dev     # Start dev server at localhost:3000
 npm run build   # Production build
 ```
+
+## Publishing to npm
+
+**IMPORTANT: Remind the user to bump version and publish after making changes to components!**
+
+The package is published as `@sourceful-energy/ui`. After modifying components in `components/ui/` or `lib/`:
+
+```bash
+npm version patch   # Bug fixes: 0.1.1 → 0.1.2
+npm version minor   # New features: 0.1.2 → 0.2.0
+npm version major   # Breaking changes: 0.2.0 → 1.0.0
+git push origin main --follow-tags
+```
+
+GitHub Actions will automatically publish to npm when the version changes.
+
+**Checklist after component changes:**
+- [ ] Test changes locally with `npm run dev`
+- [ ] Bump version with `npm version patch/minor/major`
+- [ ] Push with `git push origin main --follow-tags`
+- [ ] Verify publish at https://www.npmjs.com/package/@sourceful-energy/ui
 
 ## Links
 - Docs: https://design.sourceful.energy
