@@ -44,18 +44,29 @@ npm run dev
 npm run build
 ```
 
-## For AI Assistants
+## For Claude Code Users
 
-This design system includes machine-readable component schemas. Point your Claude Code `CLAUDE.md` to this repo for AI-assisted development:
+This design system is optimized for AI-assisted development. To use it in your projects:
 
-```markdown
-# My App
+### 1. Copy the template
 
-## Design System
-Uses Sourceful Design System: https://github.com/srcfl/srcful-design-system
+Copy [`CLAUDE.project-template.md`](./CLAUDE.project-template.md) to your project root as `CLAUDE.md`:
 
-See CLAUDE.md in that repo for component usage patterns.
+```bash
+curl -o CLAUDE.md https://raw.githubusercontent.com/srcfl/srcful-design-system/main/CLAUDE.project-template.md
 ```
+
+### 2. Install the package
+
+```bash
+npm install @sourceful-energy/ui
+```
+
+### 3. Start building
+
+Claude Code will automatically read your `CLAUDE.md` and use the design system for all UI work.
+
+See the [Claude Code setup guide](https://design.sourceful.energy/docs/claude-code) for more details.
 
 ## Structure
 

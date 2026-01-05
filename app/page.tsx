@@ -25,7 +25,7 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-24 pt-24 md:pt-32 md:pb-32 text-center px-4 md:px-8">
-            <div className="inline-flex items-center rounded-full bg-background/80 backdrop-blur-sm px-3 py-1 text-sm border-travel-animation">
+            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm border-travel-animation">
               <span className="mr-2">🌱</span>
               <span>Powering the distributed energy revolution</span>
             </div>
@@ -85,23 +85,23 @@ export default function Home() {
               </TabsList>
             </div>
 
-            <TabsContent value="sites" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+            <TabsContent value="sites" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <SitesOverviewExample />
             </TabsContent>
 
-            <TabsContent value="analytics" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+            <TabsContent value="analytics" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <AnalyticsDashboardExample />
             </TabsContent>
 
-            <TabsContent value="fleet" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+            <TabsContent value="fleet" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <FleetDashboardExample />
             </TabsContent>
 
-            <TabsContent value="monitor" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+            <TabsContent value="monitor" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <EnergyMonitorExample />
             </TabsContent>
 
-            <TabsContent value="ems" className="mt-0 focus-visible:outline-none focus-visible:ring-0" tabIndex={-1}>
+            <TabsContent value="ems" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <EMSDashboardExample />
             </TabsContent>
           </Tabs>
@@ -146,14 +146,33 @@ export default function Home() {
         {/* Quick Start */}
         <section className="max-w-7xl mx-auto py-16 border-t px-4 md:px-8">
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
-          <div className="rounded-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 p-4 font-mono text-sm text-sourceful-gray-900 dark:text-white overflow-x-auto border border-sourceful-gray-200 dark:border-transparent">
-            <pre>
-              <code>{`npm install @sourceful-energy/ui
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="font-semibold mb-3">1. Install the package</h3>
+              <div className="rounded-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 p-4 font-mono text-sm text-sourceful-gray-900 dark:text-white overflow-x-auto border border-sourceful-gray-200 dark:border-transparent">
+                <pre>
+                  <code>{`npm install @sourceful-energy/ui
 
 # Import in your app
 import { Button, Card, Input } from "@sourceful-energy/ui"
 import "@sourceful-energy/ui/styles.css"`}</code>
-            </pre>
+                </pre>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-3">2. Add Claude Code support</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Download our CLAUDE.md template so Claude Code automatically uses the design system:
+              </p>
+              <div className="rounded-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 p-4 font-mono text-sm text-sourceful-gray-900 dark:text-white overflow-x-auto border border-sourceful-gray-200 dark:border-transparent">
+                <code>curl -o CLAUDE.md https://raw.githubusercontent.com/srcfl/srcful-design-system/main/CLAUDE.project-template.md</code>
+              </div>
+              <p className="text-sm text-muted-foreground mt-3">
+                <Link href="/docs/claude-code" className="text-primary hover:underline">
+                  Learn more about Claude Code setup →
+                </Link>
+              </p>
+            </div>
           </div>
         </section>
       </main>
