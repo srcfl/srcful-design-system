@@ -122,3 +122,6 @@ export {
 
 // Utility functions
 export { cn } from "./utils";
+
+// Providers
+export { LenisProvider } from "../components/lenis-provider";

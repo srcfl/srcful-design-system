@@ -103,7 +103,7 @@ export function AIChat({
       </motion.div>
 
       {/* Messages Area */}
-      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto relative">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto relative" data-lenis-prevent>
         {/* Scroll fade gradient */}
         <AnimatePresence>
           {isScrolledUp && messages.length > 3 && (

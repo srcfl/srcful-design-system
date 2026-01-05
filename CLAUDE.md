@@ -27,6 +27,9 @@ import { toast } from "sonner"
 // Brand
 import { Logo } from "@sourceful-energy/ui"
 
+// Providers
+import { LenisProvider } from "@sourceful-energy/ui"
+
 // CSS (required)
 import "@sourceful-energy/ui/styles.css"
 ```
@@ -256,6 +259,30 @@ toast.success("Success", {
     <AccordionContent>Content here...</AccordionContent>
   </AccordionItem>
 </Accordion>
+```
+
+### LenisProvider (Smooth Scrolling)
+```tsx
+// Wrap your app with LenisProvider for smooth scrolling
+import { LenisProvider } from "@sourceful-energy/ui"
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        <LenisProvider>
+          {children}
+        </LenisProvider>
+      </body>
+    </html>
+  )
+}
+
+// For elements that need native scroll (sidebars, modals, etc.)
+// Add the data-lenis-prevent attribute
+<div className="overflow-y-auto" data-lenis-prevent>
+  {/* Content with native scrolling */}
+</div>
 ```
 
 ## Patterns
