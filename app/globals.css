@@ -270,8 +270,8 @@
   --secondary-foreground: 0 0% 32%; /* Gray 600 */
   --muted: 0 0% 95%;
   --muted-foreground: 0 0% 45%; /* Gray 500 */
-  --accent: 50 100% 50%; /* Yellow #FFD500 */
-  --accent-foreground: 0 0% 0%;
+  --accent: 142 40% 94%; /* Light green tint */
+  --accent-foreground: 142 76% 30%;
   --destructive: 0 97% 53%; /* Red #FF0D0D */
   --destructive-foreground: 0 0% 100%;
   --border: 0 0% 90%; /* Gray 200 */
@@ -303,8 +303,8 @@
   --secondary-foreground: 0 0% 83%;
   --muted: 0 0% 15%;
   --muted-foreground: 0 0% 64%;
-  --accent: 50 100% 50%; /* Yellow #FFD500 */
-  --accent-foreground: 0 0% 0%;
+  --accent: 142 30% 15%; /* Dark green tint */
+  --accent-foreground: 142 76% 70%;
   --destructive: 0 97% 53%; /* Red #FF0D0D */
   --destructive-foreground: 0 0% 100%;
   --border: 0 0% 15%;
