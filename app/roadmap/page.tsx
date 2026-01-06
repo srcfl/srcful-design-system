@@ -20,7 +20,7 @@ export default async function RoadmapPage() {
       <main className="flex-1">
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <div className="space-y-2 mb-8">
-            <h1 className="text-3xl font-bold tracking-tight">Roadmap</h1>
+            <h1 className="text-3xl font-bold tracking-tight">Design System Roadmap</h1>
             <p className="text-muted-foreground">
               See what we're working on and vote for features you'd like to see.
               All items are sourced from community feedback.
