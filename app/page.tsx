@@ -71,28 +71,28 @@ export default function Home() {
 
             {/* Claude Prompt */}
             <div
-              className="w-full max-w-2xl mt-6"
+              className="w-full max-w-md mt-6"
               onMouseEnter={() => setExpanded(true)}
               onMouseLeave={() => setExpanded(false)}
             >
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-sm text-foreground/70 mb-2">
                 AI assistant prompt - hover to expand
               </p>
               <div className="relative rounded-lg border bg-card text-left overflow-hidden cursor-pointer animate-pulse-glow">
                 <div
-                  className="transition-all duration-300 ease-in-out"
                   style={{
                     maxHeight: expanded ? '400px' : '2.5rem',
-                    opacity: 1
+                    transition: expanded ? 'max-height 400ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
                   }}
                 >
-                  <pre className="p-3 pr-12 text-xs text-muted-foreground whitespace-pre-wrap">
-                    {expanded ? CLAUDE_PROMPT : "Use the Sourceful Design System (@sourceful-energy/ui). Before making changes, ask me..."}
+                  <pre className="p-3 pr-12 text-xs text-foreground/70 whitespace-pre-wrap">
+                    {CLAUDE_PROMPT}
                   </pre>
                 </div>
-                {!expanded && (
-                  <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-card to-transparent pointer-events-none" />
-                )}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-card to-transparent pointer-events-none transition-opacity duration-200"
+                  style={{ opacity: expanded ? 0 : 1 }}
+                />
                 <Button
                   variant="ghost"
                   size="sm"
