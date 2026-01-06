@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "The Zap Gateway",
+  description: "€39 device with 200ms local response. Connect your smart meter, solar, battery, and EV charger. Offline-capable, protocol-agnostic.",
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
+import { MarketingFooter } from "@/components/marketing-footer";
 import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu, ExternalLink } from "lucide-react";
 
 export default function ZapPage() {
@@ -265,16 +272,7 @@ export default function ZapPage() {
         </section>
       </main>
 
-      <footer className="border-t py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Sourceful Energy</p>
-          <div className="flex gap-4">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Home</Link>
-            <Link href="/platform" className="text-sm text-muted-foreground hover:text-foreground">Platform</Link>
-            <Link href="/developers" className="text-sm text-muted-foreground hover:text-foreground">Developers</Link>
-          </div>
-        </div>
-      </footer>
+      <MarketingFooter />
     </div>
   );
 }

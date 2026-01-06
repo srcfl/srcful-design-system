@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "For Homeowners",
+  description: "Cut energy bills with real-time pricing, peak demand shaving, and V2X. One €39 device for solar, battery, EV, and smart home coordination.",
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
+import { MarketingFooter } from "@/components/marketing-footer";
 import {
   ArrowRight,
   Home,
@@ -368,16 +375,7 @@ export default function HomeownersPage() {
         </section>
       </main>
 
-      <footer className="border-t py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Sourceful Energy</p>
-          <div className="flex gap-4">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">Home</Link>
-            <Link href="/use-cases/utilities" className="text-sm text-muted-foreground hover:text-foreground">Utilities</Link>
-            <Link href="/use-cases/installers" className="text-sm text-muted-foreground hover:text-foreground">Installers</Link>
-          </div>
-        </div>
-      </footer>
+      <MarketingFooter />
     </div>
   );
 }

@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Developers",
+  description: "Build energy apps with 200ms response times. API-first platform, comprehensive docs, and active community support.",
+};
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
+import { MarketingFooter } from "@/components/marketing-footer";
 import {
   ArrowRight,
   ExternalLink,
@@ -341,25 +348,7 @@ export default function DevelopersPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sourceful Energy
-          </p>
-          <div className="flex gap-4">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
-              Home
-            </Link>
-            <a href="https://github.com/srcfl" className="text-sm text-muted-foreground hover:text-foreground">
-              GitHub
-            </a>
-            <a href="https://discord.gg/srcful" className="text-sm text-muted-foreground hover:text-foreground">
-              Discord
-            </a>
-          </div>
-        </div>
-      </footer>
+      <MarketingFooter />
     </div>
   );
 }
