@@ -196,18 +196,12 @@ export function SearchTrigger({
     <button
       onClick={onClick}
       className={cn(
-        "group relative flex h-9 w-full items-center gap-2 rounded-lg border border-input bg-background px-3 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-accent-foreground md:w-60 lg:w-72",
+        "inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-accent-foreground",
         className
       )}
+      aria-label="Search"
     >
-      <Search className="h-4 w-4 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" />
-      <span className="hidden flex-1 text-left lg:inline-block">
-        Search...
-      </span>
-      <span className="flex-1 text-left lg:hidden">Search</span>
-      <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-        <span className="text-xs">⌘</span>K
-      </kbd>
+      <Search className="h-4 w-4" />
     </button>
   );
 }

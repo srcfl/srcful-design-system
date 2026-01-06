@@ -48,11 +48,10 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="max-w-7xl mx-auto flex h-14 items-center gap-4 px-4 md:px-8">
-          <MobileNav />
-
           <div className="flex shrink-0">
             <Link href="/" className="flex items-center space-x-2">
-              <Logo variant="full" size="sm" />
+              <Logo variant="full" size="xs" className="md:hidden" />
+              <Logo variant="full" size="sm" className="hidden md:block" />
             </Link>
           </div>
 
@@ -76,24 +75,27 @@ export function SiteHeader() {
           <div className="flex flex-1 items-center justify-end gap-2">
             <SearchTrigger onClick={() => setSearchOpen(true)} />
 
-            {mounted && (
-              <Button variant="ghost" size="icon" onClick={toggleTheme}>
-                {theme === "light" ? (
-                  <Moon className="h-4 w-4" />
-                ) : (
-                  <Sun className="h-4 w-4" />
-                )}
+            <div className="hidden md:flex items-center gap-2">
+              {mounted && (
+                <Button variant="ghost" size="icon" onClick={toggleTheme}>
+                  {theme === "light" ? (
+                    <Moon className="h-4 w-4" />
+                  ) : (
+                    <Sun className="h-4 w-4" />
+                  )}
+                </Button>
+              )}
+              <Button variant="ghost" size="icon" asChild>
+                <a
+                  href="https://github.com/srcfl/srcful-design-system"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
               </Button>
-            )}
-            <Button variant="ghost" size="icon" asChild>
-              <a
-                href="https://github.com/srcfl/srcful-design-system"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-            </Button>
+            </div>
+            <MobileNav />
           </div>
         </div>
       </header>

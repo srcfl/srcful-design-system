@@ -46,13 +46,13 @@ export default function Home() {
               Components, tokens, and guidelines for building consistent, accessible
               interfaces across Sourceful Energy products.
             </p>
-            <div className="flex gap-4 pt-4">
-              <Button asChild size="lg">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <Button asChild size="lg" className="min-w-[200px] sm:min-w-0">
                 <Link href="/docs">
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="min-w-[200px] sm:min-w-0">
                 <Link href="/components">
                   Browse Components
                 </Link>
@@ -67,27 +67,27 @@ export default function Home() {
             <div className="flex items-center justify-center mb-6">
               <TabsList className="h-10">
                 <TabsTrigger value="sites" className="gap-2">
-                  <Map className="h-4 w-4" />
+                  <Map className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">Sites Overview</span>
                   <span className="sm:hidden">Sites</span>
                 </TabsTrigger>
                 <TabsTrigger value="analytics" className="gap-2">
-                  <BarChart3 className="h-4 w-4" />
+                  <BarChart3 className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">Analytics</span>
                   <span className="sm:hidden">Charts</span>
                 </TabsTrigger>
                 <TabsTrigger value="fleet" className="gap-2">
-                  <Table2 className="h-4 w-4" />
+                  <Table2 className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">Fleet</span>
                   <span className="sm:hidden">Table</span>
                 </TabsTrigger>
                 <TabsTrigger value="monitor" className="gap-2">
-                  <Activity className="h-4 w-4" />
+                  <Activity className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">Energy Monitor</span>
                   <span className="sm:hidden">Monitor</span>
                 </TabsTrigger>
                 <TabsTrigger value="ems" className="gap-2">
-                  <Cpu className="h-4 w-4" />
+                  <Cpu className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">Energy Management</span>
                   <span className="sm:hidden">EMS</span>
                 </TabsTrigger>
