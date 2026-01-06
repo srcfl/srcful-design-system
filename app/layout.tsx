@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { LenisProvider } from "@/components/lenis-provider";
+import { AuthProvider } from "@/components/auth-provider";
 
 const satoshi = localFont({
   src: [
@@ -46,17 +47,19 @@ export default function RootLayout({
           jetbrainsMono.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <LenisProvider>
-            {children}
-          </LenisProvider>
-          <Toaster />
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange={false}
+          >
+            <LenisProvider>
+              {children}
+            </LenisProvider>
+            <Toaster />
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

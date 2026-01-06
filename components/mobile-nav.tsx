@@ -15,12 +15,14 @@ import {
 } from "@/components/ui/sheet";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
+import { FeedbackButton } from "@/components/feedback-button";
 
 const navItems = [
   { href: "/docs", label: "Docs" },
   { href: "/components", label: "Components" },
   { href: "/brand", label: "Brand" },
   { href: "/changelog", label: "Changelog" },
+  { href: "/roadmap", label: "Roadmap" },
 ];
 
 export function MobileNav() {
@@ -64,6 +66,7 @@ export function MobileNav() {
           ))}
         </nav>
         <div className="flex items-center gap-2 mt-8 pt-8 border-t">
+          <FeedbackButton />
           <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {theme === "light" ? (
               <Moon className="h-5 w-5" />
