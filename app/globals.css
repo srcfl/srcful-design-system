@@ -613,6 +613,19 @@
   100% { background-position: -200% 0; }
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px hsl(var(--primary) / 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
 /* CSS Houdini property for animating conic-gradient angle */
 @property --angle {
   syntax: '<angle>';

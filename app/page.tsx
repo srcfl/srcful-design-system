@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins } from "lucide-react";
+import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Copy, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import StackIcon from "@/components/ui/stack-icon";
 import PaintIcon from "@/components/ui/paint-icon";
@@ -17,10 +17,31 @@ import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
 import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
 
+const CLAUDE_PROMPT = `Use the Sourceful Design System (@sourceful-energy/ui).
+
+Before making changes, ask me:
+1. New project or existing codebase?
+2. Full reskin or selective component replacement?
+
+Then fetch the full setup guide:
+https://raw.githubusercontent.com/srcfl/srcful-design-system/main/CLAUDE.project-template.md
+
+Critical: Import @sourceful-energy/ui/styles.css BEFORE globals.css (order matters).
+
+Docs: https://design.sourceful.energy`;
+
 export default function Home() {
   const stackIconRef = useRef<AnimatedIconHandle>(null);
   const paintIconRef = useRef<AnimatedIconHandle>(null);
   const bookIconRef = useRef<AnimatedIconHandle>(null);
+  const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const copyPrompt = async () => {
+    await navigator.clipboard.writeText(CLAUDE_PROMPT);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -47,15 +68,59 @@ export default function Home() {
               Components, tokens, and guidelines for building consistent, accessible
               interfaces across Sourceful Energy products.
             </p>
+
+            {/* Claude Prompt */}
+            <div
+              className="w-full max-w-2xl mt-6"
+              onMouseEnter={() => setExpanded(true)}
+              onMouseLeave={() => setExpanded(false)}
+            >
+              <p className="text-sm text-muted-foreground mb-2">
+                AI assistant prompt - hover to expand
+              </p>
+              <div className="relative rounded-lg border bg-card text-left overflow-hidden cursor-pointer animate-pulse-glow">
+                <div
+                  className="transition-all duration-300 ease-in-out"
+                  style={{
+                    maxHeight: expanded ? '400px' : '2.5rem',
+                    opacity: 1
+                  }}
+                >
+                  <pre className="p-3 pr-12 text-xs text-muted-foreground whitespace-pre-wrap">
+                    {expanded ? CLAUDE_PROMPT : "Use the Sourceful Design System (@sourceful-energy/ui). Before making changes, ask me..."}
+                  </pre>
+                </div>
+                {!expanded && (
+                  <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="absolute top-1.5 right-1.5 h-7 w-7 p-0"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyPrompt();
+                  }}
+                >
+                  {copied ? (
+                    <Check className="h-3.5 w-3.5 text-primary" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
+                  <span className="sr-only">Copy prompt</span>
+                </Button>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-              <Button asChild size="lg" className="min-w-[200px] sm:min-w-0">
+              <Button asChild variant="outline" size="lg" className="min-w-[200px] sm:min-w-0">
                 <Link href="/docs">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  Documentation
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="min-w-[200px] sm:min-w-0">
                 <Link href="/components">
-                  Browse Components
+                  Components
                 </Link>
               </Button>
             </div>
@@ -63,7 +128,7 @@ export default function Home() {
         </section>
 
         {/* Dashboard Examples */}
-        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
+        <section className="max-w-7xl mx-auto pt-8 pb-16 px-4 md:px-8">
           <Tabs defaultValue="sites" className="w-full">
             <div className="flex items-center justify-center mb-6 overflow-x-auto">
               <TabsList className="h-10">
