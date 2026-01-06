@@ -630,6 +630,22 @@ After each change:
 - Wrap app in `ThemeProvider` with `attribute="class"`
 - Check that `.dark` class toggles on `<html>` element
 
+**Missing responsive utilities (lg:flex, md:grid-cols-2, etc.):**
+The design system CSS includes components and tokens, but only includes Tailwind utilities used by the design system docs. Your project needs its own Tailwind setup:
+
+```css
+/* globals.css */
+@import "@sourceful-energy/ui/styles.css";  /* Components + tokens */
+@tailwind utilities;  /* Project generates its own utilities */
+```
+
+```ts
+// tailwind.config.ts - scan your project files
+export default {
+  content: ["./app/**/*.tsx", "./components/**/*.tsx"],
+}
+```
+
 **Conflicting styles:**
 - Design system uses Tailwind - if project also uses Tailwind, ensure configs don't conflict
 - Check for duplicate `@tailwind base` directives

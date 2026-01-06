@@ -118,6 +118,24 @@ When migrating existing components to the design system:
 - Add `suppressHydrationWarning` to `<html>` tag
 - Wrap app in `ThemeProvider` with `attribute="class"`
 
+**Missing responsive utilities (lg:flex, md:grid-cols-2, etc.):**
+The design system CSS includes components and tokens, but only includes Tailwind utilities used by the design system itself. Your project needs its own Tailwind setup to generate utilities for your code.
+
+```css
+/* globals.css */
+@import "@sourceful-energy/ui/styles.css";  /* Components + tokens */
+@tailwind utilities;  /* Your project generates its own utilities */
+```
+
+Your project's `tailwind.config` should scan your own files:
+```ts
+// tailwind.config.ts
+export default {
+  content: ["./app/**/*.tsx", "./components/**/*.tsx"],
+  // ... rest of config
+}
+```
+
 ## Project-Specific Notes
 
 <!-- Add your project-specific context below -->
