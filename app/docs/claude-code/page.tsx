@@ -112,20 +112,70 @@ export default function ClaudeCodePage() {
 
       <div className="space-y-4">
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
-          Existing Projects
+          Reskinning Existing Projects
         </h2>
         <p className="leading-7">
-          For existing projects that don&apos;t use the design system yet:
+          For existing projects that don&apos;t use the design system yet, the CLAUDE.md template includes
+          specific guidelines to ensure Claude doesn&apos;t break your existing code.
         </p>
-        <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-          <li>Follow the setup steps above</li>
-          <li>Ask Claude to &quot;migrate this component to use @sourceful-energy/ui&quot;</li>
-          <li>Review and test the changes</li>
-          <li>Repeat for other components as needed</li>
-        </ol>
-        <p className="text-sm text-muted-foreground mt-2">
+
+        <div className="space-y-4 mt-4">
+          <h3 className="font-semibold text-lg">Critical: CSS Import Order</h3>
+          <p className="text-muted-foreground">
+            The design system CSS <strong>must</strong> be imported before your project&apos;s globals.css:
+          </p>
+          <div className="rounded-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 border border-sourceful-gray-200 dark:border-transparent p-4 font-mono text-sm text-sourceful-gray-900 dark:text-white overflow-x-auto">
+            <pre><code>{`// In your root layout - ORDER MATTERS
+import "@sourceful-energy/ui/styles.css"  // FIRST
+import "./globals.css"                     // SECOND`}</code></pre>
+          </div>
+        </div>
+
+        <div className="space-y-4 mt-4">
+          <h3 className="font-semibold text-lg">What Claude Will Do</h3>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Replace UI primitives (buttons, cards, inputs) with design system components</li>
+            <li>Use semantic color tokens like <code className="bg-muted px-1.5 py-0.5 rounded text-sm">text-foreground</code> and <code className="bg-muted px-1.5 py-0.5 rounded text-sm">bg-background</code></li>
+            <li>Preserve existing page structure, layouts, and routing</li>
+            <li>Work incrementally - one component type at a time</li>
+          </ul>
+        </div>
+
+        <div className="space-y-4 mt-4">
+          <h3 className="font-semibold text-lg">What Claude Won&apos;t Do</h3>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+            <li>Change page layouts, routing, or component hierarchy</li>
+            <li>Remove or reorganize page sections</li>
+            <li>Delete code assuming it&apos;s unused</li>
+            <li>Override design system CSS variables</li>
+          </ul>
+        </div>
+
+        <p className="text-sm text-muted-foreground mt-4">
           You don&apos;t need to migrate everything at once. The design system components can coexist with existing code.
         </p>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Troubleshooting
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-semibold">Unstyled components / CSS variables undefined</h3>
+            <ul className="list-disc list-inside space-y-1 text-muted-foreground mt-2">
+              <li>Verify <code className="bg-muted px-1.5 py-0.5 rounded text-sm">@sourceful-energy/ui/styles.css</code> is imported FIRST</li>
+              <li>Check package version is 0.1.22+: <code className="bg-muted px-1.5 py-0.5 rounded text-sm">npm list @sourceful-energy/ui</code></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold">Dark mode not working</h3>
+            <ul className="list-disc list-inside space-y-1 text-muted-foreground mt-2">
+              <li>Add <code className="bg-muted px-1.5 py-0.5 rounded text-sm">suppressHydrationWarning</code> to the <code className="bg-muted px-1.5 py-0.5 rounded text-sm">&lt;html&gt;</code> tag</li>
+              <li>Wrap app in <code className="bg-muted px-1.5 py-0.5 rounded text-sm">ThemeProvider</code> with <code className="bg-muted px-1.5 py-0.5 rounded text-sm">attribute=&quot;class&quot;</code></li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="rounded-lg border bg-primary/5 p-4">

@@ -508,6 +508,132 @@ GitHub Actions will automatically publish to npm when the version changes.
 - [ ] Push with `git push origin main --follow-tags`
 - [ ] Verify publish at https://www.npmjs.com/package/@sourceful-energy/ui
 
+## Using the Design System in Other Projects
+
+### For AI Assistants: Setup & Integration Guide
+
+When working on a project that uses `@sourceful-energy/ui`, follow these requirements carefully.
+
+#### Critical Setup (New Projects)
+
+```tsx
+// 1. Install the package
+npm install @sourceful-energy/ui
+
+// 2. In your root layout (app/layout.tsx or pages/_app.tsx)
+import "@sourceful-energy/ui/styles.css"  // MUST be first - contains CSS variables
+import "./globals.css"                     // Project styles second
+
+// 3. Add ThemeProvider for dark mode
+import { ThemeProvider } from "next-themes"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+#### Critical Setup (Existing Projects / Reskinning)
+
+**Before making any changes, verify:**
+```bash
+# Check package version (must be 0.1.22+)
+npm list @sourceful-energy/ui
+
+# Find where CSS is imported
+grep -rn "@sourceful-energy/ui/styles" . --include="*.tsx" --include="*.ts"
+```
+
+**Common issues to fix:**
+1. **CSS import order** - Design system CSS must load BEFORE project's globals.css
+2. **Duplicate Tailwind** - If project has its own Tailwind config, it may conflict
+3. **Missing ThemeProvider** - Required for dark mode to work
+
+#### Reskinning Guidelines
+
+**DO:**
+- Replace UI primitives (buttons, cards, inputs) with design system components
+- Use semantic color tokens: `text-foreground`, `bg-background`, `text-primary`, `bg-muted`
+- Preserve existing page structure, layouts, and routing
+- Keep all functional logic intact
+- Work incrementally: replace one component type, verify it works, then continue
+- Test dark mode after changes (add/remove `dark` class on `<html>`)
+
+**DO NOT:**
+- Change page layouts, routing, or component hierarchy
+- Remove or reorganize page sections
+- Add new features beyond what's requested
+- Delete code assuming it's unused
+- Override design system CSS variables (unless intentionally theming)
+- Remove existing Tailwind classes that handle layout (flex, grid, spacing)
+
+#### Component Replacement Mapping
+
+| Replace this | With this |
+|-------------|-----------|
+| Custom buttons | `<Button variant="...">` |
+| Custom cards/panels | `<Card>`, `<CardHeader>`, `<CardContent>` |
+| Custom inputs | `<Input>`, `<Textarea>`, `<Select>` |
+| Custom modals | `<Dialog>` |
+| Custom tooltips | `<Tooltip>` |
+| Custom dropdowns | `<DropdownMenu>` or `<Select>` |
+| Custom tabs | `<Tabs>` or `<SimpleTabs>` |
+| Custom alerts | `<Alert variant="...">` |
+| Custom badges/tags | `<Badge variant="...">` |
+
+#### Color Token Usage
+
+```tsx
+// Text colors
+className="text-foreground"        // Primary text
+className="text-muted-foreground"  // Secondary/subtle text
+className="text-primary"           // Brand green
+className="text-destructive"       // Error red
+
+// Background colors
+className="bg-background"          // Page background
+className="bg-card"                // Card/elevated surfaces
+className="bg-muted"               // Subtle backgrounds
+className="bg-primary"             // Brand green background
+className="bg-destructive"         // Error background
+
+// Border colors
+className="border-border"          // Default borders
+className="border-input"           // Form input borders
+```
+
+#### Verification Checklist
+
+After each change:
+- [ ] Page renders without errors
+- [ ] No console warnings about missing CSS variables
+- [ ] Dark mode works (toggle `dark` class on `<html>`)
+- [ ] Interactive elements (buttons, inputs) are functional
+- [ ] Existing functionality still works
+
+#### Troubleshooting
+
+**"CSS variables not defined" / unstyled components:**
+- Verify `@sourceful-energy/ui/styles.css` is imported FIRST
+- Check package version is 0.1.22 or later
+- Ensure no CSS is overriding `:root` variables
+
+**Dark mode not working:**
+- Add `suppressHydrationWarning` to `<html>` tag
+- Wrap app in `ThemeProvider` with `attribute="class"`
+- Check that `.dark` class toggles on `<html>` element
+
+**Conflicting styles:**
+- Design system uses Tailwind - if project also uses Tailwind, ensure configs don't conflict
+- Check for duplicate `@tailwind base` directives
+
 ## Links
 - Docs: https://design.sourceful.energy
 - GitHub: https://github.com/srcfl/srcful-design-system
