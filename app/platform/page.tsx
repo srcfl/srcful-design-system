@@ -299,7 +299,7 @@ export default function PlatformPage() {
           <div className="max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-8">
             <div className="text-center mb-8">
               <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                Integrated with leading energy brands
+                Works with the brands you already own
               </p>
             </div>
             <PartnerLogoCarousel speed={35} />
