@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Company",
-  description: "The last-mile problem nobody's solving. €3M seed raised to build the coordination layer for distributed energy.",
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, Zap, TrendingUp, Network, Globe, Building2, Mail, ExternalLink } from "lucide-react";
 
 export default function CompanyPage() {
+  const t = useTranslations("company");
+  const tCommon = useTranslations("common");
   const investors = [
     { name: "Crucible Capital", type: "Lead" },
     { name: "Eviny Ventures", type: "Lead" },
@@ -68,18 +68,17 @@ export default function CompanyPage() {
         <section className="relative overflow-hidden border-b bg-background">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-4xl">
+            <FadeIn className="max-w-4xl">
               <Badge variant="secondary" className="mb-6">
                 <Building2 className="h-3 w-3 mr-1" />
-                Company
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
-                The last-mile problem{" "}
-                <span className="text-primary">nobody's solving</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-6 text-left">
-                Renewable energy costs have dropped 90%. Solar is on every roof.
-                EVs are in every garage. The generation problem is solved.
+                {t("hero.description")}
               </p>
               <p className="text-xl text-muted-foreground mb-8 text-left">
                 But energy coordination is still broken. The grid can't talk to your
@@ -89,7 +88,7 @@ export default function CompanyPage() {
               <p className="text-xl font-medium text-left">
                 The coordination layer is missing. We're building it.
               </p>
-            </div>
+            </FadeIn>
           </div>
         </section>
 

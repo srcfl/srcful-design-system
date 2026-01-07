@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Community",
-  description: "Join the Sourceful community. Connect with developers, installers, and energy enthusiasts building the future of distributed energy.",
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, Users, MessageSquare, Github, ExternalLink, Book, Headphones, Heart } from "lucide-react";
 
 export default function CommunityPage() {
+  const t = useTranslations("community");
+  const tCommon = useTranslations("common");
   const channels = [
     {
       icon: MessageSquare,
@@ -64,18 +64,17 @@ export default function CommunityPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-3xl">
+            <FadeIn className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <Users className="h-3 w-3 mr-1" />
-                Community
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Build the future of energy{" "}
-                <span className="text-primary">together</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Join a community of developers, installers, and energy enthusiasts
-                who are building the local execution layer for distributed energy.
+                {t("hero.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
@@ -91,7 +90,7 @@ export default function CommunityPage() {
                   </a>
                 </Button>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </section>
 

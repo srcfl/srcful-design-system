@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "Building the local energy coordination layer. A team of engineers obsessed with making distributed energy work at the speed physics demands.",
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, Zap, Users, Globe, Target } from "lucide-react";
 
 export default function AboutPage() {
+  const t = useTranslations("about");
+  const tCommon = useTranslations("common");
   const values = [
     {
       title: "Physics Before Code",
@@ -52,20 +52,19 @@ export default function AboutPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-3xl">
+            <FadeIn className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <Users className="h-3 w-3 mr-1" />
-                About Us
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Building the local energy{" "}
-                <span className="text-primary">coordination layer</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                We're a team of engineers obsessed with a simple problem: how do you
-                coordinate millions of distributed energy devices at the speed physics demands?
+                {t("hero.description")}
               </p>
-            </div>
+            </FadeIn>
           </div>
         </section>
 

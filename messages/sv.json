@@ -442,5 +442,93 @@
       "title": "Ser du inte din hårdvara?",
       "description": "Vi lägger ständigt till nya integrationer. Kontakta oss för att begära stöd för din specifika utrustning eller kolla utvecklardokumentationen för anpassade integrationer."
     }
+  },
+  "about": {
+    "hero": {
+      "badge": "Om oss",
+      "title": "Vi bygger det lokala",
+      "titleHighlight": "energikoordineringslagret",
+      "description": "Vi är ett team av ingenjörer besatta av ett enkelt problem: hur koordinerar man miljontals distribuerade energienheter i den hastighet fysiken kräver?"
+    }
+  },
+  "company": {
+    "hero": {
+      "badge": "Företag",
+      "title": "Sista-milen-problemet",
+      "titleHighlight": "ingen löser",
+      "description": "Förnybar energi har blivit 90% billigare. Solpaneler finns på varje tak. Elbilar i varje garage. Produktionsproblemet är löst."
+    }
+  },
+  "community": {
+    "hero": {
+      "badge": "Community",
+      "title": "Bygg framtidens energi",
+      "titleHighlight": "tillsammans",
+      "description": "Gå med i en community av utvecklare, installatörer och energientusiaster som bygger det lokala exekveringslagret för distribuerad energi."
+    }
+  },
+  "developers": {
+    "hero": {
+      "badge": "Utvecklarplattform",
+      "title": "Bygg energiappar som",
+      "titleHighlight": "faktiskt svarar",
+      "description": "Moln-API:er tar 2-5 sekunder. Nätfrekvensen måste balanseras varje sekund. Vårt lokala exekveringslager ger dig hastigheten du behöver för att bygga riktiga energiapplikationer."
+    }
+  },
+  "tools": {
+    "hero": {
+      "badge": "Gratisverktyg",
+      "title": "Energi-",
+      "titleHighlight": "kalkylatorer & verktyg",
+      "description": "Planera din energilösning med våra gratis kalkylatorer. Uppskatta besparingar, dimensionera ditt system och förstå ekonomin i distribuerad energi."
+    },
+    "cta": {
+      "title": "Behöver du en anpassad beräkning?",
+      "description": "Vårt team kan ge detaljerad analys för din specifika energilösning. Kontakta oss för en personlig bedömning.",
+      "button": "Kontakta oss"
+    },
+    "comingSoon": "Kommer snart",
+    "calculator": {
+      "title": "Energibesparingskalkylator",
+      "description": "Uppskatta dina potentiella besparingar med solenergi, batterilagring och smart energihantering i Sverige.",
+      "badge": "Gratisverktyg",
+      "calculate": "Beräkna mina besparingar",
+      "location": "Plats & förbrukning",
+      "region": "Elområde",
+      "avgPrice": "Snittpris",
+      "consumption": "Årlig förbrukning (kWh)",
+      "consumptionNote": "Genomsnittligt svenskt hem: 15 000-20 000 kWh",
+      "solar": "Solcellsinstallation",
+      "solarSize": "Solcellssystemets storlek",
+      "solarProduction": "Uppskattad produktion",
+      "battery": "Batterilagring",
+      "batteryCapacity": "Batterikapacitet",
+      "ev": "Elbil",
+      "evDistance": "Årlig körsträcka",
+      "results": {
+        "title": "Dina uppskattade årliga besparingar",
+        "unlock": "Lås upp dina fullständiga resultat",
+        "unlockDescription": "Ange din e-post för att se din detaljerade besparingsanalys och få personliga rekommendationer.",
+        "name": "Namn (valfritt)",
+        "email": "E-post",
+        "getResults": "Visa mina resultat",
+        "privacy": "Vi respekterar din integritet. Ingen spam, avregistrera när som helst.",
+        "totalSavings": "Totala årliga besparingar",
+        "perYear": "per år",
+        "solarProduction": "Solproduktion",
+        "co2Reduction": "CO2-minskning",
+        "paybackPeriod": "Återbetalningstid",
+        "totalInvestment": "Total investering",
+        "breakdown": "Besparingsöversikt",
+        "selfConsumed": "Egenförbrukad solel",
+        "gridExport": "Intäkt från nätexport",
+        "batteryArbitrage": "Batteriarbitrage",
+        "smartCharging": "Smart elbilsladdning",
+        "readyToSave": "Redo att börja spara?",
+        "readyDescription": "Skaffa Zap gateway för att låsa upp smart energihantering och börja optimera ditt system.",
+        "disclaimer": "* Dessa uppskattningar baseras på genomsnittlig data och dina faktiska besparingar kan variera beroende på din specifika installation, användningsmönster och elpriser. Priserna som visas är exempel och återspeglar kanske inte aktuella marknadsförhållanden."
+      }
+    },
+    "moreTools": "Fler energiverktyg"
   }
 }

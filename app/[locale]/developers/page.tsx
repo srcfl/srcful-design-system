@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Developers",
-  description: "Build energy apps with 200ms response times. API-first platform, comprehensive docs, and active community support.",
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { FadeIn } from "@/components/animations";
 import {
   ArrowRight,
   ExternalLink,
@@ -25,6 +23,9 @@ import {
 } from "lucide-react";
 
 export default function DevelopersPage() {
+  const t = useTranslations("developers");
+  const tCommon = useTranslations("common");
+
   const tools = [
     {
       icon: Terminal,
@@ -93,35 +94,33 @@ export default function DevelopersPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-3xl">
+            <FadeIn className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <Code className="h-3 w-3 mr-1" />
-                Developer Platform
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Build energy apps that{" "}
-                <span className="text-primary">actually respond</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Cloud APIs are 2-5 seconds. Grid frequency must balance every second.
-                Our local execution layer gives you the speed you need to build
-                real energy applications.
+                {t("hero.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                    Open Dev Portal
+                    {tCommon("buttons.openDevPortal")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
-                    Join Discord
+                    {tCommon("buttons.joinDiscord")}
                     <MessageSquare className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -234,7 +233,7 @@ export default function DevelopersPage() {
                 </ul>
                 <Button asChild>
                   <a href="https://developer.sourceful.energy/api" target="_blank" rel="noopener noreferrer">
-                    View API Docs
+                    {tCommon("buttons.viewDocs")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -285,7 +284,7 @@ export default function DevelopersPage() {
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Button asChild>
                         <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
-                          Join Discord
+                          {tCommon("buttons.joinDiscord")}
                           <ExternalLink className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
@@ -333,13 +332,13 @@ export default function DevelopersPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
                 <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                  Get Started
+                  {tCommon("buttons.getStarted")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                  Get a Zap
+                  {tCommon("buttons.getTheZap")}
                   <Zap className="ml-2 h-4 w-4" />
                 </a>
               </Button>

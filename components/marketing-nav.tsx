@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Menu, ChevronDown, ExternalLink } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
@@ -23,6 +24,8 @@ import {
 import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function MarketingNav() {
+  const t = useTranslations("common.nav");
+  const tButtons = useTranslations("common.buttons");
   const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,22 +45,22 @@ export function MarketingNav() {
 
   const products = [
     {
-      name: "Platform",
+      name: t("platform"),
       href: "/platform",
       description: "Local energy coordination infrastructure",
     },
     {
-      name: "The Zap",
+      name: t("zap"),
       href: "/zap",
       description: "€39 gateway with 200ms response",
     },
   ];
 
   const useCases = [
-    { name: "Homeowners", href: "/use-cases/homeowners" },
-    { name: "Utilities", href: "/use-cases/utilities" },
-    { name: "OEMs", href: "/use-cases/oems" },
-    { name: "Installers", href: "/use-cases/installers" },
+    { name: t("homeowners"), href: "/use-cases/homeowners" },
+    { name: t("utilities"), href: "/use-cases/utilities" },
+    { name: t("oems"), href: "/use-cases/oems" },
+    { name: t("installers"), href: "/use-cases/installers" },
   ];
 
   const developers = [
@@ -113,7 +116,7 @@ export function MarketingNav() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="gap-1">
-                Developers
+                {t("developers")}
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -142,7 +145,7 @@ export function MarketingNav() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="gap-1">
-                Use Cases
+                {t("useCases")}
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -157,12 +160,12 @@ export function MarketingNav() {
 
           {/* About Link */}
           <Button variant="ghost" asChild>
-            <Link href="/about">About</Link>
+            <Link href="/about">{t("about")}</Link>
           </Button>
 
           {/* Company Link */}
           <Button variant="ghost" asChild>
-            <Link href="/company">Company</Link>
+            <Link href="/contact">{t("contact")}</Link>
           </Button>
         </div>
 
@@ -195,7 +198,7 @@ export function MarketingNav() {
             </Button>
             <Button asChild>
               <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                Get the Zap
+                {tButtons("getTheZap")}
               </a>
             </Button>
           </div>
@@ -231,7 +234,7 @@ export function MarketingNav() {
 
                 {/* Developers */}
                 <div>
-                  <h3 className="font-semibold mb-3">Developers</h3>
+                  <h3 className="font-semibold mb-3">{t("developers")}</h3>
                   <div className="space-y-2">
                     {developers.map((item) => (
                       item.external ? (
@@ -262,7 +265,7 @@ export function MarketingNav() {
 
                 {/* Use Cases */}
                 <div>
-                  <h3 className="font-semibold mb-3">Use Cases</h3>
+                  <h3 className="font-semibold mb-3">{t("useCases")}</h3>
                   <div className="space-y-2">
                     {useCases.map((item) => (
                       <Link
@@ -283,16 +286,16 @@ export function MarketingNav() {
                   className="font-semibold hover:text-primary"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  About
+                  {t("about")}
                 </Link>
 
-                {/* Company */}
+                {/* Contact */}
                 <Link
-                  href="/company"
+                  href="/contact"
                   className="font-semibold hover:text-primary"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Company
+                  {t("contact")}
                 </Link>
 
                 {/* CTA Buttons */}
@@ -304,7 +307,7 @@ export function MarketingNav() {
                   </Button>
                   <Button className="w-full" asChild>
                     <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                      Get the Zap
+                      {tButtons("getTheZap")}
                     </a>
                   </Button>
                 </div>

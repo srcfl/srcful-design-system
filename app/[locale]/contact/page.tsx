@@ -1,17 +1,19 @@
-import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Sourceful Energy. Partnership inquiries, investor relations, and support.",
-};
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { ContactForm } from "@/components/contact-form";
+import { FadeIn } from "@/components/animations";
 import { Mail, MessageSquare, MapPin, Building2 } from "lucide-react";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
+  const tCommon = useTranslations("common");
+
   const contacts = [
     {
       icon: Building2,
@@ -42,20 +44,18 @@ export default function ContactPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-3xl">
+            <FadeIn className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <Mail className="h-3 w-3 mr-1" />
-                Contact
+                {tCommon("nav.contact")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
-                Let's talk
+                {t("title")}
               </h1>
               <p className="text-xl text-muted-foreground text-left">
-                Whether you're a utility looking to unlock distributed flexibility,
-                an installer wanting to offer smart energy solutions, or just curious
-                about what we're building—we'd love to hear from you.
+                {t("description")}
               </p>
-            </div>
+            </FadeIn>
           </div>
         </section>
 

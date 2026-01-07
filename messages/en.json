@@ -442,5 +442,93 @@
       "title": "Don't see your hardware?",
       "description": "We're constantly adding new integrations. Contact us to request support for your specific equipment or check the developer docs for custom integrations."
     }
+  },
+  "about": {
+    "hero": {
+      "badge": "About Us",
+      "title": "Building the local energy",
+      "titleHighlight": "coordination layer",
+      "description": "We're a team of engineers obsessed with a simple problem: how do you coordinate millions of distributed energy devices at the speed physics demands?"
+    }
+  },
+  "company": {
+    "hero": {
+      "badge": "Company",
+      "title": "The last-mile problem",
+      "titleHighlight": "nobody's solving",
+      "description": "Renewable energy costs have dropped 90%. Solar is on every roof. EVs are in every garage. The generation problem is solved."
+    }
+  },
+  "community": {
+    "hero": {
+      "badge": "Community",
+      "title": "Build the future of energy",
+      "titleHighlight": "together",
+      "description": "Join a community of developers, installers, and energy enthusiasts who are building the local execution layer for distributed energy."
+    }
+  },
+  "developers": {
+    "hero": {
+      "badge": "Developer Platform",
+      "title": "Build energy apps that",
+      "titleHighlight": "actually respond",
+      "description": "Cloud APIs are 2-5 seconds. Grid frequency must balance every second. Our local execution layer gives you the speed you need to build real energy applications."
+    }
+  },
+  "tools": {
+    "hero": {
+      "badge": "Free Tools",
+      "title": "Energy",
+      "titleHighlight": "Calculators & Tools",
+      "description": "Plan your energy setup with our free calculators. Estimate savings, size your system, and understand the economics of distributed energy."
+    },
+    "cta": {
+      "title": "Need a custom calculation?",
+      "description": "Our team can provide detailed analysis for your specific energy setup. Contact us for a personalized assessment.",
+      "button": "Contact Us"
+    },
+    "comingSoon": "Coming Soon",
+    "calculator": {
+      "title": "Energy Savings Calculator",
+      "description": "Estimate your potential savings with solar, battery storage, and smart energy management in Sweden.",
+      "badge": "Free Tool",
+      "calculate": "Calculate My Savings",
+      "location": "Location & Consumption",
+      "region": "Electricity Region",
+      "avgPrice": "Avg price",
+      "consumption": "Annual Consumption (kWh)",
+      "consumptionNote": "Average Swedish home: 15,000-20,000 kWh",
+      "solar": "Solar Installation",
+      "solarSize": "Solar System Size",
+      "solarProduction": "Estimated production",
+      "battery": "Battery Storage",
+      "batteryCapacity": "Battery Capacity",
+      "ev": "Electric Vehicle",
+      "evDistance": "Annual Driving Distance",
+      "results": {
+        "title": "Your Estimated Annual Savings",
+        "unlock": "Unlock Your Full Results",
+        "unlockDescription": "Enter your email to see your detailed savings breakdown and get personalized recommendations.",
+        "name": "Name (optional)",
+        "email": "Email",
+        "getResults": "Get My Results",
+        "privacy": "We respect your privacy. No spam, unsubscribe anytime.",
+        "totalSavings": "Total Annual Savings",
+        "perYear": "per year",
+        "solarProduction": "Solar Production",
+        "co2Reduction": "CO2 Reduction",
+        "paybackPeriod": "Payback Period",
+        "totalInvestment": "Total investment",
+        "breakdown": "Savings Breakdown",
+        "selfConsumed": "Self-consumed solar",
+        "gridExport": "Grid export revenue",
+        "batteryArbitrage": "Battery arbitrage",
+        "smartCharging": "Smart EV charging",
+        "readyToSave": "Ready to start saving?",
+        "readyDescription": "Get the Zap gateway to unlock smart energy management and start optimizing your system.",
+        "disclaimer": "* These estimates are based on average data and your actual savings may vary based on your specific setup, usage patterns, and electricity prices. Prices shown are examples and may not reflect current market conditions."
+      }
+    },
+    "moreTools": "More Energy Tools"
   }
 }
