@@ -4,6 +4,21 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.1.22] - 2026-01-07
+
+### Added
+- **component**: Add expandable AI prompt to homepage with copy button
+- **component**: Add community feedback system with GitHub OAuth
+
+### Changed
+- **docs**: Add troubleshooting for missing responsive utilities
+- **docs**: Add comprehensive AI integration guide for using design system
+
+### Fixed
+- **component**: Improve AI prompt box UX and styling
+
+
 ## [0.1.21] - 2026-01-06
 
 ### Added
