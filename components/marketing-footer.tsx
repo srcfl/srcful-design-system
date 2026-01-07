@@ -10,12 +10,21 @@ export function MarketingFooter() {
   return (
     <footer className="border-t py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
           <div>
             <h4 className="font-semibold mb-4">{t("product")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/platform" className="hover:text-foreground">{t("platform")}</Link></li>
               <li><Link href="/zap" className="hover:text-foreground">{t("zap")}</Link></li>
+              <li><Link href="/integrations" className="hover:text-foreground">{t("integrations")}</Link></li>
+              <li><Link href="/v2x" className="hover:text-foreground">V2X</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">{t("tools")}</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/tools" className="hover:text-foreground">{t("allTools")}</Link></li>
+              <li><Link href="/tools/savings-calculator" className="hover:text-foreground">{t("savingsCalculator")}</Link></li>
             </ul>
           </div>
           <div>

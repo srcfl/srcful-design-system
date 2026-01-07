@@ -35,7 +35,10 @@
       "terms": "Terms of Service",
       "cookies": "Cookie Policy",
       "copyright": "Sourceful Energy. All rights reserved.",
-      "disclaimer": "This platform may involve blockchain-based reward mechanisms. Participation in reward programs does not constitute an investment and should not be interpreted as a promise of financial returns. All rewards are subject to program terms and local regulations."
+      "disclaimer": "This platform may involve blockchain-based reward mechanisms. Participation in reward programs does not constitute an investment and should not be interpreted as a promise of financial returns. All rewards are subject to program terms and local regulations.",
+      "tools": "Tools",
+      "allTools": "All Tools",
+      "savingsCalculator": "Savings Calculator"
     },
     "buttons": {
       "getStarted": "Get Started",

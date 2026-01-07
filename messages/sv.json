@@ -35,7 +35,10 @@
       "terms": "Användarvillkor",
       "cookies": "Cookiepolicy",
       "copyright": "Sourceful Energy. Alla rättigheter förbehållna.",
-      "disclaimer": "Denna plattform kan involvera blockkedjebaserade belöningssystem. Deltagande i belöningsprogram utgör inte en investering och ska inte tolkas som ett löfte om ekonomisk avkastning. Alla belöningar omfattas av programvillkor och lokala regelverk."
+      "disclaimer": "Denna plattform kan involvera blockkedjebaserade belöningssystem. Deltagande i belöningsprogram utgör inte en investering och ska inte tolkas som ett löfte om ekonomisk avkastning. Alla belöningar omfattas av programvillkor och lokala regelverk.",
+      "tools": "Verktyg",
+      "allTools": "Alla verktyg",
+      "savingsCalculator": "Besparingskalkylator"
     },
     "buttons": {
       "getStarted": "Kom igång",
