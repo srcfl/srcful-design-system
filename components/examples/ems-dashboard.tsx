@@ -100,7 +100,7 @@ function AutomationPriorities() {
         </div>
       </CardHeader>
       <CardContent className="pb-3">
-        <Reorder.Group axis="y" values={priorities} onReorder={autoOptimize ? undefined : setPriorities} className={`space-y-2 ${autoOptimize ? "opacity-60 pointer-events-none" : ""}`}>
+        <Reorder.Group axis="y" values={priorities} onReorder={autoOptimize ? () => {} : setPriorities} className={`space-y-2 ${autoOptimize ? "opacity-60 pointer-events-none" : ""}`}>
           {priorities.map((item, index) => (
             <Reorder.Item
               key={item.id}
