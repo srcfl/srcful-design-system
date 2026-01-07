@@ -8,12 +8,14 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard } from "lucide-react";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
 import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
 import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
+import { PartnerLogoCarousel } from "@/components/partner-logo-carousel";
 
 export default function Home() {
   const stats = [
@@ -67,57 +69,67 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-0 h-32 hero-gradient" />
 
           <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-16 pt-24 md:pt-32 md:pb-24 text-center px-4 md:px-8">
-            <Badge variant="outline" className="border-primary/50">
-              <span className="mr-2">⚡</span>
-              Local Energy Coordination Infrastructure
-            </Badge>
+            <FadeIn delay={0}>
+              <Badge variant="outline" className="border-primary/50">
+                <span className="mr-2">⚡</span>
+                Local Energy Coordination Infrastructure
+              </Badge>
+            </FadeIn>
 
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl">
-              The physical rails that make{" "}
-              <span className="text-primary">distributed energy</span>{" "}
-              actually work
-            </h1>
+            <FadeIn delay={0.1}>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl">
+                The physical rails that make{" "}
+                <span className="text-primary">distributed energy</span>{" "}
+                actually work
+              </h1>
+            </FadeIn>
 
-            <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
-              Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second.
-              We build the local execution layer that bridges this gap—giving utilities and
-              homeowners actual control over distributed energy.
-            </p>
+            <FadeIn delay={0.2}>
+              <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
+                Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second.
+                We build the local execution layer that bridges this gap—giving utilities and
+                homeowners actual control over distributed energy.
+              </p>
+            </FadeIn>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-              <Button size="lg" asChild>
-                <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                  Start Building
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                  Get the Zap
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                <Button size="lg" asChild>
+                  <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
+                    Start Building
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                    Get the Zap
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
         {/* Stats */}
         <section className="border-y bg-muted/30">
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
               {stats.map((stat) => (
-                <div key={stat.value} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-                </div>
+                <StaggerItem key={stat.value}>
+                  <div className="text-center">
+                    <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Dashboard Demo */}
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-          <div className="text-center mb-12">
+          <FadeIn className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">Platform Preview</Badge>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               Real-time energy coordination
@@ -125,7 +137,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Monitor sites, analyze performance, manage fleets, and automate energy optimization—all from one platform.
             </p>
-          </div>
+          </FadeIn>
 
           <Tabs defaultValue="sites" className="w-full">
             <div className="flex items-center justify-center mb-6 overflow-x-auto">
@@ -187,37 +199,39 @@ export default function Home() {
         {/* Audiences */}
         <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <div className="text-center mb-12">
+            <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 Built for the energy ecosystem
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 From utilities managing grid flexibility to developers building the next energy app.
               </p>
-            </div>
+            </FadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6" staggerDelay={0.1}>
               {audiences.map((audience) => {
                 const Icon = audience.icon;
                 return (
-                  <Link key={audience.title} href={audience.href} className="no-underline hover:no-underline">
-                    <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
-                      <CardHeader>
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <CardTitle>{audience.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription className="text-base">
-                          {audience.description}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                  <StaggerItem key={audience.title}>
+                    <Link href={audience.href} className="no-underline hover:no-underline block h-full">
+                      <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
+                        <CardHeader>
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <Icon className="h-6 w-6 text-primary" />
+                          </div>
+                          <CardTitle>{audience.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription className="text-base">
+                            {audience.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </StaggerItem>
                 );
               })}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -365,6 +379,18 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Partner Logos */}
+        <section className="border-t">
+          <div className="max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-8">
+            <div className="text-center mb-8">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
+                Trusted by leading energy companies
+              </p>
+            </div>
+            <PartnerLogoCarousel speed={40} />
           </div>
         </section>
 

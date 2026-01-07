@@ -60,10 +60,10 @@ export default function InstallersPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <a href="mailto:partners@sourceful.energy">
+                  <Link href="/contact">
                     Become a Partner
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/zap">
@@ -230,10 +230,10 @@ export default function InstallersPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <a href="mailto:partners@sourceful.energy">
+                <Link href="/contact">
                   Become a Partner
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">

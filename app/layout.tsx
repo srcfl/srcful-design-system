@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { LenisProvider } from "@/components/lenis-provider";
 import { AuthProvider } from "@/components/auth-provider";
+import { IntercomProvider } from "@/components/intercom-provider";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const satoshi = localFont({
   src: [
@@ -80,8 +82,11 @@ export default function RootLayout({
             disableTransitionOnChange={false}
           >
             <LenisProvider>
-              {children}
+              <IntercomProvider>
+                {children}
+              </IntercomProvider>
             </LenisProvider>
+            <CookieConsent />
             <Toaster />
           </ThemeProvider>
         </AuthProvider>

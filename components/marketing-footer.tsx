@@ -56,6 +56,16 @@ export function MarketingFooter() {
             </a>
           </div>
         </div>
+
+        {/* Disclaimer */}
+        <div className="border-t mt-8 pt-6">
+          <p className="text-xs text-muted-foreground/70 text-center max-w-4xl mx-auto">
+            This platform may involve blockchain-based reward mechanisms. Nothing on this website constitutes financial,
+            investment, or legal advice. There is no promise, representation, or guarantee of returns.
+            Participation in any reward program is entirely at your own risk. Please consult qualified
+            professionals before making any financial decisions.
+          </p>
+        </div>
       </div>
     </footer>
   );

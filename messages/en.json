@@ -1,0 +1,446 @@
+{
+  "common": {
+    "nav": {
+      "platform": "Platform",
+      "zap": "Zap",
+      "useCases": "Use Cases",
+      "developers": "Developers",
+      "integrations": "Integrations",
+      "about": "About",
+      "contact": "Contact",
+      "getStarted": "Get Started",
+      "homeowners": "Homeowners",
+      "utilities": "Utilities",
+      "installers": "Installers",
+      "oems": "OEMs"
+    },
+    "footer": {
+      "product": "Product",
+      "company": "Company",
+      "resources": "Resources",
+      "legal": "Legal",
+      "platform": "Platform",
+      "zap": "Zap Gateway",
+      "integrations": "Integrations",
+      "pricing": "Pricing",
+      "about": "About",
+      "community": "Community",
+      "careers": "Careers",
+      "contact": "Contact",
+      "docs": "Documentation",
+      "api": "API Reference",
+      "support": "Support",
+      "discord": "Discord",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "copyright": "Sourceful Energy. All rights reserved.",
+      "disclaimer": "This platform may involve blockchain-based reward mechanisms. Participation in reward programs does not constitute an investment and should not be interpreted as a promise of financial returns. All rewards are subject to program terms and local regulations."
+    },
+    "buttons": {
+      "getStarted": "Get Started",
+      "learnMore": "Learn More",
+      "contactSales": "Contact Sales",
+      "startBuilding": "Start Building",
+      "getTheZap": "Get the Zap",
+      "orderNow": "Order Now",
+      "joinWaitlist": "Join Waitlist",
+      "viewDocs": "View Docs",
+      "openDevPortal": "Open Dev Portal",
+      "joinDiscord": "Join Discord",
+      "scheduledDemo": "Schedule Demo"
+    },
+    "currency": {
+      "symbol": "€",
+      "code": "EUR"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Local Energy Coordination Infrastructure",
+      "title": "The physical rails that make",
+      "titleHighlight": "distributed energy",
+      "titleEnd": "actually work",
+      "description": "Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second. We build the local execution layer that bridges this gap—giving utilities and homeowners actual control over distributed energy."
+    },
+    "stats": {
+      "destroyed": "Destroyed annually in coordination failures",
+      "negativeHours": "Hours of negative electricity pricing",
+      "responseTime": "Local response time (vs 2-5s cloud)",
+      "zapCost": "Zap gateway cost"
+    },
+    "dashboard": {
+      "badge": "Platform Preview",
+      "title": "Real-time energy coordination",
+      "description": "Monitor sites, analyze performance, manage fleets, and automate energy optimization—all from one platform.",
+      "tabs": {
+        "sites": "Sites Overview",
+        "analytics": "Analytics",
+        "fleet": "Fleet",
+        "monitor": "Energy Monitor",
+        "automate": "Automate",
+        "savings": "Savings"
+      }
+    },
+    "audiences": {
+      "title": "Built for the energy ecosystem",
+      "description": "From utilities managing grid flexibility to developers building the next energy app.",
+      "homeowners": {
+        "title": "Homeowners",
+        "description": "Cut energy bills with real-time pricing, peak shaving, and V2X. One device for all your energy needs."
+      },
+      "utilities": {
+        "title": "Utilities",
+        "description": "Enable grid services at scale with local execution. Partner with us to unlock distributed flexibility."
+      },
+      "oems": {
+        "title": "OEMs",
+        "description": "Integrate 200ms local control into EV chargers, batteries, and inverters. Protocol-agnostic."
+      },
+      "installers": {
+        "title": "Installers",
+        "description": "Offer smart energy solutions to your customers. Simple integration, recurring revenue."
+      },
+      "developers": {
+        "title": "Developers",
+        "description": "Build on our platform. API-first design, comprehensive docs, active community."
+      }
+    },
+    "developers": {
+      "badge": "For Developers",
+      "title": "API-first platform for energy applications",
+      "description": "Build energy apps that respond in milliseconds, not seconds. Our local execution layer handles the physics while you focus on the experience.",
+      "features": {
+        "rest": "RESTful API with WebSocket support",
+        "protocols": "Protocol-agnostic: P1, Modbus, MQTT, OCPP",
+        "webhooks": "Comprehensive webhooks for real-time events",
+        "community": "Active Discord community for support"
+      }
+    },
+    "zap": {
+      "badge": "Hardware",
+      "title": "The Zap Gateway",
+      "description": "Local execution at the edge. 200ms response time, offline-capable, compatible with 180M EU smart meters. The missing link between cloud platforms and physical energy infrastructure.",
+      "features": {
+        "response": "200ms local response time",
+        "offline": "Offline-capable with local decision making",
+        "protocols": "P1, Modbus, MQTT, OCPP protocols",
+        "sovereignty": "Data sovereignty—stays local"
+      }
+    },
+    "partners": {
+      "title": "Trusted by leading energy companies"
+    },
+    "community": {
+      "title": "Join the Community",
+      "description": "Connect with developers, get support, and shape the future of distributed energy."
+    }
+  },
+  "platform": {
+    "hero": {
+      "badge": "Platform",
+      "title": "Local energy coordination",
+      "titleHighlight": "infrastructure",
+      "description": "The software layer that makes distributed energy actually work. Local execution for speed. Cloud intelligence for optimization. The best of both worlds."
+    },
+    "preview": {
+      "badge": "Platform Preview",
+      "title": "See the platform in action",
+      "description": "Explore interactive dashboards showing real-time energy coordination, fleet management, and analytics."
+    },
+    "architecture": {
+      "title": "Three-layer architecture",
+      "description": "Local execution where speed matters. Cloud intelligence where it adds value.",
+      "edge": {
+        "title": "Edge Layer",
+        "subtitle": "The Zap Gateway",
+        "description": "Local execution in 200ms. Offline-capable, protocol-agnostic, data sovereign. Runs automations without cloud dependency.",
+        "features": ["200ms response", "Offline mode", "Local storage"]
+      },
+      "coordination": {
+        "title": "Coordination Layer",
+        "subtitle": "Sourceful Platform",
+        "description": "Aggregates devices, optimizes energy flows, and interfaces with grid operators. The brain of the operation.",
+        "features": ["Fleet management", "Optimization", "Grid services"]
+      },
+      "cloud": {
+        "title": "Cloud Layer",
+        "subtitle": "Analytics & Intelligence",
+        "description": "Long-term analytics, machine learning, and reporting. The cloud does what cloud does best.",
+        "features": ["ML predictions", "Reporting", "Integrations"]
+      }
+    },
+    "localExecution": {
+      "title": "Why local execution matters",
+      "description1": "Grid frequency must balance every second. Cloud APIs respond in 2-5 seconds. This gap is unbridgeable through software optimization alone.",
+      "description2": "Our platform pushes execution to the edge. The Zap gateway responds in 200ms, works offline, and keeps data local. The cloud handles what cloud does best: analytics, optimization, and coordination at scale.",
+      "localResponse": "Local response",
+      "cloudResponse": "Cloud response",
+      "protocols": "Supported protocols",
+      "metersNote": "Compatible with 180M EU smart meters today. More integrations coming."
+    },
+    "capabilities": {
+      "title": "Platform capabilities",
+      "description": "Everything you need to manage and optimize distributed energy assets.",
+      "deviceManagement": {
+        "title": "Device Management",
+        "description": "Register, monitor, and control all connected devices from a single dashboard. Real-time status and remote firmware updates."
+      },
+      "energyOptimization": {
+        "title": "Energy Optimization",
+        "description": "Automatic load balancing, peak shaving, and arbitrage. AI-powered scheduling based on prices, weather, and usage patterns."
+      },
+      "gridServices": {
+        "title": "Grid Services",
+        "description": "Participate in frequency response, demand flexibility, and ancillary services. TSO certifications included."
+      },
+      "analytics": {
+        "title": "Analytics & Reporting",
+        "description": "Real-time insights, historical analysis, and compliance reporting. Export to any format."
+      },
+      "whiteLabel": {
+        "title": "White-label Ready",
+        "description": "Your brand, our infrastructure. Full customization for partners including mobile apps and dashboards."
+      },
+      "api": {
+        "title": "API First",
+        "description": "Everything accessible via REST API and WebSockets. Build your own experiences on top of our infrastructure."
+      }
+    },
+    "partners": {
+      "title": "Integrated with leading energy brands"
+    },
+    "pricing": {
+      "title": "Simple, aligned pricing",
+      "description": "Platform-only model. We succeed when you succeed.",
+      "saas": {
+        "title": "SaaS Licensing",
+        "price": "€5-10",
+        "unit": "Per device per year"
+      },
+      "gridServices": {
+        "title": "Grid Services",
+        "price": "15-25%",
+        "unit": "Revenue share margin"
+      },
+      "api": {
+        "title": "API Access",
+        "price": "Usage",
+        "unit": "Based pricing"
+      }
+    },
+    "cta": {
+      "title": "Ready to see it in action?",
+      "description": "Schedule a demo or explore the developer documentation."
+    }
+  },
+  "zap": {
+    "hero": {
+      "badge": "Hardware",
+      "title": "The Zap Gateway",
+      "description": "Local execution at the edge. 200ms response time, offline-capable, protocol-agnostic. The missing piece that makes distributed energy actually work.",
+      "price": "€39",
+      "priceNote": "Free shipping to EU"
+    },
+    "features": {
+      "title": "Why the Zap?",
+      "description": "Cloud platforms respond in 2-5 seconds. Grid frequency must balance every second. The Zap bridges this gap with local execution.",
+      "speed": {
+        "title": "200ms Response",
+        "description": "Local execution means real-time control. No cloud latency, no network dependencies."
+      },
+      "offline": {
+        "title": "Offline Capable",
+        "description": "Keeps working when internet goes down. Essential for critical energy infrastructure."
+      },
+      "protocols": {
+        "title": "Protocol Agnostic",
+        "description": "P1, Modbus RTU/TCP, MQTT, OCPP 1.6/2.0. Works with your existing equipment."
+      },
+      "sovereignty": {
+        "title": "Data Sovereignty",
+        "description": "Your energy data stays local. Choose what to share with the cloud."
+      }
+    },
+    "specs": {
+      "title": "Technical Specifications",
+      "processor": "Processor",
+      "memory": "Memory",
+      "storage": "Storage",
+      "connectivity": "Connectivity",
+      "power": "Power",
+      "dimensions": "Dimensions"
+    },
+    "v2x": {
+      "badge": "Coming Soon",
+      "title": "V2X: Your car as a power plant",
+      "description": "Turn your EV into a home battery. Export power during peak prices, charge when it's cheap or free. Early access available in 2026.",
+      "benefits": {
+        "earn": {
+          "title": "Earn While Parked",
+          "description": "Your EV can export power during peak prices, earning you money while you sleep or work."
+        },
+        "backup": {
+          "title": "Home Backup",
+          "description": "Keep your lights on during outages. A typical EV battery can power a home for days."
+        },
+        "optimize": {
+          "title": "Smart Charging",
+          "description": "Automatically charge when prices are low or negative. Save up to 70% on charging costs."
+        }
+      },
+      "chargers": {
+        "title": "Compatible V2X Chargers",
+        "note": "V2X requires a compatible bidirectional charger. We're working with these partners:"
+      },
+      "waitlist": {
+        "title": "Get Early Access",
+        "description": "Be among the first to turn your EV into a power plant. Early access rolling out in 2026.",
+        "placeholder": "Enter your email",
+        "button": "Join Waitlist",
+        "success": "You're on the list! We'll notify you when V2X launches.",
+        "privacy": "We respect your privacy. No spam, ever."
+      }
+    },
+    "compatibility": {
+      "title": "Works with your existing hardware",
+      "description": "The Zap integrates with leading inverters, EV chargers, batteries, and smart meters.",
+      "viewAll": "View all integrations"
+    },
+    "cta": {
+      "title": "Ready to take control of your energy?",
+      "description": "Get the Zap and start optimizing today. Free shipping to all EU countries."
+    }
+  },
+  "useCases": {
+    "homeowners": {
+      "hero": {
+        "badge": "For Homeowners",
+        "title": "Take control of your",
+        "titleHighlight": "energy costs",
+        "description": "Cut bills with real-time pricing, automate solar & battery, and prepare for V2X. One device, complete control."
+      }
+    },
+    "utilities": {
+      "hero": {
+        "badge": "For Utilities",
+        "title": "Unlock distributed",
+        "titleHighlight": "flexibility",
+        "description": "Enable grid services at scale with local execution. 200ms response time for frequency regulation, demand response, and more."
+      }
+    },
+    "installers": {
+      "hero": {
+        "badge": "For Installers",
+        "title": "Smart energy for your",
+        "titleHighlight": "customers",
+        "description": "Differentiate with smart energy solutions. Simple integration, recurring revenue, happy customers."
+      }
+    },
+    "oems": {
+      "hero": {
+        "badge": "For OEMs",
+        "title": "Embedded",
+        "titleHighlight": "intelligence",
+        "description": "Integrate 200ms local control into your EV chargers, batteries, and inverters. Protocol-agnostic, white-label ready."
+      }
+    }
+  },
+  "v2x": {
+    "hero": {
+      "badge": "V2X Technology",
+      "title": "Your EV is a",
+      "titleHighlight": "power plant",
+      "description": "Vehicle-to-Everything (V2X) turns your electric car into a mobile energy asset. Export power to your home, sell to the grid, and earn while parked."
+    },
+    "stats": {
+      "capacity": "Avg. EV battery capacity",
+      "savings": "Annual savings potential",
+      "backup": "Days of home backup"
+    },
+    "benefits": {
+      "title": "Why V2X?",
+      "description": "Your EV battery is 5-10x larger than a typical home battery. V2X unlocks its full potential.",
+      "earn": {
+        "title": "Earn While Parked",
+        "description": "Export power during peak prices. A typical EV can earn €500-1000/year from grid services."
+      },
+      "backup": {
+        "title": "Home Backup Power",
+        "description": "A 60 kWh EV battery can power an average home for 2-3 days during outages."
+      },
+      "optimize": {
+        "title": "Optimize Charging",
+        "description": "Charge when prices are low or negative. Save up to 70% on charging costs."
+      },
+      "grid": {
+        "title": "Support the Grid",
+        "description": "Help balance renewable energy by storing excess solar and wind power."
+      }
+    },
+    "howItWorks": {
+      "title": "How V2X Works",
+      "description": "The Zap gateway enables bidirectional power flow between your EV and home.",
+      "steps": {
+        "connect": {
+          "title": "Connect",
+          "description": "Plug your EV into a V2X-compatible charger"
+        },
+        "optimize": {
+          "title": "Optimize",
+          "description": "Zap automatically manages charging and discharging"
+        },
+        "earn": {
+          "title": "Earn",
+          "description": "Get paid for grid services and peak shaving"
+        }
+      }
+    },
+    "compatibility": {
+      "title": "Compatible Chargers",
+      "description": "V2X requires a bidirectional charger. We're working with leading brands.",
+      "note": "More chargers coming soon. V2X capability depends on your EV model."
+    },
+    "waitlist": {
+      "title": "Be First in Line",
+      "description": "V2X launches in early 2026. Join the waitlist for early access and exclusive benefits.",
+      "benefits": {
+        "early": "Early access to V2X features",
+        "priority": "Priority support during setup",
+        "updates": "Exclusive updates on V2X development"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Have questions? We'd love to hear from you.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "integrations": {
+    "hero": {
+      "badge": "Integrations",
+      "title": "Works with your",
+      "titleHighlight": "existing hardware",
+      "description": "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. No need to replace your equipment—just add the Zap gateway."
+    },
+    "categories": {
+      "inverters": "Solar Inverters",
+      "chargers": "EV Chargers",
+      "batteries": "Battery Storage",
+      "utilities": "Utility Partners",
+      "installers": "Installer Networks"
+    },
+    "cta": {
+      "title": "Don't see your hardware?",
+      "description": "We're constantly adding new integrations. Contact us to request support for your specific equipment or check the developer docs for custom integrations."
+    }
+  }
+}

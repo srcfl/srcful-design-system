@@ -68,10 +68,10 @@ export default function UtilitiesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <a href="mailto:partners@sourceful.energy">
+                  <Link href="/contact">
                     Partner With Us
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/platform">
@@ -224,10 +224,10 @@ export default function UtilitiesPage() {
               Let's discuss how Sourceful can help you deliver real grid services.
             </p>
             <Button size="lg" asChild>
-              <a href="mailto:partners@sourceful.energy">
+              <Link href="/contact">
                 Contact Partnerships
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </section>

@@ -20,6 +20,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function MarketingNav() {
   const { theme, setTheme } = useTheme();
@@ -166,7 +167,10 @@ export function MarketingNav() {
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          {/* Language switcher */}
+          <LanguageSwitcher />
+
           {/* Theme toggle */}
           {mounted && (
             <Button variant="ghost" size="icon" onClick={toggleTheme} className="hidden md:flex">

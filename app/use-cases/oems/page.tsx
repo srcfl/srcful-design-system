@@ -70,10 +70,10 @@ export default function OEMsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <a href="mailto:partners@sourceful.energy">
+                  <Link href="/contact">
                     Partner With Us
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
@@ -225,10 +225,10 @@ export default function OEMsPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <a href="mailto:partners@sourceful.energy">
+                <Link href="/contact">
                   Contact Partnerships
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">

@@ -42,7 +42,7 @@ export default function CommunityPage() {
       icon: Headphones,
       title: "Support",
       description: "Need help? Our support team is available through Intercom for technical questions and troubleshooting.",
-      href: "mailto:support@sourceful.energy",
+      href: "/contact",
       cta: "Contact Support",
       external: false,
     },
@@ -152,7 +152,7 @@ export default function CommunityPage() {
                           <ExternalLink className="ml-2 h-4 w-4" />
                         </a>
                       ) : (
-                        <a href={channel.href}>{channel.cta}</a>
+                        <Link href={channel.href}>{channel.cta}</Link>
                       )}
                     </Button>
                   </CardContent>

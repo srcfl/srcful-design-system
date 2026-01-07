@@ -1,0 +1,446 @@
+{
+  "common": {
+    "nav": {
+      "platform": "Plattform",
+      "zap": "Zap",
+      "useCases": "Användningsfall",
+      "developers": "Utvecklare",
+      "integrations": "Integrationer",
+      "about": "Om oss",
+      "contact": "Kontakt",
+      "getStarted": "Kom igång",
+      "homeowners": "Villaägare",
+      "utilities": "Energibolag",
+      "installers": "Installatörer",
+      "oems": "OEM-tillverkare"
+    },
+    "footer": {
+      "product": "Produkt",
+      "company": "Företag",
+      "resources": "Resurser",
+      "legal": "Juridik",
+      "platform": "Plattform",
+      "zap": "Zap Gateway",
+      "integrations": "Integrationer",
+      "pricing": "Priser",
+      "about": "Om oss",
+      "community": "Community",
+      "careers": "Karriär",
+      "contact": "Kontakt",
+      "docs": "Dokumentation",
+      "api": "API-referens",
+      "support": "Support",
+      "discord": "Discord",
+      "privacy": "Integritetspolicy",
+      "terms": "Användarvillkor",
+      "cookies": "Cookiepolicy",
+      "copyright": "Sourceful Energy. Alla rättigheter förbehållna.",
+      "disclaimer": "Denna plattform kan involvera blockkedjebaserade belöningssystem. Deltagande i belöningsprogram utgör inte en investering och ska inte tolkas som ett löfte om ekonomisk avkastning. Alla belöningar omfattas av programvillkor och lokala regelverk."
+    },
+    "buttons": {
+      "getStarted": "Kom igång",
+      "learnMore": "Läs mer",
+      "contactSales": "Kontakta sälj",
+      "startBuilding": "Börja bygga",
+      "getTheZap": "Skaffa Zap",
+      "orderNow": "Beställ nu",
+      "joinWaitlist": "Anmäl intresse",
+      "viewDocs": "Se dokumentation",
+      "openDevPortal": "Öppna utvecklarportalen",
+      "joinDiscord": "Gå med i Discord",
+      "scheduledDemo": "Boka demo"
+    },
+    "currency": {
+      "symbol": "kr",
+      "code": "SEK"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Lokal energikoordineringsinfrastruktur",
+      "title": "De fysiska rälsen som får",
+      "titleHighlight": "distribuerad energi",
+      "titleEnd": "att faktiskt fungera",
+      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap—och ger energibolag och villaägare verklig kontroll över distribuerad energi."
+    },
+    "stats": {
+      "destroyed": "Förstörs årligen i koordineringsfel",
+      "negativeHours": "Timmar med negativa elpriser",
+      "responseTime": "Lokal svarstid (jfr 2-5s moln)",
+      "zapCost": "Zap gateway-kostnad"
+    },
+    "dashboard": {
+      "badge": "Plattformsförhandsvisning",
+      "title": "Energikoordinering i realtid",
+      "description": "Övervaka anläggningar, analysera prestanda, hantera flottor och automatisera energioptimering—allt från en plattform.",
+      "tabs": {
+        "sites": "Anläggningar",
+        "analytics": "Analys",
+        "fleet": "Flotta",
+        "monitor": "Energiövervakning",
+        "automate": "Automatisering",
+        "savings": "Besparingar"
+      }
+    },
+    "audiences": {
+      "title": "Byggt för energiekosystemet",
+      "description": "Från energibolag som hanterar nätflexibilitet till utvecklare som bygger nästa energiapp.",
+      "homeowners": {
+        "title": "Villaägare",
+        "description": "Sänk energikostnaderna med realtidspriser, toppkapning och V2X. En enhet för alla dina energibehov."
+      },
+      "utilities": {
+        "title": "Energibolag",
+        "description": "Möjliggör nättjänster i stor skala med lokal exekvering. Samarbeta med oss för att låsa upp distribuerad flexibilitet."
+      },
+      "oems": {
+        "title": "OEM-tillverkare",
+        "description": "Integrera 200ms lokal styrning i elbilsladdare, batterier och växelriktare. Protokolloberoende."
+      },
+      "installers": {
+        "title": "Installatörer",
+        "description": "Erbjud smarta energilösningar till dina kunder. Enkel integration, återkommande intäkter."
+      },
+      "developers": {
+        "title": "Utvecklare",
+        "description": "Bygg på vår plattform. API-först design, omfattande dokumentation, aktiv community."
+      }
+    },
+    "developers": {
+      "badge": "För utvecklare",
+      "title": "API-först plattform för energiapplikationer",
+      "description": "Bygg energiappar som svarar på millisekunder, inte sekunder. Vårt lokala exekveringslager hanterar fysiken medan du fokuserar på upplevelsen.",
+      "features": {
+        "rest": "RESTful API med WebSocket-stöd",
+        "protocols": "Protokolloberoende: P1, Modbus, MQTT, OCPP",
+        "webhooks": "Omfattande webhooks för realtidshändelser",
+        "community": "Aktiv Discord-community för support"
+      }
+    },
+    "zap": {
+      "badge": "Hårdvara",
+      "title": "Zap Gateway",
+      "description": "Lokal exekvering vid kanten. 200ms svarstid, fungerar offline, kompatibel med 180 miljoner EU-smartmätare. Den saknade länken mellan molnplattformar och fysisk energiinfrastruktur.",
+      "features": {
+        "response": "200ms lokal svarstid",
+        "offline": "Fungerar offline med lokal beslutsfattning",
+        "protocols": "P1, Modbus, MQTT, OCPP-protokoll",
+        "sovereignty": "Datasuveränitet—stannar lokalt"
+      }
+    },
+    "partners": {
+      "title": "Betrodd av ledande energiföretag"
+    },
+    "community": {
+      "title": "Gå med i communityn",
+      "description": "Anslut med utvecklare, få support och forma framtiden för distribuerad energi."
+    }
+  },
+  "platform": {
+    "hero": {
+      "badge": "Plattform",
+      "title": "Lokal energikoordinerings-",
+      "titleHighlight": "infrastruktur",
+      "description": "Mjukvarulagret som får distribuerad energi att faktiskt fungera. Lokal exekvering för hastighet. Molnintelligens för optimering. Det bästa av två världar."
+    },
+    "preview": {
+      "badge": "Plattformsförhandsvisning",
+      "title": "Se plattformen i aktion",
+      "description": "Utforska interaktiva dashboards som visar energikoordinering i realtid, flotthantering och analys."
+    },
+    "architecture": {
+      "title": "Trelagersarkitektur",
+      "description": "Lokal exekvering där hastighet spelar roll. Molnintelligens där det tillför värde.",
+      "edge": {
+        "title": "Edge-lager",
+        "subtitle": "Zap Gateway",
+        "description": "Lokal exekvering på 200ms. Fungerar offline, protokolloberoende, datasuveränt. Kör automatiseringar utan molnberoende.",
+        "features": ["200ms svar", "Offline-läge", "Lokal lagring"]
+      },
+      "coordination": {
+        "title": "Koordineringslager",
+        "subtitle": "Sourceful-plattformen",
+        "description": "Aggregerar enheter, optimerar energiflöden och gränssnitt mot nätoperatörer. Operationens hjärna.",
+        "features": ["Flotthantering", "Optimering", "Nättjänster"]
+      },
+      "cloud": {
+        "title": "Molnlager",
+        "subtitle": "Analys & intelligens",
+        "description": "Långsiktig analys, maskininlärning och rapportering. Molnet gör det molnet gör bäst.",
+        "features": ["ML-prediktioner", "Rapportering", "Integrationer"]
+      }
+    },
+    "localExecution": {
+      "title": "Varför lokal exekvering spelar roll",
+      "description1": "Nätfrekvensen måste balanseras varje sekund. Moln-API:er svarar på 2-5 sekunder. Detta gap kan inte överbryggas genom mjukvaruoptimering ensamt.",
+      "description2": "Vår plattform flyttar exekveringen till kanten. Zap gateway svarar på 200ms, fungerar offline och håller data lokalt. Molnet hanterar det molnet gör bäst: analys, optimering och koordinering i stor skala.",
+      "localResponse": "Lokalt svar",
+      "cloudResponse": "Molnsvar",
+      "protocols": "Protokoll som stöds",
+      "metersNote": "Kompatibel med 180 miljoner EU-smartmätare idag. Fler integrationer kommer."
+    },
+    "capabilities": {
+      "title": "Plattformens kapaciteter",
+      "description": "Allt du behöver för att hantera och optimera distribuerade energitillgångar.",
+      "deviceManagement": {
+        "title": "Enhetshantering",
+        "description": "Registrera, övervaka och styr alla anslutna enheter från en enda dashboard. Realtidsstatus och fjärruppdateringar av firmware."
+      },
+      "energyOptimization": {
+        "title": "Energioptimering",
+        "description": "Automatisk lastbalansering, toppkapning och arbitrage. AI-driven schemaläggning baserad på priser, väder och användningsmönster."
+      },
+      "gridServices": {
+        "title": "Nättjänster",
+        "description": "Delta i frekvensreglering, efterfrågeflexibilitet och stödtjänster. TSO-certifieringar inkluderade."
+      },
+      "analytics": {
+        "title": "Analys & rapportering",
+        "description": "Realtidsinsikter, historisk analys och compliance-rapportering. Exportera till valfritt format."
+      },
+      "whiteLabel": {
+        "title": "White-label-redo",
+        "description": "Ditt varumärke, vår infrastruktur. Full anpassning för partners inklusive mobilappar och dashboards."
+      },
+      "api": {
+        "title": "API först",
+        "description": "Allt tillgängligt via REST API och WebSockets. Bygg dina egna upplevelser ovanpå vår infrastruktur."
+      }
+    },
+    "partners": {
+      "title": "Integrerad med ledande energivarumärken"
+    },
+    "pricing": {
+      "title": "Enkel, anpassad prissättning",
+      "description": "Plattformsmodell. Vi lyckas när du lyckas.",
+      "saas": {
+        "title": "SaaS-licensiering",
+        "price": "50-100 kr",
+        "unit": "Per enhet per år"
+      },
+      "gridServices": {
+        "title": "Nättjänster",
+        "price": "15-25%",
+        "unit": "Intäktsdelning"
+      },
+      "api": {
+        "title": "API-åtkomst",
+        "price": "Förbruknings-",
+        "unit": "baserad prissättning"
+      }
+    },
+    "cta": {
+      "title": "Redo att se det i aktion?",
+      "description": "Boka en demo eller utforska utvecklardokumentationen."
+    }
+  },
+  "zap": {
+    "hero": {
+      "badge": "Hårdvara",
+      "title": "Zap Gateway",
+      "description": "Lokal exekvering vid kanten. 200ms svarstid, fungerar offline, protokolloberoende. Den saknade pusselbiten som får distribuerad energi att faktiskt fungera.",
+      "price": "399 kr",
+      "priceNote": "Fri frakt inom EU"
+    },
+    "features": {
+      "title": "Varför Zap?",
+      "description": "Molnplattformar svarar på 2-5 sekunder. Nätfrekvensen måste balanseras varje sekund. Zap överbryggar detta gap med lokal exekvering.",
+      "speed": {
+        "title": "200ms svar",
+        "description": "Lokal exekvering innebär realtidsstyrning. Ingen molnlatens, inga nätverksberoenden."
+      },
+      "offline": {
+        "title": "Fungerar offline",
+        "description": "Fortsätter fungera när internet går ner. Essentiellt för kritisk energiinfrastruktur."
+      },
+      "protocols": {
+        "title": "Protokolloberoende",
+        "description": "P1, Modbus RTU/TCP, MQTT, OCPP 1.6/2.0. Fungerar med din befintliga utrustning."
+      },
+      "sovereignty": {
+        "title": "Datasuveränitet",
+        "description": "Din energidata stannar lokalt. Välj vad du delar med molnet."
+      }
+    },
+    "specs": {
+      "title": "Tekniska specifikationer",
+      "processor": "Processor",
+      "memory": "Minne",
+      "storage": "Lagring",
+      "connectivity": "Anslutning",
+      "power": "Strömförsörjning",
+      "dimensions": "Dimensioner"
+    },
+    "v2x": {
+      "badge": "Kommer snart",
+      "title": "V2X: Din bil som kraftverk",
+      "description": "Förvandla din elbil till ett hembatteri. Exportera ström vid höga priser, ladda när det är billigt eller gratis. Tidig åtkomst tillgänglig 2026.",
+      "benefits": {
+        "earn": {
+          "title": "Tjäna medan du parkerar",
+          "description": "Din elbil kan exportera ström vid topppriser och tjäna pengar medan du sover eller arbetar."
+        },
+        "backup": {
+          "title": "Hembackup",
+          "description": "Håll lamporna tända under strömavbrott. Ett typiskt elbilsbatteri kan driva ett hem i flera dagar."
+        },
+        "optimize": {
+          "title": "Smart laddning",
+          "description": "Ladda automatiskt när priserna är låga eller negativa. Spara upp till 70% på laddningskostnaderna."
+        }
+      },
+      "chargers": {
+        "title": "Kompatibla V2X-laddare",
+        "note": "V2X kräver en kompatibel dubbelriktad laddare. Vi samarbetar med dessa partners:"
+      },
+      "waitlist": {
+        "title": "Få tidig åtkomst",
+        "description": "Var bland de första att förvandla din elbil till ett kraftverk. Tidig åtkomst rullas ut 2026.",
+        "placeholder": "Ange din e-post",
+        "button": "Anmäl intresse",
+        "success": "Du är på listan! Vi meddelar dig när V2X lanseras.",
+        "privacy": "Vi respekterar din integritet. Ingen spam, någonsin."
+      }
+    },
+    "compatibility": {
+      "title": "Fungerar med din befintliga hårdvara",
+      "description": "Zap integreras med ledande växelriktare, elbilsladdare, batterier och smartmätare.",
+      "viewAll": "Visa alla integrationer"
+    },
+    "cta": {
+      "title": "Redo att ta kontroll över din energi?",
+      "description": "Skaffa Zap och börja optimera idag. Fri frakt till alla EU-länder."
+    }
+  },
+  "useCases": {
+    "homeowners": {
+      "hero": {
+        "badge": "För villaägare",
+        "title": "Ta kontroll över dina",
+        "titleHighlight": "energikostnader",
+        "description": "Sänk räkningarna med realtidspriser, automatisera sol och batteri, och förbered för V2X. En enhet, total kontroll."
+      }
+    },
+    "utilities": {
+      "hero": {
+        "badge": "För energibolag",
+        "title": "Lås upp distribuerad",
+        "titleHighlight": "flexibilitet",
+        "description": "Möjliggör nättjänster i stor skala med lokal exekvering. 200ms svarstid för frekvensreglering, efterfrågestyrning och mer."
+      }
+    },
+    "installers": {
+      "hero": {
+        "badge": "För installatörer",
+        "title": "Smart energi för dina",
+        "titleHighlight": "kunder",
+        "description": "Differentiera med smarta energilösningar. Enkel integration, återkommande intäkter, nöjda kunder."
+      }
+    },
+    "oems": {
+      "hero": {
+        "badge": "För OEM-tillverkare",
+        "title": "Inbyggd",
+        "titleHighlight": "intelligens",
+        "description": "Integrera 200ms lokal styrning i dina elbilsladdare, batterier och växelriktare. Protokolloberoende, white-label-redo."
+      }
+    }
+  },
+  "v2x": {
+    "hero": {
+      "badge": "V2X-teknologi",
+      "title": "Din elbil är ett",
+      "titleHighlight": "kraftverk",
+      "description": "Vehicle-to-Everything (V2X) förvandlar din elbil till en mobil energitillgång. Exportera ström till ditt hem, sälj till nätet och tjäna medan du parkerar."
+    },
+    "stats": {
+      "capacity": "Genomsnittlig elbilsbatterikapacitet",
+      "savings": "Årlig besparingspotential",
+      "backup": "Dagars hembackup"
+    },
+    "benefits": {
+      "title": "Varför V2X?",
+      "description": "Ditt elbilsbatteri är 5-10 gånger större än ett typiskt hembatteri. V2X låser upp dess fulla potential.",
+      "earn": {
+        "title": "Tjäna medan du parkerar",
+        "description": "Exportera ström vid topppriser. En typisk elbil kan tjäna 5 000-10 000 kr/år från nättjänster."
+      },
+      "backup": {
+        "title": "Hembackup",
+        "description": "Ett 60 kWh elbilsbatteri kan driva ett genomsnittligt hem i 2-3 dagar under strömavbrott."
+      },
+      "optimize": {
+        "title": "Optimera laddning",
+        "description": "Ladda när priserna är låga eller negativa. Spara upp till 70% på laddningskostnaderna."
+      },
+      "grid": {
+        "title": "Stöd nätet",
+        "description": "Hjälp till att balansera förnybar energi genom att lagra överskott av sol- och vindkraft."
+      }
+    },
+    "howItWorks": {
+      "title": "Hur V2X fungerar",
+      "description": "Zap gateway möjliggör dubbelriktat energiflöde mellan din elbil och ditt hem.",
+      "steps": {
+        "connect": {
+          "title": "Anslut",
+          "description": "Koppla in din elbil i en V2X-kompatibel laddare"
+        },
+        "optimize": {
+          "title": "Optimera",
+          "description": "Zap hanterar automatiskt laddning och urladdning"
+        },
+        "earn": {
+          "title": "Tjäna",
+          "description": "Få betalt för nättjänster och toppkapning"
+        }
+      }
+    },
+    "compatibility": {
+      "title": "Kompatibla laddare",
+      "description": "V2X kräver en dubbelriktad laddare. Vi samarbetar med ledande varumärken.",
+      "note": "Fler laddare kommer snart. V2X-kapacitet beror på din elbilsmodell."
+    },
+    "waitlist": {
+      "title": "Var först i kön",
+      "description": "V2X lanseras i början av 2026. Anmäl intresse för tidig åtkomst och exklusiva fördelar.",
+      "benefits": {
+        "early": "Tidig åtkomst till V2X-funktioner",
+        "priority": "Prioriterad support under installation",
+        "updates": "Exklusiva uppdateringar om V2X-utvecklingen"
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontakta oss",
+    "description": "Har du frågor? Vi vill gärna höra från dig.",
+    "form": {
+      "name": "Namn",
+      "email": "E-post",
+      "company": "Företag",
+      "message": "Meddelande",
+      "submit": "Skicka meddelande",
+      "success": "Meddelande skickat! Vi återkommer snart.",
+      "error": "Något gick fel. Försök igen."
+    }
+  },
+  "integrations": {
+    "hero": {
+      "badge": "Integrationer",
+      "title": "Fungerar med din",
+      "titleHighlight": "befintliga hårdvara",
+      "description": "Sourceful integreras med ledande solväxelriktare, elbilsladdare, batterier och smartmätare. Du behöver inte byta ut din utrustning—lägg bara till Zap gateway."
+    },
+    "categories": {
+      "inverters": "Solväxelriktare",
+      "chargers": "Elbilsladdare",
+      "batteries": "Batterilagring",
+      "utilities": "Energibolagspartners",
+      "installers": "Installatörsnätverk"
+    },
+    "cta": {
+      "title": "Ser du inte din hårdvara?",
+      "description": "Vi lägger ständigt till nya integrationer. Kontakta oss för att begära stöd för din specifika utrustning eller kolla utvecklardokumentationen för anpassade integrationer."
+    }
+  }
+}

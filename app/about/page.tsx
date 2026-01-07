@@ -235,10 +235,10 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <a href="mailto:hello@sourceful.energy">
+                <Link href="/contact">
                   Get in Touch
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/community">

@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
+import { V2XWaitlistSection } from "@/components/v2x-waitlist-section";
 import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu, ExternalLink } from "lucide-react";
 
 export default function ZapPage() {
@@ -218,6 +219,9 @@ export default function ZapPage() {
             </div>
           </div>
         </section>
+
+        {/* V2X Waitlist */}
+        <V2XWaitlistSection />
 
         {/* Pricing */}
         <section className="border-t bg-muted/30">
