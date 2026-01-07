@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -311,16 +311,23 @@ const brandData: Record<string, {
   },
 };
 
-// Generate static params for all brands
+// Generate static params for all brands and locales
 export function generateStaticParams() {
-  return Object.keys(brandData).map((brand) => ({
-    brand,
-  }));
+  const locales = ["en", "sv"];
+  const brands = Object.keys(brandData);
+
+  return locales.flatMap((locale) =>
+    brands.map((brand) => ({
+      locale,
+      brand,
+    }))
+  );
 }
 
 // Generate metadata for each brand page
-export function generateMetadata({ params }: { params: { brand: string } }): Metadata {
-  const brand = brandData[params.brand];
+export async function generateMetadata({ params }: { params: Promise<{ brand: string }> }): Promise<Metadata> {
+  const { brand: brandSlug } = await params;
+  const brand = brandData[brandSlug];
   if (!brand) {
     return {
       title: "Integration Not Found",
@@ -332,8 +339,9 @@ export function generateMetadata({ params }: { params: { brand: string } }): Met
   };
 }
 
-export default function BrandPage({ params }: { params: { brand: string } }) {
-  const brand = brandData[params.brand];
+export default async function BrandPage({ params }: { params: Promise<{ brand: string }> }) {
+  const { brand: brandSlug } = await params;
+  const brand = brandData[brandSlug];
 
   if (!brand) {
     notFound();
@@ -384,7 +392,7 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <BrandLogo brand={params.brand} size="xl" />
+                <BrandLogo brand={brandSlug} size="xl" />
               </div>
             </div>
           </div>
