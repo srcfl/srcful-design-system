@@ -5,6 +5,13 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+
+## [0.1.23] - 2026-01-07
+
+### Fixed
+- **component**: Fix TypeScript error in ems-dashboard Reorder.Group
+
+
 ## [0.1.22] - 2026-01-07
 
 ### Added
