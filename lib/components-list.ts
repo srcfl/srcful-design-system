@@ -38,6 +38,7 @@ export const componentsList = [
   { name: "Sheet", href: "/components/sheet", category: "Navigation" },
   { name: "Scroll Area", href: "/components/scroll-area", category: "Navigation" },
   // Sourceful
+  { name: "Pixel Grid", href: "/components/pixel-grid", category: "Sourceful" },
   { name: "Sites Map", href: "/components/sites-map", category: "Sourceful" },
   { name: "Energy Flow", href: "/components/energy-flow", category: "Sourceful" },
   { name: "AI Chat", href: "/components/ai-chat", category: "Sourceful" },
