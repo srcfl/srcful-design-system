@@ -8,6 +8,13 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 
 
+
+## [0.1.26] - 2026-01-09
+
+### Changed
+- **docs**: Add PixelGrid component page to docs site
+
+
 ## [0.1.25] - 2026-01-09
 
 ### Added
