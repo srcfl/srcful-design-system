@@ -1,6 +1,6 @@
 {
   "name": "@sourceful-energy/ui",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "Sourceful Energy Design System - React components for building energy management interfaces",
   "private": false,
   "main": "./dist/index.js",
