@@ -6,6 +6,21 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 
 
+
+## [0.1.24] - 2026-01-08
+
+### Added
+- **component**: Add expandable AI prompt to homepage with copy button
+- **component**: Add community feedback system with GitHub OAuth
+
+### Changed
+- **docs**: Add changelog entry and Claude Code guide
+- **docs**: Add comprehensive AI integration guide for using design system
+
+### Fixed
+- **component**: Improve AI prompt box UX and styling
+
+
 ## [0.1.23] - 2026-01-07
 
 ### Fixed

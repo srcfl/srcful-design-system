@@ -159,3 +159,26 @@ export { cn } from "./utils";
 
 // Providers
 export { LenisProvider } from "../components/lenis-provider";
+
+// Pixel Grid (Sourceful Brand Animation)
+export {
+  PixelGrid,
+  PixelGridShowcase,
+  PixelGridColorComparison,
+  PixelGridSizeComparison,
+  patterns,
+  patternNames,
+  patternCategories,
+} from "../components/ui/pixel-grid";
+export type {
+  PixelGridProps,
+  PixelGridColor,
+  PixelGridSpeed,
+  PixelGridSize,
+  PixelGridShowcaseProps,
+  PixelGridColorComparisonProps,
+  PixelGridSizeComparisonProps,
+  PatternType,
+  PatternDefinition,
+  PatternFrame,
+} from "../components/ui/pixel-grid";

@@ -725,3 +725,143 @@
 .hero-gradient {
   background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 70%, hsl(var(--background)) 100%);
 }
+
+/* ============================================
+   PIXEL GRID COMPONENT STYLES
+   ============================================ */
+
+/* Wrapper for grid + label */
+.pixel-grid-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Grid container */
+.pixel-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  overflow: visible;
+}
+
+/* Individual pixel */
+.pixel-grid-pixel {
+  border-radius: 2px;
+  background-color: #e5e5e5;
+  transition: all 250ms ease;
+}
+
+/* Active pixel - base glow */
+.pixel-grid-pixel.pixel-active {
+  transition: all 200ms ease-out;
+}
+
+/* ----------------------------------------
+   Color Themes - Light Mode (Default)
+   ---------------------------------------- */
+
+/* Blue theme - light mode */
+.pixel-grid-blue .pixel-grid-pixel {
+  background-color: rgba(37, 99, 235, 0.15);
+}
+
+.pixel-grid-blue .pixel-grid-pixel.pixel-active {
+  background-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.5),
+    0 4px 16px rgba(37, 99, 235, 0.25);
+}
+
+/* Pink/Red theme - light mode */
+.pixel-grid-pink .pixel-grid-pixel {
+  background-color: rgba(220, 38, 38, 0.12);
+}
+
+.pixel-grid-pink .pixel-grid-pixel.pixel-active {
+  background-color: #dc2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.5),
+    0 4px 16px rgba(220, 38, 38, 0.25);
+}
+
+/* Green/Sourceful theme - light mode */
+.pixel-grid-green .pixel-grid-pixel {
+  background-color: rgba(22, 163, 74, 0.15);
+}
+
+.pixel-grid-green .pixel-grid-pixel.pixel-active {
+  background-color: #16a34a;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.5),
+    0 4px 16px rgba(22, 163, 74, 0.25);
+}
+
+/* ----------------------------------------
+   Color Themes - Dark Mode
+   Neon glow effects
+   ---------------------------------------- */
+
+.dark .pixel-grid-pixel {
+  background-color: #1a1a1a;
+}
+
+/* Blue/Cyan theme - dark mode */
+.dark .pixel-grid-blue .pixel-grid-pixel {
+  background-color: rgba(96, 165, 250, 0.08);
+}
+
+.dark .pixel-grid-blue .pixel-grid-pixel.pixel-active {
+  background-color: #60a5fa;
+  box-shadow: 0 0 4px #60a5fa, 0 0 8px rgba(96, 165, 250, 0.6),
+    0 0 16px rgba(96, 165, 250, 0.4), 0 0 24px rgba(96, 165, 250, 0.2);
+}
+
+/* Pink/Coral theme - dark mode */
+.dark .pixel-grid-pink .pixel-grid-pixel {
+  background-color: rgba(248, 113, 113, 0.08);
+}
+
+.dark .pixel-grid-pink .pixel-grid-pixel.pixel-active {
+  background-color: #f87171;
+  box-shadow: 0 0 4px #f87171, 0 0 8px rgba(248, 113, 113, 0.6),
+    0 0 16px rgba(248, 113, 113, 0.4), 0 0 24px rgba(248, 113, 113, 0.2);
+}
+
+/* Green/Sourceful theme - dark mode */
+.dark .pixel-grid-green .pixel-grid-pixel {
+  background-color: rgba(0, 255, 132, 0.08);
+}
+
+.dark .pixel-grid-green .pixel-grid-pixel.pixel-active {
+  background-color: #00ff84;
+  box-shadow: 0 0 4px #00ff84, 0 0 8px rgba(0, 255, 132, 0.6),
+    0 0 16px rgba(0, 255, 132, 0.4), 0 0 24px rgba(0, 255, 132, 0.2);
+}
+
+/* ----------------------------------------
+   Label Styling
+   ---------------------------------------- */
+
+.pixel-grid-label {
+  font-size: 10px;
+  color: #525252;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dark .pixel-grid-label {
+  color: #737373;
+}
+
+/* ----------------------------------------
+   Accessibility - Reduced Motion
+   ---------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-grid-pixel {
+    transition: none;
+  }
+
+  .pixel-grid-pixel.pixel-active {
+    transition: none;
+  }
+}

@@ -31,6 +31,7 @@ import { toast } from "sonner"
 
 // Brand
 import { Logo } from "@sourceful-energy/ui"
+import { PixelGrid, PixelGridShowcase } from "@sourceful-energy/ui"
 
 // Providers
 import { LenisProvider } from "@sourceful-energy/ui"
@@ -83,6 +84,49 @@ import "@sourceful-energy/ui/styles.css"
 <Logo variant="full" forcedTheme="dark" />
 
 // Sizes: xs, sm, md, lg, xl
+```
+
+### PixelGrid (Brand Animation)
+```tsx
+import { PixelGrid, PixelGridShowcase, type PatternType } from "@sourceful-energy/ui"
+
+// Basic usage - animated 3x3 pixel grid
+<PixelGrid pattern="solo-center" />
+
+// With Sourceful green (default)
+<PixelGrid pattern="frame" color="green" />
+
+// Other color themes
+<PixelGrid pattern="corners-sync" color="blue" />
+<PixelGrid pattern="plus-hollow" color="pink" />
+
+// Sizes: sm, md (default), lg
+<PixelGrid pattern="line-h-mid" size="lg" />
+
+// Speed: slow, normal (default), fast
+<PixelGrid pattern="line-diag-1" speed="fast" />
+
+// Show pattern label
+<PixelGrid pattern="T-top" showLabel />
+
+// Pause animation
+<PixelGrid pattern="frame-sync" paused />
+
+// Showcase all patterns by category
+<PixelGridShowcase color="green" size="md" />
+
+// Available patterns (31 total):
+// Solo: solo-center, solo-tl, solo-br
+// Horizontal: line-h-top, line-h-mid, line-h-bot
+// Vertical: line-v-left, line-v-mid, line-v-right
+// Diagonal: line-diag-1, line-diag-2
+// Corners: corners-sync, corners-only
+// L-Shapes: L-tl, L-tr, L-bl, L-br
+// T-Shapes: T-top, T-bot, T-left, T-right
+// Duos: duo-h, duo-v, duo-diag
+// Frame: frame, frame-sync
+// Plus: plus-hollow
+// Sparse: sparse-1, sparse-2, sparse-3
 ```
 
 ### Button
