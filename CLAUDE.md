@@ -2,6 +2,27 @@
 
 This is the official design system for Sourceful Energy. It contains React components, design tokens, and brand guidelines.
 
+## Strategic Context (Required)
+
+**At the start of each session**, read the Sourceful Playbook for strategic context:
+
+```
+/Users/paulcooper/Documents/Repos/sourceful-playbook
+```
+
+Key files to reference:
+- `CLAUDE.md` — Master strategic context and navigation
+- `01-core-narrative/Hello-World-Story.md` — Canonical company narrative
+- `_facts.md` — Registry of canonical facts (stats, metrics, positioning)
+- `03-competitive/Moat-Strategy.md` — Five moats strategy
+
+This ensures design decisions align with:
+- **Brand positioning**: "Local Energy Coordination Infrastructure"
+- **Core message**: $20 Zap gateway, 200ms response time, €2.5B coordination problem
+- **Visual identity**: Energy/grid themes, green primary, yellow accent for energy states
+
+When creating or modifying components, consider how they support the Sourceful narrative and energy domain.
+
 ## Quick Reference for AI Assistants
 
 When building UIs for Sourceful projects, use components from this design system:
