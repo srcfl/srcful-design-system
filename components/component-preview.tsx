@@ -1,7 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  SimpleTabsRoot,
+  SimpleTabsList,
+  SimpleTabsTrigger,
+  SimpleTabsContent,
+} from "@/components/ui/simple-tabs";
 import { cn } from "@/lib/utils";
 
 interface ComponentPreviewProps {
@@ -25,22 +30,12 @@ export function ComponentPreview({
 
   return (
     <div className={cn("relative my-4 rounded-lg border", className)}>
-      <Tabs defaultValue="preview" className="w-full">
-        <div className="flex items-center justify-between border-b px-4">
-          <TabsList className="h-10 bg-transparent p-0">
-            <TabsTrigger
-              value="preview"
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-sourceful-green-500 data-[state=active]:bg-transparent"
-            >
-              Preview
-            </TabsTrigger>
-            <TabsTrigger
-              value="code"
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-sourceful-green-500 data-[state=active]:bg-transparent"
-            >
-              Code
-            </TabsTrigger>
-          </TabsList>
+      <SimpleTabsRoot defaultTab="preview" className="space-y-0">
+        <div className="flex items-center justify-between px-4">
+          <SimpleTabsList className="gap-0">
+            <SimpleTabsTrigger value="preview">Preview</SimpleTabsTrigger>
+            <SimpleTabsTrigger value="code">Code</SimpleTabsTrigger>
+          </SimpleTabsList>
           <button
             onClick={copyToClipboard}
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
@@ -48,19 +43,19 @@ export function ComponentPreview({
             {copied ? "Copied!" : "Copy"}
           </button>
         </div>
-        <TabsContent value="preview" className="p-6">
+        <SimpleTabsContent value="preview" className="p-6">
           <div className="flex items-center justify-center min-h-[100px]">
             {children}
           </div>
-        </TabsContent>
-        <TabsContent value="code" className="p-0">
+        </SimpleTabsContent>
+        <SimpleTabsContent value="code" className="p-0">
           <div className="rounded-b-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 p-4 overflow-x-auto">
             <pre className="text-sm text-sourceful-gray-900 dark:text-white">
               <code>{code}</code>
             </pre>
           </div>
-        </TabsContent>
-      </Tabs>
+        </SimpleTabsContent>
+      </SimpleTabsRoot>
     </div>
   );
 }

@@ -56,6 +56,7 @@ import { PixelGrid, PixelGridShowcase } from "@sourceful-energy/ui"
 
 // Providers
 import { LenisProvider } from "@sourceful-energy/ui"
+import { DesignSystemProvider, useDesignSystemTheme, useAccessibility } from "@sourceful-energy/ui"
 
 // CSS (required)
 import "@sourceful-energy/ui/styles.css"
@@ -354,6 +355,113 @@ export default function RootLayout({ children }) {
   {/* Content with native scrolling */}
 </div>
 ```
+
+### DesignSystemProvider (Themes & Accessibility)
+
+The DesignSystemProvider manages visual themes and accessibility modes. It works alongside ThemeProvider (for dark/light mode).
+
+```tsx
+import { DesignSystemProvider } from "@sourceful-energy/ui"
+import { ThemeProvider } from "next-themes"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        {/* ThemeProvider handles dark/light mode */}
+        <ThemeProvider attribute="class" defaultTheme="system">
+          {/* DesignSystemProvider handles visual theme + accessibility */}
+          <DesignSystemProvider defaultTheme="elevated">
+            {children}
+          </DesignSystemProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+#### Themes (Developer Choice)
+
+Set the visual style for your app:
+
+```tsx
+// Base theme (flat, current default)
+<DesignSystemProvider defaultTheme="base">
+
+// Elevated theme (premium dashboard with depth/shadows)
+<DesignSystemProvider defaultTheme="elevated">
+```
+
+#### Accessibility Modes (User Choice)
+
+Build accessibility settings UI using the hooks:
+
+```tsx
+import { useAccessibility } from "@sourceful-energy/ui"
+
+function AccessibilitySettings() {
+  const {
+    fontMode, setFontMode,        // "default" | "dyslexic"
+    colorMode, setColorMode,      // "default" | "deuteranopia" | "protanopia" | "tritanopia" | "achromatopsia"
+    spacingMode, setSpacingMode,  // "default" | "comfortable"
+    focusMode, setFocusMode,      // "default" | "enhanced"
+  } = useAccessibility()
+
+  return (
+    <div className="space-y-4">
+      {/* Dyslexia-friendly font (Lexend) */}
+      <Switch
+        checked={fontMode === "dyslexic"}
+        onCheckedChange={(v) => setFontMode(v ? "dyslexic" : "default")}
+      />
+
+      {/* Color blind modes */}
+      <Select value={colorMode} onValueChange={setColorMode}>
+        <SelectItem value="default">Default colors</SelectItem>
+        <SelectItem value="deuteranopia">Red-green color blind</SelectItem>
+        <SelectItem value="protanopia">Red color blind</SelectItem>
+        <SelectItem value="tritanopia">Blue-yellow color blind</SelectItem>
+        <SelectItem value="achromatopsia">Grayscale</SelectItem>
+      </Select>
+
+      {/* Increased text spacing (WCAG 1.4.12) */}
+      <Switch
+        checked={spacingMode === "comfortable"}
+        onCheckedChange={(v) => setSpacingMode(v ? "comfortable" : "default")}
+      />
+
+      {/* Enhanced focus indicators (WCAG 2.4.7) */}
+      <Switch
+        checked={focusMode === "enhanced"}
+        onCheckedChange={(v) => setFocusMode(v ? "enhanced" : "default")}
+      />
+    </div>
+  )
+}
+```
+
+#### Available Hooks
+
+- `useDesignSystemTheme()` - Access/set visual theme
+- `useFontMode()` - Access/set dyslexic font mode
+- `useColorMode()` - Access/set color blind mode
+- `useSpacingMode()` - Access/set text spacing mode
+- `useFocusMode()` - Access/set enhanced focus mode
+- `useAccessibility()` - All accessibility settings at once
+- `useDesignSystem()` - Full context (theme + all accessibility)
+
+#### Data Attributes
+
+The provider sets these attributes on `<html>`:
+
+- `data-theme="base|elevated"` - Visual theme
+- `data-font-mode="dyslexic"` - Dyslexic font active
+- `data-color-mode="deuteranopia|protanopia|tritanopia|achromatopsia"` - Color blind mode
+- `data-spacing="comfortable"` - Increased text spacing
+- `data-focus-mode="enhanced"` - Enhanced focus indicators
+
+User accessibility preferences are persisted to localStorage.
 
 ### SideMenu
 ```tsx

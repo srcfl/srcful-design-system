@@ -12,7 +12,7 @@ import { Reorder } from "framer-motion";
 import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Battery, Zap, TrendingUp, Clock, Settings, Play, Pause, RefreshCw, PiggyBank, Leaf, Unplug, Home, GripVertical } from "lucide-react";
+import { Battery, Zap, TrendingUp, Clock, Play, Pause, RefreshCw, PiggyBank, Leaf, Unplug, Home, GripVertical } from "lucide-react";
 
 const energyForecastData = [
   { hour: "00", solar: 0, consumption: 1.2, battery: 8 },
@@ -137,16 +137,10 @@ export function EMSDashboardExample() {
           <h2 className="text-lg sm:text-xl font-semibold">Energy Management System</h2>
           <p className="text-sm text-muted-foreground">Stockholm HQ - Optimizing for cost savings</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Badge variant="success" className="gap-1">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+        <Badge variant="success-soft" className="gap-1">
+            <span className="h-2 w-2 rounded-full bg-sourceful-green-500 animate-pulse" />
             Running
           </Badge>
-          <Button variant="outline" size="sm">
-            <Settings className="h-4 w-4 sm:mr-2" />
-            <span className="hidden sm:inline">Configure</span>
-          </Button>
-        </div>
       </div>
 
       {/* Stats Row */}

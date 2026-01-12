@@ -160,6 +160,24 @@ export { cn } from "./utils";
 // Providers
 export { LenisProvider } from "../components/lenis-provider";
 
+// Design System Provider & Accessibility Hooks
+export {
+  DesignSystemProvider,
+  useDesignSystemTheme,
+  useFontMode,
+  useColorMode,
+  useSpacingMode,
+  useFocusMode,
+  useAccessibility,
+  useDesignSystem,
+  type Theme,
+  type FontMode,
+  type ColorMode,
+  type SpacingMode,
+  type FocusMode,
+  type DesignSystemProviderProps,
+} from "../components/design-system-provider";
+
 // Pixel Grid (Sourceful Brand Animation)
 export {
   PixelGrid,

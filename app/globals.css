@@ -865,3 +865,888 @@
     transition: none;
   }
 }
+
+/* ============================================
+   DESIGN SYSTEM THEMES & ACCESSIBILITY
+   ============================================
+
+   Architecture:
+   1. Theme Layer (Developer Choice): base | elevated
+   2. Accessibility Layer (User Choice): font, color, spacing, focus modes
+   3. System Layer (Browser/OS): dark mode, reduced motion, contrast
+
+   All layers compose independently.
+   ============================================ */
+
+/* ============================================
+   THEME: BASE (Default Flat Style)
+   ============================================ */
+
+:root,
+[data-theme="base"] {
+  /* Semantic surface tokens for base theme */
+  --surface-bg: hsl(var(--background));
+  --surface-border: hsl(var(--border));
+  --surface-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --surface-highlight: none;
+
+  /* Card tokens */
+  --card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --card-highlight: none;
+
+  /* Button tokens */
+  --button-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --button-shadow-hover: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --button-shadow-active: none;
+  --button-highlight: none;
+
+  /* Input tokens */
+  --input-bg: transparent;
+  --input-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  /* Floating elements (dropdowns, tooltips, dialogs) */
+  --floating-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --floating-blur: 0;
+}
+
+/* ============================================
+   THEME: ELEVATED (Premium Dashboard Style)
+   ============================================ */
+
+html[data-theme="elevated"] {
+  /* Surfaces - subtle depth with top highlight */
+  --surface-bg: rgba(255, 255, 255, 0.95);
+  --surface-border: rgba(0, 0, 0, 0.08);
+  --surface-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.03);
+  --surface-highlight: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 40%
+  );
+
+  /* Cards - floating effect */
+  --card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  --card-highlight: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  /* Buttons - raised tactile feel */
+  --button-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.04);
+  --button-shadow-hover:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+  --button-shadow-active:
+    0 1px 1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 2px rgba(0, 0, 0, 0.08);
+  --button-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  /* Inputs - recessed/carved effect */
+  --input-bg: rgba(0, 0, 0, 0.02);
+  --input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  /* Floating elements - prominent elevation */
+  --floating-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 12px 40px rgba(0, 0, 0, 0.06);
+  --floating-blur: 12px;
+}
+
+/* Elevated + Dark Mode */
+html.dark[data-theme="elevated"] {
+  /* Surfaces - glass-like with subtle glow */
+  --surface-bg: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 1px rgba(255, 255, 255, 0.05);
+  --surface-highlight: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0) 40%
+  );
+
+  /* Cards */
+  --card-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+  --card-highlight: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  /* Buttons */
+  --button-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  --button-shadow-hover:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.03);
+  --button-shadow-active:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  --button-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  /* Inputs */
+  --input-bg: rgba(0, 0, 0, 0.25);
+  --input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  /* Floating elements */
+  --floating-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 12px 40px rgba(0, 0, 0, 0.3);
+  --floating-blur: 16px;
+}
+
+/* ============================================
+   ACCESSIBILITY: DYSLEXIC FONT MODE
+   ============================================ */
+
+/* Apply Lexend font when dyslexic mode is active */
+html[data-font-mode="dyslexic"],
+html[data-font-mode="dyslexic"] body {
+  font-family: var(--font-dyslexic), 'Lexend', system-ui, sans-serif !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.05em;
+}
+
+/* Apply to all text elements */
+html[data-font-mode="dyslexic"] h1,
+html[data-font-mode="dyslexic"] h2,
+html[data-font-mode="dyslexic"] h3,
+html[data-font-mode="dyslexic"] h4,
+html[data-font-mode="dyslexic"] h5,
+html[data-font-mode="dyslexic"] h6,
+html[data-font-mode="dyslexic"] p,
+html[data-font-mode="dyslexic"] span,
+html[data-font-mode="dyslexic"] div,
+html[data-font-mode="dyslexic"] a,
+html[data-font-mode="dyslexic"] button,
+html[data-font-mode="dyslexic"] label,
+html[data-font-mode="dyslexic"] input,
+html[data-font-mode="dyslexic"] textarea,
+html[data-font-mode="dyslexic"] select {
+  font-family: var(--font-dyslexic), 'Lexend', system-ui, sans-serif !important;
+}
+
+/* Preserve monospace for code */
+html[data-font-mode="dyslexic"] code,
+html[data-font-mode="dyslexic"] pre,
+html[data-font-mode="dyslexic"] kbd,
+html[data-font-mode="dyslexic"] .font-mono {
+  font-family: var(--font-mono) !important;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+/* ============================================
+   ACCESSIBILITY: COLOR BLIND MODES
+   ============================================ */
+
+/* Deuteranopia (Red-Green) - 5% of males */
+html[data-color-mode="deuteranopia"] {
+  --success: 201 100% 37%; /* #0077bb - Blue */
+  --destructive: 15 85% 44%; /* #cc3311 - Orange-red */
+  --warning: 25 85% 57%; /* #ee7733 - Orange */
+  --primary: 201 100% 37%; /* Blue instead of green */
+}
+
+/* Protanopia (Red-Blind) - 1% of males */
+html[data-color-mode="protanopia"] {
+  --success: 174 100% 30%; /* #009988 - Teal */
+  --destructive: 350 50% 60%; /* #cc6677 - Pink */
+  --warning: 40 70% 53%; /* #ddaa33 - Amber */
+  --primary: 174 100% 30%; /* Teal instead of green */
+}
+
+/* Tritanopia (Blue-Yellow) - rare */
+html[data-color-mode="tritanopia"] {
+  --energy: 30 100% 50%; /* #ff9900 - Orange instead of yellow */
+  --info: 310 60% 54%; /* #cc44cc - Magenta instead of blue */
+}
+
+/* Achromatopsia (Total Color Blindness) - very rare */
+html[data-color-mode="achromatopsia"] {
+  --success: 0 0% 29%; /* #4a4a4a */
+  --destructive: 0 0% 10%; /* #1a1a1a */
+  --warning: 0 0% 48%; /* #7a7a7a */
+  --energy: 0 0% 69%; /* #b0b0b0 */
+  --info: 0 0% 60%; /* #9a9a9a */
+  --primary: 0 0% 40%; /* Gray */
+}
+
+/* Dark mode adjustments for achromatopsia */
+html.dark[data-color-mode="achromatopsia"] {
+  --success: 0 0% 69%;
+  --destructive: 0 0% 88%;
+  --warning: 0 0% 56%;
+  --energy: 0 0% 38%;
+  --info: 0 0% 44%;
+  --primary: 0 0% 60%;
+}
+
+/* ============================================
+   ACCESSIBILITY: TEXT SPACING MODE (WCAG 1.4.12)
+   ============================================ */
+
+html[data-spacing="comfortable"],
+html[data-spacing="comfortable"] body {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+html[data-spacing="comfortable"] p,
+html[data-spacing="comfortable"] span,
+html[data-spacing="comfortable"] div,
+html[data-spacing="comfortable"] li,
+html[data-spacing="comfortable"] td,
+html[data-spacing="comfortable"] th {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+html[data-spacing="comfortable"] p + p {
+  margin-top: 2em;
+}
+
+/* Preserve code formatting */
+html[data-spacing="comfortable"] code,
+html[data-spacing="comfortable"] pre,
+html[data-spacing="comfortable"] kbd,
+html[data-spacing="comfortable"] .font-mono {
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  line-height: 1.5 !important;
+}
+
+/* ============================================
+   ACCESSIBILITY: ENHANCED FOCUS MODE (WCAG 2.4.7)
+   ============================================ */
+
+html[data-focus-mode="enhanced"] {
+  --focus-ring-color: #005fcc;
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}
+
+html.dark[data-focus-mode="enhanced"] {
+  --focus-ring-color: #66b3ff;
+}
+
+html[data-focus-mode="enhanced"] *:focus-visible {
+  outline: 3px solid var(--focus-ring-color, #005fcc) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 6px rgba(0, 95, 204, 0.25) !important;
+}
+
+/* Ensure all interactive elements get enhanced focus */
+html[data-focus-mode="enhanced"] button:focus-visible,
+html[data-focus-mode="enhanced"] [role="button"]:focus-visible,
+html[data-focus-mode="enhanced"] a:focus-visible,
+html[data-focus-mode="enhanced"] input:focus-visible,
+html[data-focus-mode="enhanced"] select:focus-visible,
+html[data-focus-mode="enhanced"] textarea:focus-visible,
+html[data-focus-mode="enhanced"] [tabindex]:focus-visible {
+  outline: 3px solid var(--focus-ring-color, #005fcc) !important;
+  outline-offset: 2px !important;
+}
+
+/* ============================================
+   SYSTEM PREFERENCES
+   ============================================ */
+
+/* Reduced Motion - WCAG 2.3.1, 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast - WCAG 1.4.6 */
+@media (prefers-contrast: more) {
+  :root {
+    --border: 0 0% 40%;
+    --input: 0 0% 40%;
+  }
+  .dark {
+    --border: 0 0% 60%;
+    --input: 0 0% 60%;
+  }
+}
+
+/* Windows High Contrast / Forced Colors */
+@media (forced-colors: active) {
+  button,
+  [role="button"] {
+    border: 2px solid ButtonBorder !important;
+    background: ButtonFace !important;
+    color: ButtonText !important;
+  }
+  a {
+    color: LinkText !important;
+  }
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Minimum Touch Targets - WCAG 2.5.8 */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   SWITCH BASE STYLES
+   ============================================ */
+[role="switch"][data-state="checked"] {
+  background-color: hsl(var(--primary)) !important;
+}
+
+/* ============================================
+   ELEVATED THEME - COMPONENT OVERRIDES
+   ============================================
+   Premium elevated visual style with gradient
+   border lighting effects (lit from above).
+
+   Key visual effects:
+   - Cards: gradient border (light top, dark bottom) + soft shadow
+   - Buttons: raised with gradient border, press animation
+   - Inputs: inset/recessed appearance
+   - Floating elements: pronounced shadow + blur
+   ============================================ */
+
+/* ----- CARDS ----- */
+/* Cards with border class */
+html[data-theme="elevated"] .rounded-xl.border.bg-card,
+html[data-theme="elevated"] .rounded-lg.border.bg-card,
+html[data-theme="elevated"] .rounded-xl.border.bg-background,
+html[data-theme="elevated"] .rounded-lg.border.bg-background,
+html[data-theme="elevated"] .rounded-2xl.border,
+html[data-theme="elevated"] .rounded-xl.border:not(button):not(input),
+/* Cards without border class */
+html[data-theme="elevated"] .rounded-xl.bg-card,
+html[data-theme="elevated"] .rounded-lg.bg-card,
+html[data-theme="elevated"] .rounded-xl.bg-muted,
+html[data-theme="elevated"] .rounded-lg.bg-muted,
+html[data-theme="elevated"] .rounded-2xl.bg-card,
+html[data-theme="elevated"] .rounded-2xl.bg-muted,
+/* Stat cards with opacity backgrounds */
+html[data-theme="elevated"] .rounded-lg.bg-muted\/50,
+html[data-theme="elevated"] .rounded-xl.bg-muted\/50,
+html[data-theme="elevated"] .rounded-lg.bg-card\/50,
+html[data-theme="elevated"] .rounded-xl.bg-card\/50 {
+  position: relative;
+  background:
+    linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.08) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html.dark[data-theme="elevated"] .rounded-xl.border.bg-card,
+html.dark[data-theme="elevated"] .rounded-lg.border.bg-card,
+html.dark[data-theme="elevated"] .rounded-xl.border.bg-background,
+html.dark[data-theme="elevated"] .rounded-lg.border.bg-background,
+html.dark[data-theme="elevated"] .rounded-2xl.border,
+html.dark[data-theme="elevated"] .rounded-xl.border:not(button):not(input),
+/* Cards without border class - dark mode */
+html.dark[data-theme="elevated"] .rounded-xl.bg-card,
+html.dark[data-theme="elevated"] .rounded-lg.bg-card,
+html.dark[data-theme="elevated"] .rounded-xl.bg-muted,
+html.dark[data-theme="elevated"] .rounded-lg.bg-muted,
+html.dark[data-theme="elevated"] .rounded-2xl.bg-card,
+html.dark[data-theme="elevated"] .rounded-2xl.bg-muted,
+/* Stat cards with opacity backgrounds - dark mode */
+html.dark[data-theme="elevated"] .rounded-lg.bg-muted\/50,
+html.dark[data-theme="elevated"] .rounded-xl.bg-muted\/50,
+html.dark[data-theme="elevated"] .rounded-lg.bg-card\/50,
+html.dark[data-theme="elevated"] .rounded-xl.bg-card\/50 {
+  background:
+    linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- BUTTONS ----- */
+html[data-theme="elevated"] button.bg-primary,
+html[data-theme="elevated"] button.bg-secondary,
+html[data-theme="elevated"] button.bg-destructive {
+  position: relative;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease;
+}
+
+html[data-theme="elevated"] button.border-input {
+  position: relative;
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.12) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.15s ease;
+}
+
+html[data-theme="elevated"] button.bg-primary:hover,
+html[data-theme="elevated"] button.bg-secondary:hover,
+html[data-theme="elevated"] button.bg-destructive:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+html[data-theme="elevated"] button.border-input:hover {
+  background:
+    linear-gradient(hsl(var(--accent)), hsl(var(--accent))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.15) 100%) border-box;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+html[data-theme="elevated"] button.bg-primary:active,
+html[data-theme="elevated"] button.bg-secondary:active,
+html[data-theme="elevated"] button.bg-destructive:active,
+html[data-theme="elevated"] button.border-input:active {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+}
+
+html.dark[data-theme="elevated"] button.bg-primary,
+html.dark[data-theme="elevated"] button.bg-secondary,
+html.dark[data-theme="elevated"] button.bg-destructive {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    0 6px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Primary button glow effect */
+html[data-theme="elevated"] button.bg-primary {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="elevated"] button.bg-primary:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 8px 24px hsl(var(--primary) / 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+html.dark[data-theme="elevated"] button.bg-primary {
+  background:
+    linear-gradient(hsl(var(--primary)), hsl(var(--primary))) padding-box,
+    linear-gradient(180deg, hsl(151 100% 70%) 0%, hsl(151 100% 30%) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 8px 24px hsl(var(--primary) / 0.3);
+}
+
+html.dark[data-theme="elevated"] button.bg-primary:hover {
+  background:
+    linear-gradient(hsl(var(--primary)), hsl(var(--primary))) padding-box,
+    linear-gradient(180deg, hsl(151 100% 75%) 0%, hsl(151 100% 35%) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    0 12px 32px hsl(var(--primary) / 0.4);
+}
+
+html.dark[data-theme="elevated"] button.border-input {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.2) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ----- INPUTS ----- */
+html[data-theme="elevated"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html[data-theme="elevated"] textarea,
+html[data-theme="elevated"] select {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+html.dark[data-theme="elevated"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.dark[data-theme="elevated"] textarea,
+html.dark[data-theme="elevated"] select {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ----- FLOATING ELEMENTS (Dialogs, Dropdowns, Popovers) ----- */
+html[data-theme="elevated"] [data-radix-popper-content-wrapper] > div,
+html[data-theme="elevated"] [role="dialog"][class*="bg-background"],
+html[data-theme="elevated"] [role="menu"],
+html[data-theme="elevated"] [role="listbox"] {
+  background:
+    linear-gradient(hsl(var(--popover)), hsl(var(--popover))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.06) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 24px 64px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+html.dark[data-theme="elevated"] [data-radix-popper-content-wrapper] > div,
+html.dark[data-theme="elevated"] [role="dialog"][class*="bg-background"],
+html.dark[data-theme="elevated"] [role="menu"],
+html.dark[data-theme="elevated"] [role="listbox"] {
+  background:
+    linear-gradient(hsl(var(--popover)), hsl(var(--popover))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.25) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 24px 64px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+}
+
+/* ----- ALERTS ----- */
+html[data-theme="elevated"] [role="alert"] {
+  background:
+    linear-gradient(var(--tw-gradient-stops, hsl(var(--background))), var(--tw-gradient-stops, hsl(var(--background)))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.06) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.06),
+    0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+html.dark[data-theme="elevated"] [role="alert"] {
+  background:
+    linear-gradient(var(--tw-gradient-stops, hsl(var(--background))), var(--tw-gradient-stops, hsl(var(--background)))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- BADGES ----- */
+/* Target badges by their characteristic classes */
+html[data-theme="elevated"] .inline-flex.items-center.border.text-xs {
+  position: relative;
+  border: none;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Add gradient overlay via pseudo-element for badges */
+html[data-theme="elevated"] .inline-flex.items-center.border.text-xs::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.08) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Add subtle inner gradient for depth */
+html[data-theme="elevated"] .inline-flex.items-center.border.text-xs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+}
+
+/* Dark mode badges */
+html.dark[data-theme="elevated"] .inline-flex.items-center.border.text-xs {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+html.dark[data-theme="elevated"] .inline-flex.items-center.border.text-xs::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+html.dark[data-theme="elevated"] .inline-flex.items-center.border.text-xs::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Green/Success badges - use green gradient */
+html[data-theme="elevated"] .inline-flex.items-center.bg-primary::before,
+html[data-theme="elevated"] .inline-flex.items-center.bg-sourceful-green-500::before {
+  background: linear-gradient(180deg, hsl(151 100% 70%) 0%, hsl(151 100% 30%) 100%) !important;
+}
+
+html[data-theme="elevated"] .inline-flex.items-center.bg-primary::after,
+html[data-theme="elevated"] .inline-flex.items-center.bg-sourceful-green-500::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%) !important;
+}
+
+/* Yellow/Energy badges - use yellow gradient */
+html[data-theme="elevated"] .inline-flex.items-center.bg-sourceful-yellow-400::before {
+  background: linear-gradient(180deg, hsl(50 100% 70%) 0%, hsl(50 100% 40%) 100%) !important;
+}
+
+/* Orange/Warning badges - use orange gradient */
+html[data-theme="elevated"] .inline-flex.items-center.bg-orange-500::before {
+  background: linear-gradient(180deg, hsl(25 100% 65%) 0%, hsl(25 100% 35%) 100%) !important;
+}
+
+/* Red/Destructive badges - use red gradient */
+html[data-theme="elevated"] .inline-flex.items-center.bg-destructive::before {
+  background: linear-gradient(180deg, hsl(0 100% 65%) 0%, hsl(0 100% 35%) 100%) !important;
+}
+
+/* Blue/Info badges - use blue gradient */
+html[data-theme="elevated"] .inline-flex.items-center.bg-blue-500::before {
+  background: linear-gradient(180deg, hsl(207 90% 65%) 0%, hsl(207 90% 35%) 100%) !important;
+}
+
+/* ----- TABS ----- */
+html[data-theme="elevated"] [role="tablist"] {
+  background:
+    linear-gradient(hsl(var(--muted)), hsl(var(--muted))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 0.625rem;
+  padding: 0.25rem;
+}
+
+html[data-theme="elevated"] [role="tab"][data-state="active"] {
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0.04) 100%) border-box;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+html.dark[data-theme="elevated"] [role="tablist"] {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+html.dark[data-theme="elevated"] [role="tab"][data-state="active"] {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%) border-box;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ----- SWITCH ----- */
+html[data-theme="elevated"] [role="switch"] {
+  background:
+    linear-gradient(hsl(var(--input)), hsl(var(--input))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.04) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="elevated"] [role="switch"][data-state="checked"] {
+  background:
+    linear-gradient(hsl(var(--primary)), hsl(var(--primary))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 8px hsl(var(--primary) / 0.25);
+}
+
+html.dark[data-theme="elevated"] [role="switch"] {
+  background:
+    linear-gradient(hsl(var(--input)), hsl(var(--input))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+html.dark[data-theme="elevated"] [role="switch"][data-state="checked"] {
+  background:
+    linear-gradient(hsl(var(--primary)), hsl(var(--primary))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 0 12px hsl(var(--primary) / 0.35);
+}
+
+/* ----- CHECKBOX & RADIO ----- */
+html[data-theme="elevated"] [role="checkbox"],
+html[data-theme="elevated"] button[role="checkbox"],
+html[data-theme="elevated"] [role="radio"] {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.02) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+html.dark[data-theme="elevated"] [role="checkbox"],
+html.dark[data-theme="elevated"] button[role="checkbox"],
+html.dark[data-theme="elevated"] [role="radio"] {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ----- SLIDER ----- */
+html[data-theme="elevated"] [role="slider"] [data-orientation] {
+  background:
+    linear-gradient(hsl(var(--secondary)), hsl(var(--secondary))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.02) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+html.dark[data-theme="elevated"] [role="slider"] [data-orientation] {
+  background:
+    linear-gradient(hsl(var(--secondary)), hsl(var(--secondary))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.15) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- PROGRESS ----- */
+html[data-theme="elevated"] [role="progressbar"] {
+  background:
+    linear-gradient(hsl(var(--secondary)), hsl(var(--secondary))) padding-box,
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+html.dark[data-theme="elevated"] [role="progressbar"] {
+  background:
+    linear-gradient(hsl(var(--secondary)), hsl(var(--secondary))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.15) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ----- TOOLTIP ----- */
+html[data-theme="elevated"] [role="tooltip"] {
+  background:
+    linear-gradient(hsl(var(--popover)), hsl(var(--popover))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.06) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+html.dark[data-theme="elevated"] [role="tooltip"] {
+  background:
+    linear-gradient(hsl(var(--popover)), hsl(var(--popover))) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.2) 100%) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.35),
+    0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ----- SHEET/DRAWER ----- */
+html[data-theme="elevated"] [data-vaul-drawer],
+html[data-theme="elevated"] [role="dialog"][data-state="open"] {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.04) 100%) border-box;
+  border-left: 1px solid transparent;
+  box-shadow:
+    -8px 0 32px rgba(0, 0, 0, 0.12),
+    -24px 0 64px rgba(0, 0, 0, 0.08);
+}
+
+html.dark[data-theme="elevated"] [data-vaul-drawer],
+html.dark[data-theme="elevated"] [role="dialog"][data-state="open"] {
+  background:
+    linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0.2) 100%) border-box;
+  border-left: 1px solid transparent;
+  box-shadow:
+    -8px 0 40px rgba(0, 0, 0, 0.45),
+    -24px 0 80px rgba(0, 0, 0, 0.35);
+}
+

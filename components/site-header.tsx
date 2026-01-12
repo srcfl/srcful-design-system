@@ -11,6 +11,7 @@ import { Logo } from "@/components/logo";
 import { SearchCommand, SearchTrigger } from "@/components/search-command";
 import { MobileNav } from "@/components/mobile-nav";
 import { FeedbackButton } from "@/components/feedback-button";
+import { AccessibilitySettings } from "@/components/accessibility-settings";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -80,6 +81,7 @@ export function SiteHeader() {
 
             <div className="hidden md:flex items-center gap-2">
               <FeedbackButton />
+              <AccessibilitySettings />
               {mounted && (
                 <Button variant="ghost" size="icon" onClick={toggleTheme}>
                   {theme === "light" ? (

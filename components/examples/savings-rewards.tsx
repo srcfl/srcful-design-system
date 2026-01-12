@@ -209,8 +209,8 @@ export function SavingsRewardsExample() {
           <h2 className="text-lg sm:text-xl font-semibold">Savings & Rewards</h2>
           <p className="text-sm text-muted-foreground">Stockholm Home - SE3 Price Area</p>
         </div>
-        <Badge variant="success" className="gap-1 w-fit">
-          <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+        <Badge variant="success-soft" className="gap-1 w-fit">
+          <span className="h-2 w-2 rounded-full bg-sourceful-green-500 animate-pulse" />
           Live
         </Badge>
       </div>
