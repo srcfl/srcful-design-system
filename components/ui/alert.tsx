@@ -9,14 +9,14 @@ const alertVariants = cva(
       variant: {
         default: "bg-background text-foreground",
         destructive:
-          "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+          "border-red-700 bg-destructive/10 text-destructive dark:border-red-500 dark:bg-red-950 dark:text-red-200 [&>svg]:text-destructive dark:[&>svg]:text-red-400",
         success:
-          "border-sourceful-green-500/50 bg-sourceful-green-50 text-sourceful-green-900 dark:bg-sourceful-green-950/50 dark:text-sourceful-green-100 [&>svg]:text-sourceful-green-500",
+          "border-green-700 bg-sourceful-green-50 text-sourceful-green-900 dark:border-green-500 dark:bg-green-950 dark:text-green-200 [&>svg]:text-sourceful-green-600 dark:[&>svg]:text-green-400",
         warning:
-          "border-sourceful-yellow-500/50 bg-sourceful-yellow-50 text-sourceful-yellow-900 dark:bg-sourceful-yellow-950/50 dark:text-sourceful-yellow-100 [&>svg]:text-sourceful-yellow-500",
-        info: "border-blue-500/50 bg-blue-50 text-blue-900 dark:bg-blue-950/50 dark:text-blue-100 [&>svg]:text-blue-500",
+          "border-yellow-600 bg-sourceful-yellow-50 text-sourceful-yellow-900 dark:border-yellow-500 dark:bg-yellow-950 dark:text-yellow-200 [&>svg]:text-yellow-600 dark:[&>svg]:text-yellow-400",
+        info: "border-blue-700 bg-blue-50 text-blue-900 dark:border-blue-500 dark:bg-blue-950 dark:text-blue-200 [&>svg]:text-blue-600 dark:[&>svg]:text-blue-400",
         energy:
-          "border-sourceful-yellow-400/50 bg-sourceful-yellow-50 text-sourceful-gray-900 dark:bg-sourceful-yellow-950/50 dark:text-sourceful-yellow-100 [&>svg]:text-sourceful-yellow-400",
+          "border-yellow-600 bg-sourceful-yellow-50 text-sourceful-gray-900 dark:border-yellow-400 dark:bg-yellow-950 dark:text-yellow-200 [&>svg]:text-yellow-600 dark:[&>svg]:text-yellow-400",
       },
     },
     defaultVariants: {

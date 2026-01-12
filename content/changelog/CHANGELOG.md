@@ -5,6 +5,18 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.29] - 2026-01-12
+
+### Added
+- **docs**: Add Visual Themes documentation page explaining base vs elevated themes
+- **docs**: Add Accessibility documentation page with EU compliance (EAA) and WCAG status
+- **token**: Add semantic colors (success, warning, info, energy) to Tailwind config
+
+### Fixed
+- **component**: Fix Alert dark mode with proper dark backgrounds and colored borders
+- **component**: Fix Badge color blind mode support using semantic color tokens
+- **component**: Fix docs sidebar item spacing to prevent hover backgrounds touching
+
 ## [0.1.28] - 2026-01-12
 
 ### Added

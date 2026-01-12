@@ -22,6 +22,8 @@ const docsNav: NavSection[] = [
       { title: "Installation", href: "/docs/installation" },
       { title: "Claude Code", href: "/docs/claude-code" },
       { title: "Theming", href: "/docs/theming" },
+      { title: "Visual Themes", href: "/docs/themes" },
+      { title: "Accessibility", href: "/docs/accessibility" },
     ],
   },
   {
@@ -139,7 +141,7 @@ export function DocsSidebar({ type }: DocsSidebarProps) {
                 <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
                   {section.title}
                 </h4>
-                <div className="grid grid-flow-row auto-rows-max text-sm">
+                <div className="grid grid-flow-row auto-rows-max text-sm gap-0.5">
                   {section.items.map((item) => (
                     <Link
                       key={item.href}

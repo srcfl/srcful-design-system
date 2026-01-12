@@ -15,15 +15,15 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
-        // Sourceful solid variants
+        // Sourceful solid variants - use semantic colors for accessibility
         energy:
-          "border-transparent bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500",
+          "border-transparent bg-energy text-energy-foreground shadow hover:bg-energy/80",
         success:
-          "border-transparent bg-sourceful-green-500 text-sourceful-gray-900 shadow hover:bg-sourceful-green-600",
+          "border-transparent bg-success text-success-foreground shadow hover:bg-success/80",
         warning:
-          "border-transparent bg-orange-500 text-white shadow hover:bg-orange-600",
+          "border-transparent bg-warning text-warning-foreground shadow hover:bg-warning/80",
         info:
-          "border-transparent bg-blue-500 text-white shadow hover:bg-blue-600",
+          "border-transparent bg-info text-info-foreground shadow hover:bg-info/80",
         // Sourceful soft variants - colored text with tinted background
         "success-soft":
           "border-sourceful-green-500/20 bg-sourceful-green-500/10 text-sourceful-green-600 dark:text-sourceful-green-400",
