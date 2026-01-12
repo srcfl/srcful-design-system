@@ -48,7 +48,7 @@ interface QuickStatProps {
 
 function QuickStat({ icon, label, value, subtext, color = "text-primary" }: QuickStatProps) {
   return (
-    <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
+    <div className="flex items-center gap-3 p-3 rounded-lg bg-card border">
       <div className={`${color}`}>{icon}</div>
       <div className="flex-1 min-w-0">
         <p className="text-xs text-muted-foreground truncate">{label}</p>

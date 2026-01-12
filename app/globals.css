@@ -1270,6 +1270,16 @@ html[data-theme="elevated"] .rounded-xl.bg-card\/50 {
     0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* Explicit stat card border for elevated light mode - higher specificity */
+html[data-theme="elevated"]:not(.dark) .rounded-lg[class*="bg-muted"],
+html[data-theme="elevated"]:not(.dark) .rounded-xl[class*="bg-muted"] {
+  background: hsl(var(--card)) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
 html.dark[data-theme="elevated"] .rounded-xl.border.bg-card,
 html.dark[data-theme="elevated"] .rounded-lg.border.bg-card,
 html.dark[data-theme="elevated"] .rounded-xl.border.bg-background,
@@ -1290,8 +1300,18 @@ html.dark[data-theme="elevated"] .rounded-lg.bg-card\/50,
 html.dark[data-theme="elevated"] .rounded-xl.bg-card\/50 {
   background:
     linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%) border-box;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%) border-box;
   border: 1px solid transparent;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Explicit stat card border for elevated dark mode - higher specificity */
+html.dark[data-theme="elevated"] .rounded-lg[class*="bg-muted"],
+html.dark[data-theme="elevated"] .rounded-xl[class*="bg-muted"] {
+  background: hsl(var(--card)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.25),
     0 8px 24px rgba(0, 0, 0, 0.2);
