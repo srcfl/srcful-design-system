@@ -155,12 +155,12 @@ export default function ButtonPage() {
         </p>
         <ComponentPreview
           code={`<div className="flex items-center gap-3">
-  <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+  <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
   <Button disabled>Please wait</Button>
 </div>`}
         >
           <div className="flex items-center gap-3">
-            <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+            <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
             <Button disabled>Please wait</Button>
           </div>
         </ComponentPreview>
@@ -169,7 +169,7 @@ export default function ButtonPage() {
         <ComponentPreview
           code={`<div className="flex flex-col gap-4">
   <div className="flex items-center gap-3">
-    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+    <PixelGrid dimension={4} pattern="ripple" size="sm" />
     <Button disabled variant="outline">Saving...</Button>
   </div>
   <div className="flex items-center gap-3">
@@ -180,7 +180,7 @@ export default function ButtonPage() {
         >
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+              <PixelGrid dimension={4} pattern="ripple" size="sm" />
               <Button disabled variant="outline">Saving...</Button>
             </div>
             <div className="flex items-center gap-3">

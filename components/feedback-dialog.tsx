@@ -230,7 +230,7 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
             </Button>
             <div className="flex items-center gap-2">
               {isSubmitting && (
-                <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+                <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
               )}
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Submitting..." : "Submit Feedback"}

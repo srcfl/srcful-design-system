@@ -179,11 +179,11 @@ export default function BadgePage() {
         <ComponentPreview
           code={`<div className="flex flex-col gap-3">
   <div className="flex items-center gap-2">
-    <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+    <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
     <Badge variant="secondary">Loading</Badge>
   </div>
   <div className="flex items-center gap-2">
-    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+    <PixelGrid dimension={4} pattern="ripple" size="sm" />
     <Badge variant="info-soft" rounded="full">Syncing</Badge>
   </div>
   <div className="flex items-center gap-2">
@@ -194,11 +194,11 @@ export default function BadgePage() {
         >
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+              <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
               <Badge variant="secondary">Loading</Badge>
             </div>
             <div className="flex items-center gap-2">
-              <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+              <PixelGrid dimension={4} pattern="ripple" size="sm" />
               <Badge variant="info-soft" rounded="full">Syncing</Badge>
             </div>
             <div className="flex items-center gap-2">

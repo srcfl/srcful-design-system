@@ -159,7 +159,7 @@ export function RoadmapContent({ initialItems }: RoadmapContentProps) {
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     {votingItem === item.number && (
-                      <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+                      <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
                     )}
                     <Button
                       variant="outline"

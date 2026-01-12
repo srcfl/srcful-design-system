@@ -207,7 +207,7 @@ export default function StatesPatternPage() {
 
 {/* Minimal inline loading */}
 <div className="flex items-center gap-2">
-  <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+  <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
   <span className="text-sm">Processing</span>
 </div>`}
         >
@@ -228,11 +228,11 @@ export default function StatesPatternPage() {
                     <span className="text-sm text-muted-foreground">Saving changes...</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+                    <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
                     <span className="text-sm text-muted-foreground">Processing data...</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+                    <PixelGrid dimension={4} pattern="ripple" size="sm" />
                     <span className="text-sm text-muted-foreground">Syncing...</span>
                   </div>
                 </div>
