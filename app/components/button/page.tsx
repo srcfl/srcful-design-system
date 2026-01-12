@@ -2,7 +2,8 @@ import { ComponentNav } from "@/components/component-nav";
 import { Button } from "@/components/ui/button";
 import { ComponentPreview } from "@/components/component-preview";
 import { PropsTable } from "@/components/props-table";
-import { Mail, Loader2, ChevronRight } from "lucide-react";
+import { Mail, ChevronRight } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 
 const buttonProps = [
   {
@@ -149,16 +150,44 @@ export default function ButtonPage() {
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
           Loading
         </h2>
+        <p className="text-muted-foreground">
+          Use the branded PixelGrid animation alongside loading buttons for a consistent experience.
+        </p>
         <ComponentPreview
-          code={`<Button disabled>
-  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-  Please wait
-</Button>`}
+          code={`<div className="flex items-center gap-3">
+  <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+  <Button disabled>Please wait</Button>
+</div>`}
         >
-          <Button disabled>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Please wait
-          </Button>
+          <div className="flex items-center gap-3">
+            <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+            <Button disabled>Please wait</Button>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">Loading with Different Patterns</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-col gap-4">
+  <div className="flex items-center gap-3">
+    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+    <Button disabled variant="outline">Saving...</Button>
+  </div>
+  <div className="flex items-center gap-3">
+    <PixelGrid pattern="corners-sync" size="sm" />
+    <Button disabled variant="secondary">Processing...</Button>
+  </div>
+</div>`}
+        >
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+              <Button disabled variant="outline">Saving...</Button>
+            </div>
+            <div className="flex items-center gap-3">
+              <PixelGrid pattern="corners-sync" size="sm" />
+              <Button disabled variant="secondary">Processing...</Button>
+            </div>
+          </div>
         </ComponentPreview>
       </div>
 

@@ -2,7 +2,8 @@ import { ComponentNav } from "@/components/component-nav";
 import { Badge } from "@/components/ui/badge";
 import { ComponentPreview } from "@/components/component-preview";
 import { PropsTable } from "@/components/props-table";
-import { Loader2, Check, X, Circle, Zap, AlertTriangle } from "lucide-react";
+import { Check, X, Circle, Zap, AlertTriangle } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 
 const badgeProps = [
   {
@@ -172,29 +173,38 @@ export default function BadgePage() {
         </ComponentPreview>
 
         <h3 className="text-lg font-medium">Loading State</h3>
+        <p className="text-sm text-muted-foreground mb-2">
+          Use PixelGrid alongside badges for branded loading indicators.
+        </p>
         <ComponentPreview
-          code={`<div className="flex flex-wrap gap-2">
-  <Badge variant="secondary">
-    <Loader2 className="animate-spin" /> Loading
-  </Badge>
-  <Badge variant="info-soft" rounded="full">
-    <Loader2 className="animate-spin" /> Syncing
-  </Badge>
-  <Badge variant="warning-soft">
-    <Loader2 className="animate-spin" /> Processing
-  </Badge>
+          code={`<div className="flex flex-col gap-3">
+  <div className="flex items-center gap-2">
+    <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+    <Badge variant="secondary">Loading</Badge>
+  </div>
+  <div className="flex items-center gap-2">
+    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+    <Badge variant="info-soft" rounded="full">Syncing</Badge>
+  </div>
+  <div className="flex items-center gap-2">
+    <PixelGrid pattern="corners-sync" size="sm" />
+    <Badge variant="warning-soft">Processing</Badge>
+  </div>
 </div>`}
         >
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="secondary">
-              <Loader2 className="animate-spin" /> Loading
-            </Badge>
-            <Badge variant="info-soft" rounded="full">
-              <Loader2 className="animate-spin" /> Syncing
-            </Badge>
-            <Badge variant="warning-soft">
-              <Loader2 className="animate-spin" /> Processing
-            </Badge>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+              <Badge variant="secondary">Loading</Badge>
+            </div>
+            <div className="flex items-center gap-2">
+              <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+              <Badge variant="info-soft" rounded="full">Syncing</Badge>
+            </div>
+            <div className="flex items-center gap-2">
+              <PixelGrid pattern="corners-sync" size="sm" />
+              <Badge variant="warning-soft">Processing</Badge>
+            </div>
           </div>
         </ComponentPreview>
 

@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { toast } from "sonner";
-import { Loader2, Github } from "lucide-react";
+import { Github } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 import {
   Dialog,
   DialogContent,
@@ -106,8 +107,9 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="sm:max-w-md">
-          <div className="flex items-center justify-center py-8">
-            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          <div className="flex flex-col items-center justify-center py-8">
+            <PixelGrid pattern="frame" size="md" />
+            <p className="text-sm text-muted-foreground mt-4">Loading...</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -226,16 +228,14 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
             >
               Cancel
             </Button>
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
-                </>
-              ) : (
-                "Submit Feedback"
+            <div className="flex items-center gap-2">
+              {isSubmitting && (
+                <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
               )}
-            </Button>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Feedback"}
+              </Button>
+            </div>
           </DialogFooter>
         </form>
       </DialogContent>

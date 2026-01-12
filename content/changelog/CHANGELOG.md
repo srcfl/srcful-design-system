@@ -5,6 +5,16 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.32] - 2026-01-12
+
+### Changed
+- **docs**: Replace Loader2 spinners with branded PixelGrid animations in loading states
+- **docs**: Update Button loading examples to use PixelGrid component
+- **docs**: Update Badge loading examples to use PixelGrid alongside badges
+- **component**: Update FeedbackDialog to use PixelGrid for loading states
+- **component**: Update RoadmapContent voting button to use PixelGrid animation
+
+
 ## [0.1.31] - 2026-01-12
 
 ### Added

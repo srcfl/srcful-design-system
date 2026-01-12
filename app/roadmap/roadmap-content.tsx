@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useSession, signIn } from "next-auth/react";
-import { ThumbsUp, ExternalLink, Loader2 } from "lucide-react";
+import { ThumbsUp, ExternalLink } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -156,22 +157,20 @@ export function RoadmapContent({ initialItems }: RoadmapContentProps) {
                     </div>
                     <CardTitle className="text-lg">{item.title}</CardTitle>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="shrink-0"
-                    onClick={() => handleVote(item.number)}
-                    disabled={votingItem === item.number}
-                  >
-                    {votingItem === item.number ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <>
-                        <ThumbsUp className="h-4 w-4 mr-1" />
-                        {item.votes}
-                      </>
+                  <div className="flex items-center gap-2 shrink-0">
+                    {votingItem === item.number && (
+                      <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
                     )}
-                  </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleVote(item.number)}
+                      disabled={votingItem === item.number}
+                    >
+                      <ThumbsUp className="h-4 w-4 mr-1" />
+                      {item.votes}
+                    </Button>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>

@@ -16,8 +16,8 @@ import {
   Zap,
   Sun,
   FileQuestion,
-  Loader2,
 } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 
 export default function StatesPatternPage() {
   return (
@@ -182,46 +182,62 @@ export default function StatesPatternPage() {
         </ComponentPreview>
       </div>
 
-      {/* Loading Spinner */}
+      {/* Loading Animation */}
       <div className="space-y-4">
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
-          Loading Spinner
+          Loading Animation
         </h2>
         <p className="text-muted-foreground">
-          For quick operations or when skeleton doesn&apos;t fit, use a spinner.
+          Use the branded PixelGrid animation for loading states. Available in multiple sizes and patterns.
         </p>
         <ComponentPreview
-          code={`{/* Centered spinner */}
+          code={`import { PixelGrid } from "@sourceful-energy/ui"
+
+{/* Centered loading */}
 <div className="flex flex-col items-center justify-center py-12">
-  <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-  <p className="text-sm text-muted-foreground mt-2">Loading devices...</p>
+  <PixelGrid pattern="frame" size="md" />
+  <p className="text-sm text-muted-foreground mt-4">Loading devices...</p>
 </div>
 
-{/* Button with spinner */}
-<Button disabled>
-  <Loader2 className="h-4 w-4 animate-spin mr-2" />
-  Saving...
-</Button>`}
+{/* Compact loading */}
+<div className="flex items-center gap-3">
+  <PixelGrid pattern="corners-sync" size="sm" />
+  <span className="text-sm text-muted-foreground">Saving...</span>
+</div>
+
+{/* Minimal inline loading */}
+<div className="flex items-center gap-2">
+  <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+  <span className="text-sm">Processing</span>
+</div>`}
         >
           <div className="space-y-6 w-full max-w-md">
             <Card>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center justify-center py-8">
-                  <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground mt-2">Loading devices...</p>
+                  <PixelGrid pattern="frame" size="md" />
+                  <p className="text-sm text-muted-foreground mt-4">Loading devices...</p>
                 </div>
               </CardContent>
             </Card>
-            <div className="flex gap-2">
-              <Button disabled>
-                <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                Saving...
-              </Button>
-              <Button variant="outline" disabled>
-                <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                Loading...
-              </Button>
-            </div>
+            <Card>
+              <CardContent className="pt-6">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <PixelGrid pattern="corners-sync" size="sm" />
+                    <span className="text-sm text-muted-foreground">Saving changes...</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <PixelGrid dimension="4x4" pattern="cross-spin" size="sm" />
+                    <span className="text-sm text-muted-foreground">Processing data...</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <PixelGrid dimension="4x4" pattern="ripple" size="sm" />
+                    <span className="text-sm text-muted-foreground">Syncing...</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </ComponentPreview>
       </div>
