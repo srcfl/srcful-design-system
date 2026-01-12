@@ -713,6 +713,76 @@ export default function RootLayout({ children }) {
 }
 ```
 
+#### Using with Vite (Non-Next.js Projects)
+
+The design system is fully compatible with Vite, Create React App, and other non-Next.js setups. The only difference is handling dark mode yourself instead of using `next-themes`.
+
+```tsx
+// main.tsx or App.tsx
+import { useState, useEffect } from "react"
+import { DesignSystemProvider, Button, Card } from "@sourceful-energy/ui"
+import "@sourceful-energy/ui/styles.css"  // MUST be imported
+import "./index.css"                       // Your styles second
+
+function App() {
+  // Handle dark mode yourself (replaces next-themes)
+  const [darkMode, setDarkMode] = useState(() =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  )
+
+  // Toggle .dark class on <html> - this is all that's needed!
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode)
+  }, [darkMode])
+
+  return (
+    // DesignSystemProvider handles visual theme + accessibility
+    <DesignSystemProvider defaultTheme="elevated">
+      <div className="min-h-screen bg-background text-foreground">
+        <Button onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </Button>
+
+        {/* All components work exactly the same */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Works in Vite!</CardTitle>
+          </CardHeader>
+        </Card>
+      </div>
+    </DesignSystemProvider>
+  )
+}
+```
+
+**Key points for Vite users:**
+
+1. **No Next.js dependencies** - The npm package has zero Next.js dependencies
+2. **Dark mode** - Toggle the `.dark` class on `<html>` yourself (2 lines of code)
+3. **DesignSystemProvider** - Handles themes (`base`/`elevated`) and accessibility modes
+4. **All hooks work** - `useAccessibility()`, `useFontMode()`, etc. are pure React
+
+**Accessibility settings in Vite:**
+
+```tsx
+import { useAccessibility } from "@sourceful-energy/ui"
+
+function AccessibilityPanel() {
+  const {
+    fontMode, setFontMode,      // "default" | "dyslexic"
+    colorMode, setColorMode,    // color blind modes
+    spacingMode, setSpacingMode // text spacing
+  } = useAccessibility()
+
+  return (
+    <Switch
+      checked={fontMode === "dyslexic"}
+      onCheckedChange={(v) => setFontMode(v ? "dyslexic" : "default")}
+    />
+  )
+}
+```
+
 #### Critical Setup (Existing Projects / Reskinning)
 
 **Before making any changes, verify:**

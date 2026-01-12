@@ -109,13 +109,13 @@ export default function ThemesPage() {
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
           Live Preview
         </h2>
-        <p className="leading-7">
+        <div className="leading-7">
           Click a theme card above to see how components look with each theme.
           Currently viewing:{" "}
           <Badge variant="outline" className="ml-1">
             {theme}
           </Badge>
-        </p>
+        </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <Card>

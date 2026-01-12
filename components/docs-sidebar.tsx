@@ -20,6 +20,7 @@ const docsNav: NavSection[] = [
     items: [
       { title: "Introduction", href: "/docs" },
       { title: "Installation", href: "/docs/installation" },
+      { title: "Using with Vite", href: "/docs/vite" },
       { title: "Claude Code", href: "/docs/claude-code" },
       { title: "Theming", href: "/docs/theming" },
       { title: "Visual Themes", href: "/docs/themes" },
@@ -37,7 +38,11 @@ const docsNav: NavSection[] = [
   {
     title: "Patterns",
     items: [
+      { title: "Dashboard", href: "/docs/patterns/dashboard" },
+      { title: "Data Tables", href: "/docs/patterns/tables" },
       { title: "Forms", href: "/docs/patterns/forms" },
+      { title: "Settings", href: "/docs/patterns/settings" },
+      { title: "Empty & Loading", href: "/docs/patterns/states" },
     ],
   },
 ];

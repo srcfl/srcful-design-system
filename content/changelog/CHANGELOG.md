@@ -5,6 +5,23 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.31] - 2026-01-12
+
+### Added
+- **docs**: Add "Using with Vite" documentation page for non-Next.js setups
+- **docs**: Add Dashboard pattern page (stat cards, hero metrics, device lists)
+- **docs**: Add Data Tables pattern page (row actions, toolbars, selectable rows)
+- **docs**: Add Settings pattern page (sections, cards, tabs, danger zones)
+- **docs**: Add Empty & Loading States pattern page (skeletons, spinners, errors)
+
+### Changed
+- **package**: Move docs-only dependencies to devDependencies for lighter installs
+- **package**: Remove Next.js as transitive dependency - now fully Vite-compatible
+
+### Fixed
+- **component**: Fix HTML nesting error on themes page (p cannot contain div)
+
+
 ## [0.1.30] - 2026-01-12
 
 ### Added
