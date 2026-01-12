@@ -6,8 +6,10 @@ This project uses the **Sourceful Design System**. All UI components must come f
 
 ### Critical Setup Requirements
 
+#### Next.js Setup
+
 ```tsx
-// 1. In your root layout (app/layout.tsx or pages/_app.tsx)
+// 1. In your root layout (app/layout.tsx)
 // CSS IMPORT ORDER MATTERS - design system MUST be first
 import "@sourceful-energy/ui/styles.css"  // FIRST - contains CSS variables
 import "./globals.css"                     // SECOND - project overrides
@@ -31,6 +33,24 @@ export default function RootLayout({ children }) {
 }
 ```
 
+#### Vite Setup
+
+```tsx
+// main.tsx - CSS IMPORT ORDER MATTERS
+import "@sourceful-energy/ui/styles.css"  // FIRST
+import "./index.css"                       // SECOND
+
+import { DesignSystemProvider } from "@sourceful-energy/ui"
+
+function App() {
+  return (
+    <DesignSystemProvider defaultTheme="system">
+      {/* Your app */}
+    </DesignSystemProvider>
+  )
+}
+```
+
 ### Component Quick Reference
 
 | Need | Use |
@@ -43,7 +63,8 @@ export default function RootLayout({ children }) {
 | Overlays | `Dialog`, `Sheet`, `DropdownMenu`, `Tooltip` |
 | Layout | `Tabs`, `SimpleTabs`, `Accordion`, `Separator`, `ScrollArea`, `Table` |
 | Navigation | `SideMenu`, `TopMenu` |
-| Brand | `Logo` (variants: full, symbol, wordmark) |
+| Brand | `Logo` (variants: full, symbol, wordmark), `PixelGrid` (animated brand element) |
+| Loading | `PixelGrid` (branded loading animation), `Skeleton` (content placeholder) |
 
 ### Color Token Usage
 
@@ -78,6 +99,58 @@ toast.error("Failed")
   <Label htmlFor="email">Email</Label>
   <Input id="email" type="email" />
 </div>
+
+// Loading states: Use PixelGrid instead of spinners
+import { PixelGrid } from "@sourceful-energy/ui"
+
+// Centered loading
+<div className="flex flex-col items-center justify-center py-8">
+  <PixelGrid pattern="frame" size="md" />
+  <p className="text-sm text-muted-foreground mt-4">Loading...</p>
+</div>
+
+// Compact loading (next to buttons/text)
+<div className="flex items-center gap-3">
+  <PixelGrid dimension={4} pattern="cross-spin" size="sm" />
+  <span className="text-sm text-muted-foreground">Saving...</span>
+</div>
+```
+
+### Visual Themes
+
+```tsx
+// Base theme (default) - Clean, minimal styling
+<html lang="en">
+
+// Elevated theme - Gradient borders on cards, buttons, badges
+<html lang="en" data-theme="elevated">
+
+// The elevated theme adds green gradient lighting effects to:
+// - Card borders
+// - Primary buttons and badges
+// - Input focus states
+// - Tab indicators
+```
+
+### Accessibility Features
+
+```tsx
+// Full accessibility support with AccessibilityProvider
+import { AccessibilityProvider, AccessibilitySettings } from "@sourceful-energy/ui"
+
+<AccessibilityProvider>
+  <App />
+  <AccessibilitySettings /> {/* Optional settings panel */}
+</AccessibilityProvider>
+
+// Available accessibility modes (set via data attributes):
+// data-font-mode="dyslexic"     - Lexend font for dyslexia
+// data-color-mode="deuteranopia" | "protanopia" | "tritanopia" | "achromatopsia"
+// data-focus-mode="enhanced"    - High-visibility focus rings
+// data-spacing="comfortable"    - Increased text spacing
+
+// Example: Enable dyslexic font mode
+<html data-font-mode="dyslexic">
 ```
 
 ### Reskinning Existing Code
@@ -112,11 +185,15 @@ When migrating existing components to the design system:
 
 **Unstyled components / CSS variables undefined:**
 - Verify `@sourceful-energy/ui/styles.css` is imported FIRST in your layout
-- Check package version is 0.1.22 or later: `npm list @sourceful-energy/ui`
+- Check package version is 0.1.30 or later: `npm list @sourceful-energy/ui`
 
 **Dark mode not working:**
-- Add `suppressHydrationWarning` to `<html>` tag
-- Wrap app in `ThemeProvider` with `attribute="class"`
+- Next.js: Add `suppressHydrationWarning` to `<html>` tag, wrap in `ThemeProvider`
+- Vite: Use `DesignSystemProvider` which handles theme toggling
+
+**Elevated theme not showing:**
+- Add `data-theme="elevated"` to `<html>` element
+- Or use `DesignSystemProvider` with `defaultVisualTheme="elevated"`
 
 ## Project-Specific Notes
 
