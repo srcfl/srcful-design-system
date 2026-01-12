@@ -5,6 +5,22 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.28] - 2026-01-12
+
+### Added
+- **component**: Add AccessibilityProvider for managing theme and accessibility modes
+- **component**: Add AccessibilitySettings panel for toggling accessibility features
+- **feature**: Add elevated theme with gradient border lighting effects
+- **feature**: Add dyslexic-friendly font mode using Lexend font
+- **feature**: Add color blind palettes (deuteranopia, protanopia, tritanopia, achromatopsia)
+- **feature**: Add enhanced focus indicators mode
+- **feature**: Add text spacing adjustments mode
+
+### Changed
+- **component**: Update ComponentPreview to use SimpleTabs
+- **component**: Update dashboard badges to use soft variants
+- **component**: Improve elevated styling for cards, buttons, badges, tabs, inputs
+- **component**: Add green gradient borders for primary buttons and badges in elevated mode
 
 
 
