@@ -5,33 +5,6 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.1.32] - 2026-01-12
-
-### Changed
-- **docs**: Replace Loader2 spinners with branded PixelGrid animations in loading states
-- **docs**: Update Button loading examples to use PixelGrid component
-- **docs**: Update Badge loading examples to use PixelGrid alongside badges
-- **component**: Update FeedbackDialog to use PixelGrid for loading states
-- **component**: Update RoadmapContent voting button to use PixelGrid animation
-
-
-## [0.1.31] - 2026-01-12
-
-### Added
-- **docs**: Add "Using with Vite" documentation page for non-Next.js setups
-- **docs**: Add Dashboard pattern page (stat cards, hero metrics, device lists)
-- **docs**: Add Data Tables pattern page (row actions, toolbars, selectable rows)
-- **docs**: Add Settings pattern page (sections, cards, tabs, danger zones)
-- **docs**: Add Empty & Loading States pattern page (skeletons, spinners, errors)
-
-### Changed
-- **package**: Move docs-only dependencies to devDependencies for lighter installs
-- **package**: Remove Next.js as transitive dependency - now fully Vite-compatible
-
-### Fixed
-- **component**: Fix HTML nesting error on themes page (p cannot contain div)
-
-
 ## [0.1.30] - 2026-01-12
 
 ### Added
@@ -40,7 +13,24 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - **component**: Add 21 new patterns for 4x4 grids (square-inner, square-outer, cross-full, cross-spin, etc.)
 - **component**: Add 22 new patterns for 6x6 grids (ripple, spiral, checkerboard, diamond, wave, etc.)
 - **component**: Add PixelGridDimensionComparison showcase component
+- **docs**: Add "Using with Vite" documentation page for non-Next.js setups
+- **docs**: Add Dashboard pattern page (stat cards, hero metrics, device lists)
+- **docs**: Add Data Tables pattern page (row actions, toolbars, selectable rows)
+- **docs**: Add Settings pattern page (sections, cards, tabs, danger zones)
+- **docs**: Add Empty & Loading States pattern page (skeletons, spinners, errors)
 - **docs**: Add dimension selector and animated toggle to PixelGrid documentation page
+
+### Changed
+- **package**: Move docs-only dependencies to devDependencies for lighter installs
+- **package**: Remove Next.js as transitive dependency - now fully Vite-compatible
+- **docs**: Replace Loader2 spinners with branded PixelGrid animations in loading states
+- **docs**: Update Button loading examples to use PixelGrid component
+- **docs**: Update Badge loading examples to use PixelGrid alongside badges
+- **component**: Update FeedbackDialog to use PixelGrid for loading states
+- **component**: Update RoadmapContent voting button to use PixelGrid animation
+
+### Fixed
+- **component**: Fix HTML nesting error on themes page (p cannot contain div)
 
 
 ## [0.1.27] - 2026-01-12
