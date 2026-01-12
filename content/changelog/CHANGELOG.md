@@ -5,6 +5,31 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.1.30] - 2026-01-12
+
+### Added
+- **component**: Add 4x4 and 6x6 grid dimensions to PixelGrid component
+- **component**: Add static (non-animated) mode to PixelGrid with `animated` prop
+- **component**: Add 21 new patterns for 4x4 grids (square-inner, square-outer, cross-full, cross-spin, etc.)
+- **component**: Add 22 new patterns for 6x6 grids (ripple, spiral, checkerboard, diamond, wave, etc.)
+- **component**: Add PixelGridDimensionComparison showcase component
+- **docs**: Add dimension selector and animated toggle to PixelGrid documentation page
+
+
+## [0.1.27] - 2026-01-12
+
+### Added
+- **component**: Add accessibility modes and elevated theme
+
+### Changed
+- **docs**: Add themes and accessibility documentation
+- **docs**: Update changelog for v0.1.28
+- **docs**: Add playbook reference for strategic context
+
+### Fixed
+- **component**: Add Pixel Grid to docs sidebar navigation
+
+
 ## [0.1.29] - 2026-01-12
 
 ### Added
