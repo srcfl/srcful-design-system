@@ -45,6 +45,12 @@ const docsNav: NavSection[] = [
       { title: "Empty & Loading", href: "/docs/patterns/states" },
     ],
   },
+  {
+    title: "Resources",
+    items: [
+      { title: "Building with Claude Code", href: "/docs/building-with-claude-code" },
+    ],
+  },
 ];
 
 const componentsNav: NavSection[] = [

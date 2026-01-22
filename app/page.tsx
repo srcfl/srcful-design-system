@@ -287,6 +287,9 @@ import "@sourceful-energy/ui/styles.css"`}</code>
             © {new Date().getFullYear()} Sourceful Energy. Open source under MIT license.
           </p>
           <div className="flex gap-4">
+            <Link href="/docs/building-with-claude-code" className="text-sm text-muted-foreground hover:text-foreground">
+              Building with Claude Code
+            </Link>
             <a href="https://sourceful.energy" className="text-sm text-muted-foreground hover:text-foreground">
               sourceful.energy
             </a>
