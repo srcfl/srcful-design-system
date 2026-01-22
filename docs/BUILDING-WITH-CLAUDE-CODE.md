@@ -38,6 +38,109 @@ npx shadcn@latest init
 
 Then we customized heavily - colors, typography, variants, and domain-specific components.
 
+---
+
+## Why shadcn/ui is the Perfect Foundation
+
+**Full credit where it's due**: [shadcn/ui](https://ui.shadcn.com) by [@shadcn](https://twitter.com/shadcn) is the backbone of this design system, and it's genuinely excellent.
+
+### What Makes It Special
+
+**1. You own the code**
+
+Unlike traditional component libraries where you `npm install` and hope the API fits your needs, shadcn/ui copies the component source into your project. You can read it, modify it, and learn from it. This is essential for customization.
+
+**2. Built on the right primitives**
+
+shadcn/ui uses [Radix UI](https://radix-ui.com) for accessibility primitives. This means keyboard navigation, focus management, ARIA attributes, and screen reader support are handled correctly out of the box. We didn't have to solve these hard problems ourselves.
+
+**3. Tailwind-native styling**
+
+Components are styled with Tailwind CSS using the `class-variance-authority` pattern. This made it trivial to add our brand tokens and custom variants while maintaining consistency.
+
+**4. Claude Code understands it**
+
+Because shadcn/ui is widely used and well-documented, Claude has deep knowledge of its patterns. When we asked for new variants or modifications, Claude knew exactly how to structure them consistently.
+
+### What We Built On Top
+
+| shadcn/ui gave us | We added |
+|-------------------|----------|
+| Button, Card, Input, Dialog, etc. | Energy-specific variants (`variant="energy"`) |
+| Dark mode support | DesignSystemProvider with accessibility modes |
+| TypeScript types | Domain components (PixelGrid, EnergyFlow) |
+| Accessible primitives | Brand tokens (Sourceful green/yellow) |
+| Consistent API patterns | npm package distribution |
+
+### The shadcn/ui + Claude Code Combination
+
+This pairing works remarkably well because:
+
+1. **Claude can read the source**: Since components are in your codebase, Claude can reference exactly how they work when building new features or fixing issues.
+
+2. **Patterns are consistent**: shadcn/ui establishes clear patterns (CVA for variants, Radix for primitives, Tailwind for styling). Claude follows these patterns automatically.
+
+3. **Incremental adoption**: You can start with one component, customize it, then add more. Claude helps at each step.
+
+4. **Community knowledge**: Claude has been trained on countless projects using shadcn/ui, so it knows common customizations and gotchas.
+
+If you're starting a design system in 2025+, shadcn/ui is the obvious foundation. We wouldn't have shipped in 2 days without it.
+
+### The Full Stack of Giants
+
+We built this design system standing on the shoulders of several exceptional open source projects and platforms:
+
+**[Tailwind CSS](https://tailwindcss.com)** by Adam Wathan and team
+
+Tailwind fundamentally changed how we think about styling. The utility-first approach means:
+- No context switching between CSS files and components
+- Design tokens are enforced through the config
+- Dark mode is a single `dark:` prefix away
+- Claude can reason about styles directly in the markup
+
+The constraint of "use only what's in the config" actually helps Claude generate consistent code. No invented class names, no one-off styles.
+
+**[Vercel](https://vercel.com)** and **[Next.js](https://nextjs.org)**
+
+Next.js gave us the app router, server components, and a documentation-ready structure out of the box. Vercel gave us:
+- Instant preview deployments for every commit
+- Production hosting with zero configuration
+- Analytics to see what components people actually look at
+
+The dx of `git push` → live preview URL in 30 seconds cannot be overstated. When iterating with Claude Code, we could share live links immediately.
+
+**[Radix UI](https://radix-ui.com)**
+
+The unstyled primitives that power shadcn/ui. Radix handles the genuinely hard parts of UI:
+- Focus management and trapping
+- Keyboard navigation
+- ARIA attributes and roles
+- Animation enter/exit states
+
+We didn't have to think about whether our Dialog traps focus correctly. It does, because Radix does it correctly.
+
+**[Lucide Icons](https://lucide.dev)**
+
+A beautifully consistent icon set with 1500+ icons, all as React components:
+- Tree-shakeable (only bundle what you use)
+- Consistent 24px grid and 2px stroke
+- TypeScript support
+- Active community adding icons regularly
+
+Every icon in our design system comes from Lucide. Having a single, comprehensive icon library means Claude can suggest appropriate icons without us maintaining a custom set.
+
+**The interconnected ecosystem**
+
+These tools were designed to work together:
+- shadcn/ui assumes Tailwind and Radix
+- Next.js has first-class Tailwind support
+- Vercel optimizes Next.js deployments
+- Claude understands all of them deeply
+
+This interoperability is what enabled a 2-day design system. We weren't fighting tools, we were composing them.
+
+---
+
 ### 2. Work in Rapid Iterations
 
 The commit history tells the story. Here's a typical 30-minute session:
@@ -311,6 +414,330 @@ or typography."
 
 ---
 
+## Effective Prompting Patterns
+
+The way you ask Claude for things significantly affects the quality and speed of results.
+
+### Be Specific About Context
+
+**Vague (slower):**
+> "Add a new button variant"
+
+**Specific (faster):**
+> "Add a 'ghost' variant to the Button component. It should have transparent background, no border by default, but show a subtle border on hover. Use the existing pattern from the 'outline' variant as reference."
+
+### Reference Existing Patterns
+
+Claude works best when you point it to existing code:
+
+> "Create a Toggle component. Follow the same pattern as our Switch component for the API, but make it look like a segmented control with 2-3 options."
+
+> "The new Card variant should use the same shadow treatment as our Dialog component."
+
+### Describe Visual Intent, Not Implementation
+
+**Implementation-focused (limiting):**
+> "Add `box-shadow: 0 4px 6px rgba(0,0,0,0.1)` to the card"
+
+**Intent-focused (better results):**
+> "The cards feel flat. Add subtle depth to make them feel elevated from the background. Should work in both light and dark mode."
+
+Claude will choose appropriate implementation and handle edge cases.
+
+### Batch Related Changes
+
+Instead of:
+> "Add padding to the card" (wait) "Now fix the header spacing" (wait) "Now adjust the footer"
+
+Do this:
+> "The Card component needs spacing adjustments: more padding inside the content area, consistent spacing between header/content/footer sections, and the footer should align with the content edges. Look at how spacing works in Dialog for reference."
+
+### Use Comparisons
+
+> "The loading skeleton animation is too fast and distracting. Make it more like Stripe's loading states - subtle and calming."
+
+> "Our form inputs feel cramped compared to Linear's UI. Add more breathing room."
+
+---
+
+## Session Management
+
+### Starting a Session
+
+Always start with context about what you're doing:
+
+> "I'm continuing work on the design system. Today I want to focus on form components. Run the dev server and let's start with improving the Select component."
+
+Claude will:
+1. Read your CLAUDE.md
+2. Start the dev server
+3. Understand the current state
+
+### Long Sessions
+
+For sessions over 30 minutes:
+
+1. **Checkpoint periodically**: "Let's commit what we have so far"
+2. **Summarize progress**: "What have we changed in this session?"
+3. **Reset context if needed**: "Let's focus fresh on just the Table component"
+
+### Ending a Session
+
+> "Let's wrap up. Commit all changes with a summary, make sure the build passes, and list anything we should pick up next time."
+
+### Multi-Session Projects
+
+Use a simple tracking approach:
+
+> "Create a TODO.md with what we need to finish for the form components milestone"
+
+Next session:
+> "Check TODO.md and let's continue where we left off"
+
+---
+
+## Debugging with Claude
+
+### When Something Breaks
+
+Don't try to explain the bug. Show it:
+
+> "The Dialog isn't closing when I click outside. The dev server console shows this error: [paste error]"
+
+> "Dark mode is broken on the Badge component. It looks fine in light mode. Here's a screenshot: [screenshot]"
+
+### When You Don't Know What's Wrong
+
+> "Something's off with the sidebar layout but I can't pinpoint it. Compare it to how it looked in commit abc123."
+
+> "The animation feels wrong. Can you check what animation classes are being applied and whether they match our design tokens?"
+
+### Systematic Debugging
+
+Ask Claude to investigate:
+
+> "The Table component is slow with 100+ rows. Profile what's causing the performance issue and suggest fixes."
+
+> "Users report the focus states aren't visible enough. Audit all our form components for WCAG 2.4.7 focus visible compliance."
+
+---
+
+## Component Quality Checklist
+
+When building a new component, ensure Claude covers:
+
+### Functionality
+- [ ] Works with keyboard navigation
+- [ ] Supports all intended variants
+- [ ] Handles edge cases (empty states, long text, etc.)
+- [ ] Works in controlled and uncontrolled modes (for form components)
+
+### Visual
+- [ ] Light mode appearance
+- [ ] Dark mode appearance
+- [ ] Hover, focus, active, disabled states
+- [ ] Responsive behavior
+- [ ] Animation/transitions feel right
+
+### Accessibility
+- [ ] Proper ARIA attributes
+- [ ] Screen reader announcements
+- [ ] Focus management
+- [ ] Color contrast meets WCAG AA
+- [ ] Works without motion (respects prefers-reduced-motion)
+
+### Documentation
+- [ ] Usage example in docs
+- [ ] All props documented
+- [ ] Interactive preview
+- [ ] Common patterns shown
+
+### Integration
+- [ ] Exported from package
+- [ ] Added to CLAUDE.md
+- [ ] TypeScript types are correct
+
+Example prompt to ensure quality:
+
+> "Review the new Combobox component against our standard checklist: keyboard nav, both color modes, accessibility, all states. Fix anything missing."
+
+---
+
+## Advanced CLAUDE.md Techniques
+
+### Layered Context
+
+Structure CLAUDE.md from most-used to reference:
+
+```markdown
+# Quick Reference (top - read every time)
+- Component imports
+- Color tokens
+- Common patterns
+
+# Component Details (middle - reference as needed)
+- Full API for each component
+- Usage examples
+
+# Project Structure (bottom - occasional reference)
+- File locations
+- Build setup
+- Publishing
+```
+
+### Include "Do" and "Don't" Sections
+
+```markdown
+## Do
+- Use `text-foreground` for primary text
+- Use `gap-4` for standard spacing between elements
+- Import icons from lucide-react
+
+## Don't
+- Don't use raw hex colors (use tokens)
+- Don't add new dependencies without discussion
+- Don't create new CSS files (use Tailwind)
+```
+
+### Document Your Decisions
+
+```markdown
+## Design Decisions
+
+### Why We Use CSS Variables Over Tailwind's `dark:` Prefix
+We define colors as CSS custom properties that change based on `.dark` class.
+This allows runtime theme switching and easier token management.
+
+### Why Radix UI for Primitives
+Handles accessibility, keyboard nav, and focus management correctly.
+We style with Tailwind, don't fight the primitives.
+```
+
+### Keep a Changelog Section
+
+```markdown
+## Recent Changes
+- 2026-01-20: Added DesignSystemProvider for accessibility modes
+- 2026-01-18: New SimpleTabs component
+- 2026-01-15: Button 'energy' variant updated
+```
+
+This helps Claude understand what's current.
+
+---
+
+## Testing Your Components
+
+### Visual Testing
+
+> "Start the dev server and open the Button documentation page. Take a screenshot of each variant in both light and dark mode."
+
+### Interactive Testing
+
+> "Test the Dialog component: open it, try to close with Escape, click outside, tab through focusable elements, close with the X button. Report any issues."
+
+### Automated Testing
+
+> "Add tests for the Select component covering: rendering, opening/closing, keyboard navigation, selecting an option, and controlled mode."
+
+### Cross-Browser Testing
+
+> "Build the production bundle and check if there are any CSS features that won't work in Safari 15."
+
+---
+
+## Publishing Workflow
+
+### Before Publishing
+
+```
+"Run through the publishing checklist:
+1. Run the test suite
+2. Build production bundle
+3. Check for TypeScript errors
+4. Verify exports are correct
+5. Test importing in a fresh project"
+```
+
+### Version Bumping
+
+- **Patch** (0.1.1 → 0.1.2): Bug fixes, no API changes
+- **Minor** (0.1.2 → 0.2.0): New components, new variants, backwards-compatible
+- **Major** (0.2.0 → 1.0.0): Breaking changes (removed props, renamed components)
+
+> "We added new color mode accessibility features but didn't break anything. What version bump is appropriate?" (Minor)
+
+### Post-Publish Verification
+
+> "The package was published. Install it in a fresh Vite project and verify Button, Card, and Dialog work correctly with the new CSS."
+
+---
+
+## Working with Non-Designers
+
+### For Developers Joining the Project
+
+Share the CLAUDE.md and point them to this document. Key things to communicate:
+
+1. **Use the design tokens**: Don't hardcode colors or spacing
+2. **Check existing components**: Before building something new, check if it exists
+3. **Follow the patterns**: Look at how similar components are structured
+4. **Update CLAUDE.md**: When you add components, update the quick reference
+
+### Design Reviews via Code
+
+Instead of Figma comments:
+
+> "Review the new Dropdown component. Focus on: spacing consistency with other components, dark mode appearance, and whether the animation timing feels right."
+
+Claude can provide structured feedback on implementation.
+
+---
+
+## Common Pitfalls
+
+### Pitfall: Over-Engineering Early
+
+**Symptom**: Building complex variants and features before the basics work.
+
+**Solution**: Start simple. Get one variant working perfectly, then add complexity.
+
+> "Let's start with just the default Button. Once that's solid, we'll add variants."
+
+### Pitfall: Inconsistent Tokens
+
+**Symptom**: Some components use `green-500`, others use `primary`, others use `sourceful-green-500`.
+
+**Solution**: Audit and standardize early.
+
+> "Audit all components for color usage. Replace any raw color values with our semantic tokens."
+
+### Pitfall: Forgetting Dark Mode
+
+**Symptom**: Components look great in light mode, broken in dark.
+
+**Solution**: Test both modes continuously.
+
+> "Always show me both light and dark mode when previewing changes."
+
+### Pitfall: Skipping Accessibility
+
+**Symptom**: Components work with mouse but not keyboard, no ARIA attributes.
+
+**Solution**: Include accessibility in initial requirements.
+
+> "Build the Tab component. It needs to be fully keyboard navigable with arrow keys and meet WCAG 2.1 AA."
+
+### Pitfall: Documentation Debt
+
+**Symptom**: Components work but nobody knows how to use them.
+
+**Solution**: Document as you build.
+
+> "After we finish this component, create its documentation page before moving on."
+
+---
+
 ## What This Approach Changes
 
 ### For Designers
@@ -334,12 +761,129 @@ or typography."
 
 ---
 
+## Framework-Specific Setup
+
+### Next.js (App Router)
+
+This is our primary setup. The design system documentation site uses this.
+
+```bash
+npx create-next-app@latest my-design-system --typescript --tailwind --eslint --app
+cd my-design-system
+npx shadcn@latest init
+```
+
+Then tell Claude:
+> "Set up this Next.js project as a design system. Add next-themes for dark mode, configure the ThemeProvider, and prepare the project structure for component documentation."
+
+### Vite + React
+
+The npm package works in Vite without Next.js dependencies.
+
+```bash
+npm create vite@latest my-app -- --template react-ts
+cd my-app
+npm install @sourceful-energy/ui
+```
+
+Then tell Claude:
+> "Set up this Vite project to use @sourceful-energy/ui. Handle dark mode manually since we don't have next-themes. Show me how to toggle the dark class on html."
+
+Key difference: You manage dark mode yourself (toggle `.dark` class on `<html>`).
+
+### Existing Projects
+
+When adding the design system to an existing codebase:
+
+> "I want to integrate @sourceful-energy/ui into this existing React project. Audit the current setup, identify any conflicts with our CSS, and create an integration plan that doesn't break existing functionality."
+
+---
+
+## Real Session Examples
+
+### Example 1: Building the PixelGrid Component
+
+**Session goal**: Create an animated brand element showing a 3x3 grid of pixels with various patterns.
+
+**Opening prompt**:
+> "I want to create a PixelGrid component for our brand. It's a 3x3 grid where pixels can animate on/off in different patterns. Think of it as a tiny LED display. Start with a basic version that can show a single pattern."
+
+**Iteration prompts**:
+> "Add more patterns: corners only, plus shape, diagonal lines"
+
+> "The animation feels mechanical. Make the timing more organic - stagger the pixels slightly"
+
+> "Add a 'color' prop so we can use this with different brand colors, not just green"
+
+> "Create a PixelGridShowcase component that displays all patterns grouped by category"
+
+**Result**: 31 patterns, 3 sizes, 3 speeds, multiple color themes, with showcase component.
+
+### Example 2: Debugging Dark Mode Issues
+
+**Problem**: Cards looked washed out in dark mode.
+
+**Prompt**:
+> "The Card component looks faded in dark mode. The background doesn't have enough contrast with the page background. Compare how Dialog handles this and apply the same approach."
+
+**Claude investigated**:
+- Found Dialog uses `bg-card` with subtle border
+- Card was using `bg-background` (same as page)
+- Fixed by using `bg-card` and adding subtle border in dark mode
+
+### Example 3: Adding Accessibility Features
+
+**Session goal**: Add comprehensive accessibility modes.
+
+**Opening prompt**:
+> "I want to add accessibility features to the design system: dyslexia-friendly font option, color blind modes, increased text spacing, and enhanced focus indicators. Create a DesignSystemProvider that manages these settings and persists them to localStorage."
+
+**Follow-up prompts**:
+> "Add hooks so consuming apps can easily build settings UI: useFontMode, useColorMode, useSpacingMode, useFocusMode"
+
+> "The focus mode should add a thicker, more visible focus ring. Test it on Button, Input, and Select."
+
+> "Document all of this in CLAUDE.md with usage examples"
+
+**Result**: Full accessibility system with 4 modes, 5 hooks, localStorage persistence, and documentation.
+
+### Example 4: Creating Documentation Pages
+
+**Prompt**:
+> "Create a documentation page for the new SimpleTabs component. Follow the exact pattern from the Button documentation page: overview section, interactive preview, usage examples for each variant, props table, and accessibility notes."
+
+Claude read the Button docs page, understood the structure, and replicated it for SimpleTabs.
+
+---
+
 ## Getting Started
 
-1. Clone this repo as a reference https://github.com/srcfl/srcful-design-system.git
-2. Read through our CLAUDE.md to see the pattern
-3. Try building one component from scratch with Claude Code
-4. Build your own CLAUDE.md as you go
+1. Clone this repo as a reference: https://github.com/srcfl/srcful-design-system.git
+2. Read through our CLAUDE.md to see the pattern (655 lines of context)
+3. Start small: try building one component from scratch with Claude Code
+4. Build your own CLAUDE.md as you go - it compounds over time
+5. Keep the dev server running - the immediate feedback loop is everything
+
+### First Session Template
+
+Copy this to start your first session:
+
+```
+I'm starting a new design system project. My company is [NAME] and our brand colors are:
+- Primary: [HEX]
+- Secondary: [HEX]
+- Accent: [HEX]
+
+We use [FONT] for our typography.
+
+Let's start by:
+1. Setting up the project with Next.js and shadcn/ui
+2. Configuring our brand tokens
+3. Building one component (Button) with our styling
+4. Creating a basic documentation page
+
+Run the dev server so I can see changes immediately.
+```
 
 Questions? Reach out to @0xCoops on X.
 
