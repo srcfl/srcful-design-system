@@ -8,6 +8,7 @@ export type {
   PatternType,
   PatternType3x3,
   PatternType4x4,
+  PatternType5x5,
   PatternType6x6,
 } from "./pixel-grid";
 
@@ -34,6 +35,13 @@ export {
   patternNames as patternNames4x4,
   patternCategories as patternCategories4x4,
 } from "./patterns-4x4";
+
+// 5x5 patterns
+export {
+  patterns as patterns5x5,
+  patternNames as patternNames5x5,
+  patternCategories as patternCategories5x5,
+} from "./patterns-5x5";
 
 // 6x6 patterns
 export {

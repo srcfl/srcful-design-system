@@ -115,6 +115,9 @@ import { PixelGrid, PixelGridShowcase, type PatternType } from "@sourceful-energ
 // Basic usage - animated 3x3 pixel grid
 <PixelGrid pattern="solo-center" />
 
+// Different grid dimensions: 3x3 (default), 4x4, 5x5, 6x6
+<PixelGrid pattern="solo-center" dimension={5} />
+
 // With Sourceful green (default)
 <PixelGrid pattern="frame" color="green" />
 

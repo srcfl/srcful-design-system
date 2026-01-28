@@ -5,15 +5,18 @@ import { cn } from "@/lib/utils";
 import { PixelGrid, type PixelGridColor, type PixelGridSize, type PixelGridDimension } from "./pixel-grid";
 import { patternCategories as patternCategories3x3, type PatternType as PatternType3x3 } from "./patterns";
 import { patternCategories as patternCategories4x4, type PatternType as PatternType4x4 } from "./patterns-4x4";
+import { patternCategories as patternCategories5x5, type PatternType as PatternType5x5 } from "./patterns-5x5";
 import { patternCategories as patternCategories6x6, type PatternType as PatternType6x6 } from "./patterns-6x6";
 
-type PatternType = PatternType3x3 | PatternType4x4 | PatternType6x6;
+type PatternType = PatternType3x3 | PatternType4x4 | PatternType5x5 | PatternType6x6;
 
 // Get pattern categories based on dimension
 function getPatternCategories(dimension: PixelGridDimension): Record<string, string[]> {
   switch (dimension) {
     case 4:
       return patternCategories4x4 as Record<string, string[]>;
+    case 5:
+      return patternCategories5x5 as Record<string, string[]>;
     case 6:
       return patternCategories6x6 as Record<string, string[]>;
     default:
@@ -187,7 +190,7 @@ export function PixelGridDimensionComparison({
   animated = true,
   className,
 }: PixelGridDimensionComparisonProps) {
-  const dimensions: PixelGridDimension[] = [3, 4, 6];
+  const dimensions: PixelGridDimension[] = [3, 4, 5, 6];
 
   return (
     <div className={cn("flex gap-6 items-end", className)}>

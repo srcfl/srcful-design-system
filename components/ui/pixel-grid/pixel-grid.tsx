@@ -4,16 +4,17 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { patterns as patterns3x3, type PatternType as PatternType3x3 } from "./patterns";
 import { patterns as patterns4x4, type PatternType as PatternType4x4 } from "./patterns-4x4";
+import { patterns as patterns5x5, type PatternType as PatternType5x5 } from "./patterns-5x5";
 import { patterns as patterns6x6, type PatternType as PatternType6x6 } from "./patterns-6x6";
 
 export type PixelGridColor = "blue" | "pink" | "green";
 export type PixelGridSpeed = "slow" | "normal" | "fast";
 export type PixelGridSize = "sm" | "md" | "lg";
-export type PixelGridDimension = 3 | 4 | 6;
+export type PixelGridDimension = 3 | 4 | 5 | 6;
 
 // Re-export pattern types for external use
-export type { PatternType3x3, PatternType4x4, PatternType6x6 };
-export type PatternType = PatternType3x3 | PatternType4x4 | PatternType6x6;
+export type { PatternType3x3, PatternType4x4, PatternType5x5, PatternType6x6 };
+export type PatternType = PatternType3x3 | PatternType4x4 | PatternType5x5 | PatternType6x6;
 
 export interface PixelGridProps {
   /** The animation pattern to display */
@@ -53,6 +54,8 @@ function getPatterns(dimension: PixelGridDimension) {
   switch (dimension) {
     case 4:
       return patterns4x4;
+    case 5:
+      return patterns5x5;
     case 6:
       return patterns6x6;
     default:

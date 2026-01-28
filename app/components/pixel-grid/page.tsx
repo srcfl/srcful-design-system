@@ -9,6 +9,7 @@ import {
   PixelGridDimensionComparison,
   patternCategories,
   patternCategories4x4,
+  patternCategories5x5,
   patternCategories6x6,
   type PatternType,
   type PixelGridColor,
@@ -32,6 +33,8 @@ function getPatternsForDimension(dimension: PixelGridDimension): string[] {
   switch (dimension) {
     case 4:
       return Object.values(patternCategories4x4).flat();
+    case 5:
+      return Object.values(patternCategories5x5).flat();
     case 6:
       return Object.values(patternCategories6x6).flat();
     default:
@@ -61,7 +64,7 @@ export default function PixelGridPage() {
       <div>
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Pixel Grid</h1>
         <p className="text-lg text-muted-foreground mt-2">
-          Animated pixel grids (3x3, 4x4, 6x6) for brand visuals and loading states.
+          Animated pixel grids (3x3, 4x4, 5x5, 6x6) for brand visuals and loading states.
         </p>
       </div>
 
@@ -84,6 +87,7 @@ export default function PixelGridPage() {
               <SelectContent>
                 <SelectItem value="3">3x3</SelectItem>
                 <SelectItem value="4">4x4</SelectItem>
+                <SelectItem value="5">5x5</SelectItem>
                 <SelectItem value="6">6x6</SelectItem>
               </SelectContent>
             </Select>
@@ -198,7 +202,7 @@ export default function PixelGridPage() {
           Grid Dimensions
         </h2>
         <p className="text-muted-foreground">
-          Three grid dimensions: 3x3 (9 pixels), 4x4 (16 pixels), and 6x6 (36 pixels). Each has unique patterns optimized for that size.
+          Four grid dimensions: 3x3 (9 pixels), 4x4 (16 pixels), 5x5 (25 pixels), and 6x6 (36 pixels). Each has unique patterns optimized for that size.
         </p>
         <div className="flex items-center justify-center p-8 rounded-lg border bg-card">
           <PixelGridDimensionComparison pattern="corners-sync" color="green" size="lg" />
@@ -233,6 +237,7 @@ export default function PixelGridPage() {
         <p className="text-muted-foreground">
           {selectedDimension === 3 && "31 animation patterns organized into 11 categories (3x3 grid)."}
           {selectedDimension === 4 && "21 animation patterns organized into 9 categories (4x4 grid)."}
+          {selectedDimension === 5 && "20 animation patterns organized into 10 categories (5x5 grid)."}
           {selectedDimension === 6 && "22 animation patterns organized into 8 categories (6x6 grid)."}
         </p>
         <div className="flex gap-2 mb-4">
@@ -247,6 +252,12 @@ export default function PixelGridPage() {
             className={`px-3 py-1 text-sm rounded-md ${selectedDimension === 4 ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}
           >
             4x4
+          </button>
+          <button
+            onClick={() => setSelectedDimension(5)}
+            className={`px-3 py-1 text-sm rounded-md ${selectedDimension === 5 ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:bg-muted/80'}`}
+          >
+            5x5
           </button>
           <button
             onClick={() => setSelectedDimension(6)}
@@ -266,8 +277,8 @@ export default function PixelGridPage() {
           Features
         </h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-          <li>Three grid dimensions: 3x3, 4x4, 6x6</li>
-          <li>74 total animation patterns across all dimensions</li>
+          <li>Four grid dimensions: 3x3, 4x4, 5x5, 6x6</li>
+          <li>94 total animation patterns across all dimensions</li>
           <li>Three color themes: green (Sourceful brand), blue, pink</li>
           <li>Neon glow effects in dark mode</li>
           <li>Three sizes: sm, md, lg</li>
@@ -296,6 +307,9 @@ export default function PixelGridPage() {
 // 4x4 grid with unique pattern
 <PixelGrid dimension={4} pattern="square-inner" />
 
+// 5x5 grid with unique pattern
+<PixelGrid dimension={5} pattern="diamond" />
+
 // 6x6 grid with unique pattern
 <PixelGrid dimension={6} pattern="ripple" />
 
@@ -305,7 +319,7 @@ export default function PixelGridPage() {
 // With all options
 <PixelGrid
   pattern="corners-sync"
-  dimension={3}      // 3 | 4 | 6 (default: 3)
+  dimension={3}      // 3 | 4 | 5 | 6 (default: 3)
   color="green"      // "green" | "blue" | "pink"
   size="md"          // "sm" | "md" | "lg"
   speed="normal"     // "slow" | "normal" | "fast"
@@ -372,7 +386,7 @@ export default function PixelGridPage() {
           <pre>
             <code>{`interface PixelGridProps {
   pattern: PatternType        // Required - animation pattern
-  dimension?: PixelGridDimension // 3 | 4 | 6 (default: 3)
+  dimension?: PixelGridDimension // 3 | 4 | 5 | 6 (default: 3)
   color?: PixelGridColor      // "green" | "blue" | "pink" (default: "green")
   size?: PixelGridSize        // "sm" | "md" | "lg" (default: "md")
   speed?: PixelGridSpeed      // "slow" | "normal" | "fast" (default: "normal")
