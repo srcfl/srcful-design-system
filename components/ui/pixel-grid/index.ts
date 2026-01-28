@@ -10,6 +10,7 @@ export type {
   PatternType4x4,
   PatternType5x5,
   PatternType6x6,
+  ZapPatternType,
 } from "./pixel-grid";
 
 export {
@@ -49,3 +50,12 @@ export {
   patternNames as patternNames6x6,
   patternCategories as patternCategories6x6,
 } from "./patterns-6x6";
+
+// Zap patterns (5x5 for M5Stack Atom Matrix)
+export {
+  zapPatterns,
+  zapPatternNames,
+  zapPatternCategories,
+  zapPatternColors,
+} from "./patterns-zap";
+// ZapPatternType is already exported from pixel-grid.tsx

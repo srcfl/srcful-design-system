@@ -40,6 +40,11 @@ const componentDescriptions: Record<string, string> = {
   "Sites Map": "Interactive Mapbox map for visualizing energy site locations.",
   "Energy Flow": "React Flow diagram showing real-time energy distribution.",
   "AI Chat": "Conversational AI interface for energy system management.",
+  "Pixel Grid": "Animated pixel grids (3x3 to 6x6) for brand visuals and loading states.",
+  "Zap Animations": "LED animation library for M5Stack Atom Matrix 5x5 grid - 35 patterns for Zap gateway.",
+  "EMS Schedule": "Energy management system schedule visualization.",
+  "Electricity Price": "Real-time electricity price display component.",
+  "Weather Card": "Weather information card for energy context.",
 };
 
 export default function ComponentsPage() {

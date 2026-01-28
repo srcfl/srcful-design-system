@@ -127,6 +127,7 @@ const componentsNav: NavSection[] = [
     title: "Sourceful",
     items: [
       { title: "Pixel Grid", href: "/components/pixel-grid" },
+      { title: "Zap Animations", href: "/components/zap-animations" },
       { title: "Sites Map", href: "/components/sites-map" },
       { title: "Energy Flow", href: "/components/energy-flow" },
       { title: "AI Chat", href: "/components/ai-chat" },

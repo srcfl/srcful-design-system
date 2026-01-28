@@ -6,6 +6,7 @@ import { patterns as patterns3x3, type PatternType as PatternType3x3 } from "./p
 import { patterns as patterns4x4, type PatternType as PatternType4x4 } from "./patterns-4x4";
 import { patterns as patterns5x5, type PatternType as PatternType5x5 } from "./patterns-5x5";
 import { patterns as patterns6x6, type PatternType as PatternType6x6 } from "./patterns-6x6";
+import { zapPatterns, type ZapPatternType } from "./patterns-zap";
 
 export type PixelGridColor = "blue" | "pink" | "green";
 export type PixelGridSpeed = "slow" | "normal" | "fast";
@@ -14,7 +15,8 @@ export type PixelGridDimension = 3 | 4 | 5 | 6;
 
 // Re-export pattern types for external use
 export type { PatternType3x3, PatternType4x4, PatternType5x5, PatternType6x6 };
-export type PatternType = PatternType3x3 | PatternType4x4 | PatternType5x5 | PatternType6x6;
+export type { ZapPatternType };
+export type PatternType = PatternType3x3 | PatternType4x4 | PatternType5x5 | PatternType6x6 | ZapPatternType;
 
 export interface PixelGridProps {
   /** The animation pattern to display */
@@ -55,7 +57,8 @@ function getPatterns(dimension: PixelGridDimension) {
     case 4:
       return patterns4x4;
     case 5:
-      return patterns5x5;
+      // Merge standard 5x5 patterns with Zap patterns
+      return { ...patterns5x5, ...zapPatterns };
     case 6:
       return patterns6x6;
     default:
