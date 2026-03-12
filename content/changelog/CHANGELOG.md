@@ -6,6 +6,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 
 
+
+## [0.2.0] - 2026-03-12
+
+### Changed
+- **docs**: Update changelog for 0.1.31
+
+### Fixed
+- **component**: Fix React hooks violation in PixelGrid when switching dimensions
+
+
 ## [0.1.31] - 2026-01-28
 
 ### Added
