@@ -5,6 +5,19 @@ All notable changes to the Sourceful Design System (`@sourceful-energy/ui`) are 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+
+## [0.1.31] - 2026-01-28
+
+### Added
+- **component**: Add Zap LED animations page with 86 patterns
+- **component**: Add 5x5 grid dimension to PixelGrid
+- **component**: Add Building with Claude Code guide as docs page
+
+### Changed
+- **component**: Improve guide formatting and remove em dashes
+- **docs**: Expand Claude Code guide with prompting patterns and acknowledgments
+
+
 ## [0.1.30] - 2026-01-12
 
 ### Added
