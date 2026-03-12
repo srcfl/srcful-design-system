@@ -85,29 +85,25 @@ export function PixelGrid({
   const patternsForDimension = getPatterns(dimension);
   const patternDef = patternsForDimension[pattern as keyof typeof patternsForDimension];
 
-  // Fallback if pattern doesn't exist for this dimension
-  if (!patternDef) {
-    console.warn(`Pattern "${pattern}" not found for ${dimension}x${dimension} grid`);
-    return null;
-  }
-
-  const cycleDuration = patternDef.cycleDuration ?? speedMap[speed];
-  const frameDuration = cycleDuration / patternDef.frames.length;
+  const cycleDuration = patternDef ? (patternDef.cycleDuration ?? speedMap[speed]) : speedMap[speed];
+  const frameDuration = patternDef ? cycleDuration / patternDef.frames.length : cycleDuration;
   const pixelCount = dimension * dimension;
 
   // Animation loop
   React.useEffect(() => {
-    if (!animated || paused) return;
+    if (!animated || paused || !patternDef) return;
 
     const interval = setInterval(() => {
       setCurrentFrame((prev) => (prev + 1) % patternDef.frames.length);
     }, frameDuration);
 
     return () => clearInterval(interval);
-  }, [animated, paused, frameDuration, patternDef.frames.length]);
+  }, [animated, paused, frameDuration, patternDef]);
 
   // Update active pixels when frame changes or for static display
   React.useEffect(() => {
+    if (!patternDef) return;
+
     if (animated) {
       const frame = patternDef.frames[currentFrame];
       setActivePixels(new Set(frame.activePixels));
@@ -118,7 +114,12 @@ export function PixelGrid({
       );
       setActivePixels(new Set(fullFrame.activePixels));
     }
-  }, [animated, currentFrame, patternDef.frames]);
+  }, [animated, currentFrame, patternDef]);
+
+  // Fallback if pattern doesn't exist for this dimension
+  if (!patternDef) {
+    return null;
+  }
 
   const { pixel: pixelSize, gap } = sizeMap[size];
   const gridSize = pixelSize * dimension + gap * (dimension - 1);
