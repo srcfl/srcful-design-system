@@ -100,12 +100,18 @@ export function PixelGrid({
     return () => clearInterval(interval);
   }, [animated, paused, frameDuration, patternDef]);
 
+  // Reset frame index when pattern changes to avoid out-of-bounds access
+  React.useEffect(() => {
+    setCurrentFrame(0);
+  }, [patternDef]);
+
   // Update active pixels when frame changes or for static display
   React.useEffect(() => {
     if (!patternDef) return;
 
     if (animated) {
-      const frame = patternDef.frames[currentFrame];
+      const safeFrame = currentFrame % patternDef.frames.length;
+      const frame = patternDef.frames[safeFrame];
       setActivePixels(new Set(frame.activePixels));
     } else {
       // Static: show the "full" frame (frame with most active pixels)
