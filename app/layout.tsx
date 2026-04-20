@@ -1,76 +1,56 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { JetBrains_Mono, Lexend } from "next/font/google";
+import { JetBrains_Mono, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import { LenisProvider } from "@/components/lenis-provider";
-import { AuthProvider } from "@/components/auth-provider";
-import { DesignSystemProvider } from "@/components/design-system-provider";
-
-const satoshi = localFont({
-  src: [
-    {
-      path: "../public/fonts/Satoshi-Variable.woff2",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Satoshi-VariableItalic.woff2",
-      style: "italic",
-    },
-  ],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-mono-face",
+  display: "swap",
 });
 
-// Lexend font for dyslexic mode accessibility
-const lexend = Lexend({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-dyslexic",
+  weight: ["200", "300", "400", "500"],
+  variable: "--font-heading-face",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Sourceful Design System",
-  description: "Design system, components, and brand guidelines for Sourceful Energy",
+  description:
+    "A single page to show Claude what Sourceful looks like. Editorial tokens, type specimens, and shadcn primitives skinned with the Sourceful visual system.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Satoshi from Fontshare — primary sans, matches the marketing site */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          satoshi.variable,
           jetbrainsMono.variable,
-          lexend.variable
+          barlowCondensed.variable
         )}
       >
-        <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange={false}
-          >
-            <DesignSystemProvider>
-              <LenisProvider>
-                {children}
-              </LenisProvider>
-              <Toaster />
-            </DesignSystemProvider>
-          </ThemeProvider>
-        </AuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          <LenisProvider>{children}</LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

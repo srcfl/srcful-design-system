@@ -2,26 +2,39 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+/**
+ * Editorial Alert — top hairline + left-hugging title/body, no rounded
+ * corners, accent colour carried by a 2px left rule instead of a full bg
+ * flood. The signal variant uses the recurring #E85D1F orange.
+ *
+ * Keeps the icon slot from the shadcn pattern, but aligns type to the
+ * editorial grammar: Satoshi 500 kicker, 14px description.
+ */
+
 const alertVariants = cva(
-  "relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground",
+  [
+    "relative w-full rounded-none px-5 py-4",
+    "bg-background text-foreground",
+    "border-t border-l-[2px] border-t-foreground/15",
+    "[&>svg]:absolute [&>svg]:left-5 [&>svg]:top-4 [&>svg]:size-4",
+    "[&>svg~*]:pl-8 [&>svg+div]:translate-y-[-1px]",
+  ].join(" "),
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
-        destructive:
-          "border-red-700 bg-destructive/10 text-destructive dark:border-red-500 dark:bg-red-950 dark:text-red-200 [&>svg]:text-destructive dark:[&>svg]:text-red-400",
+        default: "border-l-foreground/40 [&>svg]:text-foreground",
+        /** Signal orange — the editorial accent. */
+        signal:
+          "border-l-[#E85D1F] bg-[#E85D1F]/5 [&>svg]:text-[#E85D1F]",
+        /** Editorial green — system online / success. */
         success:
-          "border-green-700 bg-sourceful-green-50 text-sourceful-green-900 dark:border-green-500 dark:bg-green-950 dark:text-green-200 [&>svg]:text-sourceful-green-600 dark:[&>svg]:text-green-400",
-        warning:
-          "border-yellow-600 bg-sourceful-yellow-50 text-sourceful-yellow-900 dark:border-yellow-500 dark:bg-yellow-950 dark:text-yellow-200 [&>svg]:text-yellow-600 dark:[&>svg]:text-yellow-400",
-        info: "border-blue-700 bg-blue-50 text-blue-900 dark:border-blue-500 dark:bg-blue-950 dark:text-blue-200 [&>svg]:text-blue-600 dark:[&>svg]:text-blue-400",
-        energy:
-          "border-yellow-600 bg-sourceful-yellow-50 text-sourceful-gray-900 dark:border-yellow-400 dark:bg-yellow-950 dark:text-yellow-200 [&>svg]:text-yellow-600 dark:[&>svg]:text-yellow-400",
+          "border-l-[#15803D] bg-[#15803D]/5 [&>svg]:text-[#15803D]",
+        info: "border-l-sky-600 bg-sky-600/5 [&>svg]:text-sky-600 dark:border-l-sky-400 dark:[&>svg]:text-sky-400",
+        destructive:
+          "border-l-destructive bg-destructive/5 text-destructive-foreground [&>svg]:text-destructive",
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   }
 );
 
@@ -29,12 +42,7 @@ const Alert = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, ref) => (
-  <div
-    ref={ref}
-    role="alert"
-    className={cn(alertVariants({ variant }), className)}
-    {...props}
-  />
+  <div ref={ref} role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
 ));
 Alert.displayName = "Alert";
 
@@ -44,7 +52,11 @@ const AlertTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h5
     ref={ref}
-    className={cn("mb-1 font-medium leading-none tracking-tight", className)}
+    className={cn(
+      "mb-1 font-sans font-medium leading-tight tracking-[-0.01em]",
+      "text-base text-foreground",
+      className
+    )}
     {...props}
   />
 ));
@@ -56,7 +68,7 @@ const AlertDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-sm [&_p]:leading-relaxed", className)}
+    className={cn("text-sm text-foreground/70 leading-relaxed [&_p]:leading-relaxed", className)}
     {...props}
   />
 ));

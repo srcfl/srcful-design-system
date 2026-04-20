@@ -1,112 +1,96 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
+/**
+ * Site header — editorial squircle logo + uppercase micro-label nav,
+ * hairline bottom border, dark-ink ground so it reads on top of the hero.
+ *
+ * Matches the sourceful-marketing-site @ hosts Hero top-row treatment: the
+ * nav cluster is the only chrome, theme toggle and GitHub drop to 11px
+ * micro-label as well.
+ */
+
+import { useEffect, useState } from "react";
 import { Github, Moon, Sun } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import { useEffect, useState, useCallback } from "react";
-import { Logo } from "@/components/logo";
-import { SearchCommand, SearchTrigger } from "@/components/search-command";
-import { MobileNav } from "@/components/mobile-nav";
-import { FeedbackButton } from "@/components/feedback-button";
-import { AccessibilitySettings } from "@/components/accessibility-settings";
+import { EditorialNavCluster } from "@/components/editorial-nav";
+
+const INK = "#0A0A0A";
+const CREAM = "#F5F2E1";
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  return (
+    <header
+      className="sticky top-0 z-50 w-full"
+      style={{
+        background: INK,
+        color: CREAM,
+        borderBottom: `1px solid ${withAlpha(CREAM, 0.14)}`,
+      }}
+    >
+      <div className="max-w-7xl mx-auto flex h-14 items-center justify-between px-6 md:px-8">
+        <EditorialNavCluster fg={CREAM} muted={withAlpha(CREAM, 0.55)} logoSize={20} />
+
+        <div className="flex items-center gap-6">
+          <ThemeToggle />
+          <a
+            href="https://github.com/srcfl/srcful-design-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+            style={microStyle(CREAM)}
+          >
+            <Github className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  // Keyboard shortcut for search (⌘K or Ctrl+K)
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setSearchOpen((open) => !open);
-      }
-    };
+  if (!mounted) {
+    return <span aria-hidden style={{ width: 60, height: 14 }} />;
+  }
 
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
-  }, []);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  const navItems = [
-    { href: "/docs", label: "Docs" },
-    { href: "/components", label: "Components" },
-    { href: "/brand", label: "Brand" },
-    { href: "/changelog", label: "Changelog" },
-    { href: "/roadmap", label: "Roadmap" },
-  ];
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="max-w-7xl mx-auto flex h-14 items-center justify-between px-4 md:px-8 relative">
-          <div className="flex shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
-              <Logo variant="full" size="xs" className="md:hidden" />
-              <Logo variant="full" size="sm" className="hidden md:block" />
-            </Link>
-          </div>
-
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium absolute left-1/2 -translate-x-1/2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "transition-colors hover:text-foreground/80",
-                  pathname?.startsWith(item.href)
-                    ? "text-foreground"
-                    : "text-foreground/60"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <SearchTrigger onClick={() => setSearchOpen(true)} />
-
-            <div className="hidden md:flex items-center gap-2">
-              <FeedbackButton />
-              <AccessibilitySettings />
-              {mounted && (
-                <Button variant="ghost" size="icon" onClick={toggleTheme}>
-                  {theme === "light" ? (
-                    <Moon className="h-4 w-4" />
-                  ) : (
-                    <Sun className="h-4 w-4" />
-                  )}
-                </Button>
-              )}
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://github.com/srcfl/srcful-design-system"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-            <MobileNav />
-          </div>
-        </div>
-      </header>
-
-      <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
-    </>
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+      style={{ ...microStyle(CREAM), background: "transparent", border: "none", padding: 0, cursor: "pointer" }}
+    >
+      {isDark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+      <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
+    </button>
   );
+}
+
+function microStyle(color: string) {
+  return {
+    fontFamily: "var(--font-sans)",
+    fontSize: 11,
+    fontWeight: 500 as const,
+    letterSpacing: "0.18em",
+    textTransform: "uppercase" as const,
+    color,
+  };
+}
+
+function withAlpha(color: string, alpha: number) {
+  if (!color.startsWith("#")) return color;
+  const hex = color.slice(1).padEnd(6, "0").slice(0, 6);
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
