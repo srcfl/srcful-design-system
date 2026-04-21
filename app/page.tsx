@@ -649,19 +649,19 @@ function EditorialSpread() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
           <DuotoneTile
             src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80"
-            alt="Wind turbines at dusk"
+            alt="Solar array at dusk"
             kicker="Signal · ink → #E85D1F"
             filter="signal"
           />
           <DuotoneTile
-            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80"
-            alt="Solar field from above"
+            src="https://assets.volvo.com/is/image/VolvoInformationTechnologyAB/volvogroup_pu2000_1860x1050?wid=1024"
+            alt="Volvo PU2000 industrial battery"
             kicker="Cool · ink → #D1E0F0"
             filter="cool"
           />
           <DuotoneTile
-            src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=900&q=80"
-            alt="Urban rooftop solar installation"
+            src="https://images.pexels.com/photos/35015283/pexels-photo-35015283/free-photo-of-cityscape-of-stockholm-with-historic-buildings.jpeg?auto=compress&cs=tinysrgb&w=900&q=80"
+            alt="Stockholm cityscape"
             kicker="Ink · monochrome wash"
             filter="ink"
           />

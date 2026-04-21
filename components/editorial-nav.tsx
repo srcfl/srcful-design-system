@@ -42,13 +42,13 @@ export function EditorialNavCluster({
     <div className="flex items-center gap-x-6 gap-y-2 flex-wrap w-full md:w-auto">
       <Link
         href="/"
-        aria-label="Sourceful Energy — Home"
+        aria-label="Sourceful Design — Home"
         className="inline-flex items-center transition-opacity hover:opacity-80"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/sourceful-squircle.svg"
-          alt="Sourceful Energy"
+          src="/assets/sourceful-design-lockup.svg"
+          alt="Sourceful Design"
           style={{
             height: logoSize,
             width: "auto",
