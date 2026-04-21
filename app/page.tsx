@@ -41,6 +41,7 @@ import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Spinner, SPINNERS, type SpinnerVariant } from "@/components/ui/spinner";
 import {
   Accordion,
   AccordionContent,
@@ -1960,6 +1961,89 @@ function ComponentsSpread() {
             </Table>
           </div>
         </ComponentBlock>
+
+        <ComponentBlock
+          label="Spinners"
+          meta="54 variants · monospace · edge-activity indicators"
+        >
+          <p
+            className="max-w-2xl"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: 13,
+              lineHeight: 1.6,
+              color: withAlpha(PAPER_SECTION_FG, 0.6),
+              margin: "0 0 24px",
+            }}
+          >
+            Terminal-style frame-cycle indicators. Use them on live grid tiles,
+            Zap boot, firmware flash, or while an agent thinks — anywhere
+            sub-second response would otherwise feel silent. Braille reads as
+            infrastructure; ASCII + arrows as CLI; emoji sparingly, for warmth.
+          </p>
+
+          <SpinnerCategory
+            title="Braille"
+            meta="32 variants · agent streams + edge activity"
+            variants={[
+              "dots","dots2","dots3","dots4","dots5","dots6","dots7","dots8",
+              "dots9","dots10","dots11","dots12","dots13","dots14",
+              "sand","bounce","dots_circle","wave","scan","rain","pulse",
+              "snake","sparkle","cascade","columns","orbit","breathe",
+              "waverows","checkerboard","helix","fillsweep","diagswipe",
+            ]}
+          />
+          <SpinnerCategory
+            title="ASCII"
+            meta="15 variants · CLI + low-bandwidth grounds"
+            variants={[
+              "dqpb","rolling_line","simple_dots","simple_dots_scrolling",
+              "arc","balloon","circle_halves","circle_quarters","point",
+              "square_corners","toggle","triangle","grow_horizontal",
+              "grow_vertical","noise",
+            ]}
+          />
+          <SpinnerCategory
+            title="Arrows"
+            meta="2 variants · direction + reload"
+            variants={["arrow","double_arrow"]}
+          />
+          <SpinnerCategory
+            title="Emoji"
+            meta="6 variants · marketing moments only · tone prop ignored"
+            variants={["hearts","clock","earth","moon","speaker","weather"]}
+          />
+
+          <div
+            className="mt-8 grid gap-6 md:grid-cols-3"
+            style={{
+              borderTop: `1px solid ${withAlpha(PAPER_SECTION_FG, 0.12)}`,
+              paddingTop: 28,
+            }}
+          >
+            <SpinnerUsage
+              headline="Live grid tile"
+              meta="dots · cream · edge sample pending"
+              variant="dots"
+              tone="cream"
+              caption="frequency sampling · 50Hz target"
+            />
+            <SpinnerUsage
+              headline="Agent thinking"
+              meta="wave · signal · model streaming"
+              variant="wave"
+              tone="signal"
+              caption="claude · 247 tokens/s"
+            />
+            <SpinnerUsage
+              headline="Zap boot"
+              meta="orbit · cream · MQTT handshake"
+              variant="orbit"
+              tone="cream"
+              caption="gateway · provisioning"
+            />
+          </div>
+        </ComponentBlock>
       </div>
     </EditorialSection>
   );
@@ -1984,6 +2068,166 @@ function ComponentBlock({
       </div>
       {children}
     </motion.div>
+  );
+}
+
+// ─── Spinner specimen helpers ───────────────────────────────────────
+
+const INK_BG = "#0A0A0A";
+const CREAM_FG = "#F5F2E1";
+
+/**
+ * SpinnerCategory — sub-section within the Spinners component block.
+ * Lays out every variant in the category as a small ink tile with the
+ * spinner running in cream + variant name + frame/interval meta.
+ */
+function SpinnerCategory({
+  title,
+  meta,
+  variants,
+}: {
+  title: string;
+  meta: string;
+  variants: readonly SpinnerVariant[];
+}) {
+  return (
+    <div className="mt-2" style={{ marginBottom: 28 }}>
+      <div
+        className="flex items-baseline justify-between"
+        style={{
+          marginBottom: 12,
+          paddingBottom: 6,
+          borderBottom: `1px solid ${withAlpha(PAPER_SECTION_FG, 0.12)}`,
+        }}
+      >
+        <span className="micro-label" style={{ color: PAPER_SECTION_FG }}>{title}</span>
+        <span
+          className="font-mono"
+          style={{ fontSize: 11, color: withAlpha(PAPER_SECTION_FG, 0.55) }}
+        >
+          {meta}
+        </span>
+      </div>
+
+      <div
+        className="grid"
+        style={{
+          gridTemplateColumns: "repeat(auto-fill, minmax(148px, 1fr))",
+          gap: 8,
+        }}
+      >
+        {variants.map((v) => {
+          const spec = SPINNERS[v];
+          return (
+            <div
+              key={v}
+              style={{
+                background: INK_BG,
+                color: CREAM_FG,
+                padding: "14px 12px 10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: 10,
+                minHeight: 96,
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: 36,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Spinner variant={v} tone="cream" size="lg" />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <code
+                  className="font-mono"
+                  style={{
+                    fontSize: 11,
+                    color: CREAM_FG,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {v}
+                </code>
+                <span
+                  className="font-mono"
+                  style={{
+                    fontSize: 10,
+                    color: withAlpha(CREAM_FG, 0.5),
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {spec.frames.length}f · {spec.interval}ms
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * SpinnerUsage — one worked example of a spinner in context. Ink panel,
+ * mimics a dashboard tile or live stream row.
+ */
+function SpinnerUsage({
+  headline,
+  meta,
+  variant,
+  tone,
+  caption,
+}: {
+  headline: string;
+  meta: string;
+  variant: SpinnerVariant;
+  tone: "cream" | "signal";
+  caption: string;
+}) {
+  return (
+    <div
+      style={{
+        background: INK_BG,
+        color: CREAM_FG,
+        padding: 20,
+        border: `1px solid ${withAlpha(CREAM_FG, 0.1)}`,
+      }}
+    >
+      <div
+        className="flex items-baseline justify-between"
+        style={{ marginBottom: 14 }}
+      >
+        <span className="micro-label" style={{ color: CREAM_FG }}>{headline}</span>
+        <span
+          className="font-mono"
+          style={{ fontSize: 10, color: withAlpha(CREAM_FG, 0.5) }}
+        >
+          {meta}
+        </span>
+      </div>
+      <div
+        className="flex items-center gap-3"
+        style={{ padding: "18px 0", borderTop: `1px solid ${withAlpha(CREAM_FG, 0.1)}` }}
+      >
+        <Spinner variant={variant} tone={tone} size="md" />
+        <span
+          className="font-mono"
+          style={{
+            fontSize: 12,
+            color: withAlpha(CREAM_FG, 0.8),
+            letterSpacing: "0.02em",
+          }}
+        >
+          {caption}
+        </span>
+      </div>
+    </div>
   );
 }
 

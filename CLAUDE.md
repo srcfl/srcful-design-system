@@ -325,6 +325,67 @@ toast.success("Success", {
 </div>
 ```
 
+### Spinner (Edge activity / agent streams)
+
+54 terminal-style frame-cycle indicators — braille, ASCII, arrows, emoji —
+rendered as a single monospace glyph that cycles on `setInterval`. Zero SVG,
+zero Lottie. Ported from expo-agent-spinners (MIT © eronred).
+
+These are a **brand voice tool**, not a generic loader. They tie the 200ms
+edge-response story to a visual primitive that reads as infrastructure.
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+
+// Default — braille dots, inherits currentColor, 14px
+<Spinner />
+
+// With tone + size
+<Spinner variant="scan" tone="signal" size="md" />
+
+// Freeze on frame 0 (docs, screenshots — also auto in reduced-motion)
+<Spinner variant="breathe" paused />
+```
+
+**Props**
+| Prop       | Type                                         | Default     |
+|------------|----------------------------------------------|-------------|
+| `variant`  | one of 54 names (see below)                  | `"dots"`    |
+| `tone`     | `"auto"` \| `"cream"` \| `"ink"` \| `"signal"` \| `"muted"` | `"auto"`    |
+| `size`     | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` (12/14/16/20 px) | `"sm"`      |
+| `paused`   | `boolean`                                    | `false`     |
+| `label`    | `string` — screen-reader announcement        | `"Loading"` |
+
+**When to use which**
+- **Braille** (`dots`, `wave`, `scan`, `pulse`, `breathe`, `orbit`) — live
+  grid data, Zap edge activity, agent streams. Primary set. Default to
+  `dots` unless you have a specific reason.
+- **ASCII** (`rolling_line`, `arc`, `point`, `grow_horizontal`) — CLI-style
+  UIs, dev tools, low-bandwidth grounds.
+- **Arrows** (`arrow`, `double_arrow`) — direction or reload cues.
+- **Emoji** (`moon`, `clock`, `earth`, `weather`, `hearts`, `speaker`) —
+  marketing moments only. `tone` prop is ignored — emoji carry their own
+  colour. Use sparingly; they shift the voice.
+
+**Full variant list**
+
+Braille (32): `dots`, `dots2`–`dots14`, `sand`, `bounce`, `dots_circle`,
+`wave`, `scan`, `rain`, `pulse`, `snake`, `sparkle`, `cascade`, `columns`,
+`orbit`, `breathe`, `waverows`, `checkerboard`, `helix`, `fillsweep`,
+`diagswipe`.
+
+ASCII (15): `dqpb`, `rolling_line`, `simple_dots`, `simple_dots_scrolling`,
+`arc`, `balloon`, `circle_halves`, `circle_quarters`, `point`,
+`square_corners`, `toggle`, `triangle`, `grow_horizontal`, `grow_vertical`,
+`noise`.
+
+Arrows (2): `arrow`, `double_arrow`.
+
+Emoji (6): `hearts`, `clock`, `earth`, `moon`, `speaker`, `weather`.
+
+Also exports `SPINNERS` (full frame/interval map) and `SPINNER_VARIANTS`
+(ordered list) for building custom galleries.
+
 ### Accordion
 ```tsx
 <Accordion type="single" collapsible>
