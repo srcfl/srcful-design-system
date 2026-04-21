@@ -267,7 +267,7 @@ function BrandSpread() {
       meta={[
         { label: "Editorial light", strong: true },
         "Signal orange",
-        "Satoshi · Barlow Condensed",
+        "Satoshi",
       ]}
       topRight="Ground truth · tokens"
       footerLeft="Two inks, three greens, one signal"
@@ -369,7 +369,7 @@ function BrandSpread() {
             </h3>
           </TypeSpecimen>
 
-          <TypeSpecimen label="Heading · Barlow Condensed 300" meta="h1 / h2 / h3">
+          <TypeSpecimen label="Heading · Satoshi 300" meta="h1 / h2 / h3">
             <h3
               style={{
                 fontFamily: "var(--font-heading)",
@@ -977,7 +977,7 @@ function EditorialSpread() {
         />
 
         <div className="grid grid-cols-1 gap-6 mt-6">
-          <SlideThumb title="Title slide" meta="Hero statement · bold Barlow + green highlight">
+          <SlideThumb title="Title slide" meta="Hero statement · bold Satoshi + signal highlight">
             <TitleSlide />
           </SlideThumb>
 
@@ -999,8 +999,8 @@ function EditorialSpread() {
           ink (<code className="font-mono" style={{ fontSize: 12 }}>#0A0A0A</code>)
           and cream (<code className="font-mono" style={{ fontSize: 12 }}>#F5F2E1</code>),
           signal orange (<code className="font-mono" style={{ fontSize: 12 }}>#E85D1F</code>)
-          carries one or two highlight words per slide, Barlow Condensed
-          at display weight, JetBrains Mono for kickers and page
+          carries one or two highlight words per slide, Satoshi at
+          display weight, JetBrains Mono for kickers and page
           counters. One big idea per slide. Fredrik likes a table when
           the argument is comparative, that&apos;s what the second
           specimen is for.
@@ -1359,7 +1359,7 @@ function SlideThumb({
 
 /**
  * TitleSlide — opening slide pattern on an INK ground. Logo lockup +
- * event meta on the top rail; giant Barlow Condensed headline with one
+ * event meta on the top rail; giant Satoshi display headline with one
  * signal-orange highlight phrase; event/date/speaker/co. grid on the
  * bottom rail, JetBrains Mono values.
  */

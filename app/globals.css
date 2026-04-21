@@ -16,7 +16,7 @@
   /* Satoshi loaded from Fontshare in <head>, see app/layout.tsx */
   --font-sans: "Satoshi", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-heading: var(--font-heading-face), var(--font-sans);
+  --font-heading: var(--font-sans);
   --heading-weight: 300;
   --heading-tracking: -0.02em;
   --heading-line: 1.05;
@@ -171,8 +171,8 @@
 @layer base {
   * { @apply border-border; }
 
-  /* Headings use the heading face (Barlow Condensed) by default.
-     Editorial spreads override to Satoshi at display weights per section. */
+  /* Headings use Satoshi at display weights. One family across the
+     system — no secondary display face. */
   h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: var(--heading-weight);

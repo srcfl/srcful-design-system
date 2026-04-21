@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Barlow_Condensed } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,13 +8,6 @@ import { LenisProvider } from "@/components/lenis-provider";
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono-face",
-  display: "swap",
-});
-
-const barlowCondensed = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500"],
-  variable: "--font-heading-face",
   display: "swap",
 });
 
@@ -40,8 +33,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          jetbrainsMono.variable,
-          barlowCondensed.variable
+          jetbrainsMono.variable
         )}
       >
         <ThemeProvider
