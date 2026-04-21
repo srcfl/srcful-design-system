@@ -327,9 +327,11 @@ toast.success("Success", {
 
 ### Spinner (Edge activity / agent streams)
 
-54 terminal-style frame-cycle indicators — braille, ASCII, arrows, emoji —
-rendered as a single monospace glyph that cycles on `setInterval`. Zero SVG,
-zero Lottie. Ported from expo-agent-spinners (MIT © eronred).
+47 terminal-style frame-cycle indicators — 32 braille + 15 ASCII —
+rendered as a single monospace glyph that cycles on `setInterval`. Zero
+SVG, zero Lottie. Adapted from expo-agent-spinners (MIT © eronred); the
+upstream arrow and emoji variants are deliberately excluded — arrows read
+as nav cues, emoji carry their own colour, both off-voice for us.
 
 These are a **brand voice tool**, not a generic loader. They tie the 200ms
 edge-response story to a visual primitive that reads as infrastructure.
@@ -350,7 +352,7 @@ import { Spinner } from "@/components/ui/spinner"
 **Props**
 | Prop       | Type                                         | Default     |
 |------------|----------------------------------------------|-------------|
-| `variant`  | one of 54 names (see below)                  | `"dots"`    |
+| `variant`  | one of 47 names (see below)                  | `"dots"`    |
 | `tone`     | `"auto"` \| `"cream"` \| `"ink"` \| `"signal"` \| `"muted"` | `"auto"`    |
 | `size`     | `"xs"` \| `"sm"` \| `"md"` \| `"lg"` (12/14/16/20 px) | `"sm"`      |
 | `paused`   | `boolean`                                    | `false`     |
@@ -362,10 +364,6 @@ import { Spinner } from "@/components/ui/spinner"
   `dots` unless you have a specific reason.
 - **ASCII** (`rolling_line`, `arc`, `point`, `grow_horizontal`) — CLI-style
   UIs, dev tools, low-bandwidth grounds.
-- **Arrows** (`arrow`, `double_arrow`) — direction or reload cues.
-- **Emoji** (`moon`, `clock`, `earth`, `weather`, `hearts`, `speaker`) —
-  marketing moments only. `tone` prop is ignored — emoji carry their own
-  colour. Use sparingly; they shift the voice.
 
 **Full variant list**
 
@@ -378,10 +376,6 @@ ASCII (15): `dqpb`, `rolling_line`, `simple_dots`, `simple_dots_scrolling`,
 `arc`, `balloon`, `circle_halves`, `circle_quarters`, `point`,
 `square_corners`, `toggle`, `triangle`, `grow_horizontal`, `grow_vertical`,
 `noise`.
-
-Arrows (2): `arrow`, `double_arrow`.
-
-Emoji (6): `hearts`, `clock`, `earth`, `moon`, `speaker`, `weather`.
 
 Also exports `SPINNERS` (full frame/interval map) and `SPINNER_VARIANTS`
 (ordered list) for building custom galleries.

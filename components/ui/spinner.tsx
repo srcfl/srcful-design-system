@@ -3,10 +3,13 @@
 /**
  * Spinner — terminal-style agent activity indicator.
  *
- * 54 Unicode frame-cycle spinners — braille, ASCII, arrows, emoji — rendered
- * as a single <span> in our monospace token. Zero SVG, zero Lottie.
+ * 47 Unicode frame-cycle spinners — 32 braille + 15 ASCII — rendered as a
+ * single <span> in our monospace token. Zero SVG, zero Lottie.
  *
- * Ported from expo-agent-spinners (MIT © eronred):
+ * Adapted from expo-agent-spinners (MIT © eronred). The upstream set
+ * includes arrow and emoji variants; we drop them — arrows read like
+ * nav cues and emoji carry their own colour, both off-voice for the
+ * editorial + grid-infrastructure identity.
  *   https://github.com/Eronred/expo-agent-spinners
  *
  * Why these exist in the Sourceful design system
@@ -87,18 +90,6 @@ export const SPINNERS = {
   grow_horizontal:        { frames: ["▏","▎","▍","▌","▋","▊","▉","▊","▋","▌","▍","▎"], interval: 120 },
   grow_vertical:          { frames: ["▁","▃","▄","▅","▆","▇","▆","▅","▄","▃"], interval: 120 },
   noise:                  { frames: ["▓","▒","░"," ","░","▒"], interval: 100 },
-
-  // ── Arrows (2) ─────────────────────────────────────────────────────
-  arrow:                  { frames: ["←","↖","↑","↗","→","↘","↓","↙"], interval: 100 },
-  double_arrow:           { frames: ["⇐","⇖","⇑","⇗","⇒","⇘","⇓","⇙"], interval: 100 },
-
-  // ── Emoji (6) — note: color tone is ignored, emoji is its own colour
-  hearts:                 { frames: ["🩷","🧡","💛","💚","💙","🩵","💜","🤎","🖤","🩶","🤍"], interval: 120 },
-  clock:                  { frames: ["🕛","🕐","🕑","🕒","🕓","🕔","🕕","🕖","🕗","🕘","🕙","🕚"], interval: 100 },
-  earth:                  { frames: ["🌍","🌎","🌏"], interval: 180 },
-  moon:                   { frames: ["🌑","🌒","🌓","🌔","🌕","🌖","🌗","🌘"], interval: 80 },
-  speaker:                { frames: ["🔈","🔉","🔊","🔉"], interval: 160 },
-  weather:                { frames: ["☀️","🌤","⛅️","🌥","☁️","🌧","🌨","⛈"], interval: 100 },
 } as const;
 
 export type SpinnerVariant = keyof typeof SPINNERS;
@@ -130,9 +121,9 @@ const SIZE_PX: Record<SpinnerSize, number> = {
 };
 
 type SpinnerOwnProps = {
-  /** Which of the 54 frame sets to cycle. */
+  /** Which of the 47 frame sets to cycle. */
   variant?: SpinnerVariant;
-  /** Colour token. `auto` inherits via currentColor. Emoji variants ignore this. */
+  /** Colour token. `auto` inherits via currentColor. */
   tone?: SpinnerTone;
   /** Preset font-size. Defaults to `sm` (14px). */
   size?: SpinnerSize;

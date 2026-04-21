@@ -1964,7 +1964,7 @@ function ComponentsSpread() {
 
         <ComponentBlock
           label="Spinners"
-          meta="54 variants · monospace · edge-activity indicators"
+          meta="47 variants · monospace · edge-activity indicators"
         >
           <p
             className="max-w-2xl"
@@ -1979,7 +1979,7 @@ function ComponentsSpread() {
             Terminal-style frame-cycle indicators. Use them on live grid tiles,
             Zap boot, firmware flash, or while an agent thinks — anywhere
             sub-second response would otherwise feel silent. Braille reads as
-            infrastructure; ASCII + arrows as CLI; emoji sparingly, for warmth.
+            infrastructure, ASCII as CLI.
           </p>
 
           <SpinnerCategory
@@ -2003,17 +2003,6 @@ function ComponentsSpread() {
               "grow_vertical","noise",
             ]}
           />
-          <SpinnerCategory
-            title="Arrows"
-            meta="2 variants · direction + reload"
-            variants={["arrow","double_arrow"]}
-          />
-          <SpinnerCategory
-            title="Emoji"
-            meta="6 variants · marketing moments only · tone prop ignored"
-            variants={["hearts","clock","earth","moon","speaker","weather"]}
-          />
-
           <div
             className="mt-8 grid gap-6 md:grid-cols-3"
             style={{
