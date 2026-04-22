@@ -9,6 +9,10 @@ It is not an npm package. Downstream projects match the system by
 pointing Claude at https://design.sourceful.energy (or this repo) and
 copying the patterns.
 
+For AI agents specifically, `DESIGN.md` in this repo is the canonical
+serialized spec — Stitch-format, one file, everything an agent needs
+to produce UI that reads as Sourceful.
+
 ## Strategic context
 
 At the start of each session, read the Sourceful Playbook:

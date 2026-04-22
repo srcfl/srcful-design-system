@@ -15,7 +15,7 @@ It is **not** an npm package. Consuming projects match the system by
 pointing Claude at the live URL (or this repo) — the page, the tokens,
 and the primitive source are the spec.
 
-## Using it with Claude
+## Using it with an AI agent
 
 Drop this into any Sourceful project you're starting:
 
@@ -25,6 +25,10 @@ Drop this into any Sourceful project you're starting:
 
 Claude reads the page, grabs the tokens and patterns, and applies them.
 For the component source, point at `components/ui/` in this repo.
+
+For agents that prefer a serialized spec (Stitch, Cursor, Copilot),
+there's a `DESIGN.md` in the repo root — the full Sourceful system in
+one Markdown file, Stitch format.
 
 ## Development
 
@@ -38,6 +42,7 @@ npm run lint
 ## Structure
 
 ```
+DESIGN.md        # the serialized spec — point Stitch/Cursor/Copilot at this
 app/
   globals.css    # tokens — cream, ink, signal, editorial grounds
   layout.tsx     # Satoshi + JetBrains Mono wiring
