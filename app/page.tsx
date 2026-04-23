@@ -110,11 +110,13 @@ const reveal = {
 
 // Prompt template offered by the Hero "Copy the prompt" CTA. Matches
 // the worked examples in the Using spread: name the thing with its
-// subject, point at the URL. One paste, fill in the <…>, send.
+// subject, point at the DESIGN.md spec. One paste, fill in the <…>,
+// send. DESIGN.md is the Stitch-format serialized system, dense and
+// agent-ready, versus the hosted page which is for human reading.
 const HERO_PROMPT_TEMPLATE = `Create <describe the thing with its subject>
 and use the Sourceful design system to ensure consistency:
 
-  https://design.sourceful.energy`;
+  https://design.sourceful.energy/DESIGN.md`;
 
 function Hero() {
   const [copied, setCopied] = useState(false);
@@ -2254,11 +2256,11 @@ function UsingSpread() {
       kicker="04 · Using with Claude"
       meta={[
         { label: "Point and build", strong: true },
+        "DESIGN.md · one URL",
         "No npm install",
-        "One URL",
       ]}
-      topRight="Give Claude this page"
-      footerLeft="End of directory"
+      topRight="Give Claude DESIGN.md"
+      footerLeft="design.sourceful.energy/DESIGN.md"
       footerRight="Directory · 04 of 04"
     >
       <div className="flex flex-col items-start" style={{ paddingTop: "clamp(24px, 4vh, 64px)" }}>
@@ -2317,7 +2319,7 @@ Create a pitch slide on the $20 Zap gateway and our 200ms
 edge response, and use the Sourceful design system to ensure
 consistency:
 
-  https://design.sourceful.energy
+  https://design.sourceful.energy/DESIGN.md
 
 
 Create a device-detail dashboard for a commercial Vault
@@ -2325,14 +2327,14 @@ showing SoC, spot price, peak shaving, and the last 24h of
 grid flow. Use the Sourceful design system to ensure
 consistency:
 
-  https://design.sourceful.energy
+  https://design.sourceful.energy/DESIGN.md
 
 
 # The shape
 
-Name the thing + name the subject + point at the URL.
-The URL carries the look. Your sentence carries the
-substance — so the numbers and claims stay real.`}
+Name the thing + name the subject + point at DESIGN.md.
+The spec carries the look. Your sentence carries the
+substance, so the numbers and claims stay real.`}
           </pre>
         </div>
 
