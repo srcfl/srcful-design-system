@@ -172,6 +172,27 @@ semantic.
   nav sits on whatever ground the page provides — cream, paper, or
   ink — and flips its ink colour to match.
 
+- **Logo & brand mark — only three approved assets**. There are
+  exactly three public marks, served from this site:
+  - **Squircle icon** — `https://design.sourceful.energy/assets/sourceful-icon.svg`.
+    A rounded-rectangle badge with a lightning bolt inside it. The
+    standalone symbol, used for avatars, favicons, app icons,
+    social squares.
+  - **Squircle lockup** — `https://design.sourceful.energy/assets/sourceful-squircle.svg`.
+    The icon + "Sourceful Energy" wordmark on a single baseline.
+    The only mark approved for public surfaces like headers,
+    footers, and marketing pieces.
+  - **"Sourceful Design" site lockup** — `https://design.sourceful.energy/assets/sourceful-design-lockup.svg`.
+    Used in the nav of this reference site only. Not for downstream
+    products.
+
+  All three are authored with a white fill. On light grounds,
+  invert them to ink with `filter: brightness(0)`. Never recolour
+  them to Signal Orange. Never use a green-bolt-on-circle, never
+  use a round-bolt wordmark — those are deprecated variants. Never
+  use the "Sourceful" wordmark without "Energy" on any public
+  surface (it's restricted to private internal documents).
+
 ## 5. Layout Principles
 
 - **One full-width page, vertical spreads**. The design system is

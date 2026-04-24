@@ -150,7 +150,12 @@ directly in `components/`:
   imagery (signal / cool / ink washes).
 - `telemetry-gallery`, `market-map` — example content blocks that show
   the system applied to Sourceful-specific data.
-- `logo`, `theme-toggle`, `lenis-provider`, `theme-provider`.
+- `theme-toggle`, `lenis-provider`, `theme-provider`.
+
+The three approved brand marks are static SVGs in `public/assets/`:
+`sourceful-icon.svg` (squircle icon), `sourceful-squircle.svg` (icon +
+"Sourceful Energy" lockup), `sourceful-design-lockup.svg` (site nav
+only). No React Logo component — drop them in as `<img>` / `<Image>`.
 
 ## Patterns
 
